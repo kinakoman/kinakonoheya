@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       {/* コンポーネントを利用しつつ関数に代入 */}
-      <EachContent content1="自己紹介" content2="ギャラリー" />
+      <EachContent content1="自己" content2="ギャラリー" />
       <EachContent content1="自己紹介" content2="ギャラリー" />
       <Decolation>
         <p>コメント</p>
