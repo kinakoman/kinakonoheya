@@ -1,5 +1,4 @@
 import '@/globals.css'
-import styles from '@/css/global.css'
 
 import Header from "@/components/header"
 import Footer from "@/components/footer"
@@ -14,9 +13,9 @@ import Footer from "@/components/footer"
 //   weight: "100 900",
 // });
 
-export const metadata = {
-  title: "きなこの部屋",
-};
+// export const metadata = {
+//   title: "きなこの部屋",
+// };
 
 export default function RootLayout({ children }) {
   return (

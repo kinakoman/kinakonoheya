@@ -1,0 +1,26 @@
+.contents {
+    width: 720px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+.contentsTitle {
+    text-align: center;
+    font-size: 40px;
+    width: fit-content;
+    margin-inline: auto;
+}
+
+.section {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.sectionTitle {
+    font-size: 30px;
+}
+
+.text {
+    margin-top: 30px;
+    font-size: 20px;
+}

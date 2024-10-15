@@ -1,7 +1,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --headerHeight: 100px;
+  --headerHeight: 80px;
   --footerHeight: 30px;
 }
 
@@ -50,7 +50,7 @@ a {
 
 /* 以下ヘッダースタイル */
 header {
-  height: 100px;
+  height: var(--headerHeight);
   width: 100%;
   background-color: #76D9FF;
   text-align: center;
@@ -59,7 +59,7 @@ header {
 
 /* 以下フッタースタイル */
 footer {
-  height: 30px;
+  height: var(--footerHeight);
   width: 100%;
   background-color: #76D9FF;
   text-align: center;
