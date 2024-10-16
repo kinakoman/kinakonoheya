@@ -3,11 +3,13 @@ import PageContents from '@/components/PageContents'
 import PageSection from '@/components/PageSection'
 import PageText from '@/components/PageText'
 
+export const title = "これもタイトル"
+
 export default function test() {
     return (
         <>
-            <Meta title="こんにちは" />
-            <PageContents title="タイトルのタイトルがタイトルタイトルのタイトルがタイトル">
+            <Meta title={title} />
+            <PageContents title={title}>
                 <PageSection title="サブセクションがサブセクション">
                     <PageText>本文のテキストが本文のテキストで本文のテキストが本文のテキスト
                         本文のテキストが本文のテキストで本文のテキストが本文のテキスト

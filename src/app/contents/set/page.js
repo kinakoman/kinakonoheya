@@ -3,7 +3,7 @@ import PageContents from '@/components/PageContents'
 import PageSection from '@/components/PageSection'
 import PageText from '@/components/PageText'
 
-export const title = "これがタイトル"
+export const title = "これこそタイトル"
 
 export default function test() {
     return (
