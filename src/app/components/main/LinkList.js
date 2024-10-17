@@ -3,6 +3,7 @@ import path from "path"
 import style from "@/css/global.module.css"
 import GetTitle from "./GetTitle"
 import GetTag from "./GetTag"
+import Test from "./Test"
 
 export default async function getStaticProps() {
 
@@ -16,7 +17,8 @@ export default async function getStaticProps() {
         const pageTag = [...Pagemodule.data.tag]
         allTag = [...allTag, ...pageTag]
         return (
-            <li className={style.listLink} key={`${element}`}>
+
+            <li className={style.listLink} key={element}>
                 <GetTitle link={element} title={pageTitle}>
                     <GetTag link={element} tags={pageTag} />
                 </GetTitle>
@@ -24,14 +26,10 @@ export default async function getStaticProps() {
         )
     }))
 
-    const tagList = [...new Set(allTag)]
-    const listSize = linkArr.length
-    console.log(listSize)
-
     return (
-        <ul className={style.list} >
-            {linkArr}
-        </ul>
+        <>
+            <Test linkArr={linkArr} />
+        </>
     )
 
 }
