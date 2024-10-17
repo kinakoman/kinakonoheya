@@ -1,15 +1,5 @@
 import Meta from "@/components/Meta";
-import LinkList from "@/components/LinkList"
-
-function name() {
-  // for (let i = 0; i < 2; i++) {
-  const arr = []
-  for (let i = 0; i < 2; i++) {
-    arr.push(<div>リスト</div>)
-  }
-
-  return arr
-}
+import LinkList from "@/components/main/LinkList"
 
 export default function Home() {
   return (

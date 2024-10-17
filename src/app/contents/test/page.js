@@ -1,15 +1,18 @@
 import Meta from '@/components/Meta'
-import PageContents from '@/components/PageContents'
-import PageSection from '@/components/PageSection'
-import PageText from '@/components/PageText'
+import PageContents from '@/components/contents/PageContents'
+import PageSection from '@/components/contents/PageSection'
+import PageText from '@/components/contents/PageText'
 
-export const title = "これもタイトル"
+export const data = {
+    title: "これすなわちタイトル",
+    tag: ["a", "b", "c"]
+}
 
 export default function test() {
     return (
         <>
-            <Meta title={title} />
-            <PageContents title={title}>
+            <Meta title={data.title} />
+            <PageContents title={data.title}>
                 <PageSection title="サブセクションがサブセクション">
                     <PageText>本文のテキストが本文のテキストで本文のテキストが本文のテキスト
                         本文のテキストが本文のテキストで本文のテキストが本文のテキスト
