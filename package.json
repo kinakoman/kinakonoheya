@@ -1,6 +1,7 @@
 {
   "name": "07_next",
   "version": "0.1.0",
+  "homepage": "https://kinakoman.github.io/kinakonoheya/",
   "private": true,
   "scripts": {
     "dev": "next dev",
