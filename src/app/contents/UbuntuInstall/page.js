@@ -4,6 +4,7 @@ import PageSection from '@/components/contents/PageSection'
 import PageText from '@/components/contents/PageText'
 import CodeBox from '../../components/contents/CodeBox'
 import Image from 'next/image'
+import image1 from "./UbuntuInstall_1.jpg"
 
 export const data = {
     title: "WindowsへのUbuntuインストール",
@@ -25,7 +26,7 @@ export default function test() {
                     <PageText>「Windowsの機能の有効化と無効化」から「Linux用Windowsサブシステム」にチェックを入れる。</PageText>
                 </PageSection>
                 <div style={{ height: "300", width: "400" }}>
-                    <Image src="/UbuntuInstall_1.jpg" alt="「Windowsの機能の有効化と無効化」" height={300} width={400} />
+                    <Image src={image1} alt="「Windowsの機能の有効化と無効化」" height={300} width={400} />
                 </div>
             </PageContents>
         </>
