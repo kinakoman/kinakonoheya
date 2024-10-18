@@ -65,3 +65,41 @@
     padding: 2px;
     border-radius: 2px;
 }
+
+.date {
+    position: absolute;
+    opacity: 0.5;
+    right: 10px;
+}
+
+.pagination {
+    display: flex;
+    width: fit-content;
+    margin-inline: auto;
+    margin-bottom: 30px;
+}
+
+.paginationList {
+    width: 24px;
+    height: 36px;
+    border: 1px solid;
+    margin-right: 10px;
+    cursor: pointer;
+    text-align: center;
+    align-content: center;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.paginationList.On {
+    width: 24px;
+    height: 36px;
+    border: 1px solid;
+    margin-right: 10px;
+    cursor: pointer;
+    background-color: aqua;
+}
+
+.paginationList:last-of-type {
+    margin-right: 0px;
+}

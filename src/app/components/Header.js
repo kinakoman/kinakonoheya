@@ -1,3 +1,5 @@
 export default function Header() {
-    return <header></header>
+    return <header>
+        <div className="title"><a href="/">きなこの部屋</a></div>
+    </header>
 }

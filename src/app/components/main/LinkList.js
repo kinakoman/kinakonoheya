@@ -1,9 +1,6 @@
 import fs from "fs"
 import path from "path"
-import style from "@/css/global.module.css"
-import GetTitle from "./GetTitle"
-import GetTag from "./GetTag"
-import Test from "./Test"
+import LinkSet from "./LinkSet"
 
 export default async function getStaticProps() {
 
@@ -11,24 +8,24 @@ export default async function getStaticProps() {
     const folders = fs.readdirSync(directory)
     let allTag = []
 
-    const linkArr = await Promise.all(folders.map(async (element) => {
+    var linkArr = await Promise.all(folders.map(async (element) => {
         const Pagemodule = await import(`../../contents/${element}/page.js`)
-        const pageTitle = Pagemodule.data.title
-        const pageTag = [...Pagemodule.data.tag]
-        allTag = [...allTag, ...pageTag]
+        allTag = [...allTag, ...Pagemodule.data.tag]
         return (
-
-            <li className={style.listLink} key={element}>
-                <GetTitle link={element} title={pageTitle}>
-                    <GetTag link={element} tags={pageTag} />
-                </GetTitle>
-            </li>
+            {
+                link: element,
+                title: Pagemodule.data.title,
+                tag: [...Pagemodule.data.tag],
+                date: [...Pagemodule.data.date],
+                dateInt: parseInt(Pagemodule.data.date[0] + Pagemodule.data.date[1] + Pagemodule.data.date[2])
+            }
         )
     }))
+    linkArr.sort((a, b) => { return b.dateInt - a.dateInt })
 
     return (
         <>
-            <Test linkArr={linkArr} />
+            <LinkSet linkArr={linkArr} />
         </>
     )
 

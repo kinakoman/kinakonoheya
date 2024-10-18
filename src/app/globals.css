@@ -57,6 +57,11 @@ header {
   align-content: center;
 }
 
+.title {
+  font-size: 40px;
+  font-weight: bold;
+}
+
 /* 以下フッタースタイル */
 footer {
   height: var(--footerHeight);

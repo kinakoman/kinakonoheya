@@ -4,8 +4,9 @@ import PageSection from '@/components/contents/PageSection'
 import PageText from '@/components/contents/PageText'
 
 export const data = {
-    title: "これでもタイトル",
-    tag: ["a", "b", "c", "d", "e"]
+    title: "これはタイトル2",
+    tag: ["a", "b", "c", "e"],
+    date: ["2024", "10", "19"]
 }
 
 export default function test() {

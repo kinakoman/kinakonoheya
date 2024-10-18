@@ -5,7 +5,8 @@ import PageText from '@/components/contents/PageText'
 
 export const data = {
     title: "これはタイトル",
-    tag: ["a", "b", "c", "e"]
+    tag: ["a", "b", "c", "e"],
+    date: ["2024", "10", "18"]
 }
 
 export default function test() {
