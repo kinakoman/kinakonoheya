@@ -1,5 +1,5 @@
 import styles from '@/css/global.module.css'
-export default function pageSection({ title, children }) {
+export default function Section({ title, children }) {
     return (
         <>
             <div className={styles.section}>

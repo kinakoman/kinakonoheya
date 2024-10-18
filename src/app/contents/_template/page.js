@@ -1,7 +1,7 @@
 import Meta from '@/components/Meta'
-import PageContents from '@/components/contents/PageContents'
-import PageSection from '@/components/contents/PageSection'
-import PageText from '@/components/contents/PageText'
+import Contents from '@/components/contents/Contents'
+import Section from '@/components/contents/Section'
+import Text from '@/components/contents/Text'
 import CodeBox from '../../components/contents/CodeBox'
 
 export const data = {
@@ -14,17 +14,17 @@ export default function test() {
     return (
         <>
             <Meta title={data.title} />
-            <PageContents title={data.title}>
-                <PageSection title="サブセクションがサブセクション">
-                    <PageText>
+            <Contents title={data.title}>
+                <Section title="サブセクションがサブセクション">
+                    <Text>
                         本文のテキストが本文のテキストで本文のテキストが本文のテキスト
                         本文のテキストが本文のテキストで本文のテキストが本文のテキスト
                         本文のテキストが本文のテキストで本文のテキストが本文のテキスト
                         本文のテキストが本文のテキストで本文のテキストが本文のテキスト
-                    </PageText>
+                    </Text>
                     <CodeBox lang={"javascript"} comment={コードの例}>{`console.log("test")`}</CodeBox>
-                </PageSection>
-            </PageContents>
+                </Section>
+            </Contents>
         </>
     )
 }
