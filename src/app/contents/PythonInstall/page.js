@@ -26,9 +26,9 @@ export default function test() {
                         Anacondaのインストーラーをダウンロードする。</SubSection>
                     <Text>今回はターミナルからwgetコマンドで直接インストーラーをダウンロードします。また、Anacondaのインストールはホームディレクトリの
                         直下に行うものとします。以下に示すインストーラーのリンクは2024年10月19日時点で最新のものです。</Text>
-                    <CodeBox lang={"shell"} comment={"ホームディレクトリで実行"}>~$ wget https://repo.anaconda.com/archive/Anaconda3-2024.06-1-Linux-x86_64.sh</CodeBox>
+                    <CodeBox lang={"shell"} comment={"ホームディレクトリで実行"}>{`~$ wget https://repo.anaconda.com/archive/Anaconda3-2024.06-1-Linux-x86_64.sh`}</CodeBox>
                     <SubSection>bashコマンドでインストーラーを実行する。</SubSection>
-                    <CodeBox lang={"shell"} comment={"ホームディレクトリで実行"}>~$ bash Anaconda3-2024.06-1-Linux-x86_64.sh</CodeBox>
+                    <CodeBox lang={"shell"} comment={"ホームディレクトリで実行"}>{`~$ bash Anaconda3-2024.06-1-Linux-x86_64.sh`}</CodeBox>
                     <Text>利用規約が自動的にコマンドラインに展開されるので読み進めた後yesで同意します。
                         インストールする場所を聞かれますが、今回は何も入力せずEnterで進みます。また、「You can undo this by running 'conda init --reverse $SHELL'?」にもyesを入力します。</Text>
                     <SubSection>インストールしたAnacondaを確認する。</SubSection>
