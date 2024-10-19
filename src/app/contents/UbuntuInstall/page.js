@@ -31,7 +31,7 @@ export default function test() {
                     <ImageSet image={image1} height={300} width={400} alt={"Windowsの機能の有効化と無効化"} />
                     <SubSection>コマンドプロンプトからwslをインストールする。</SubSection>
                     <CodeBox lang={"bash"} comment={"コマンドプロンプトで実行"}>{`wsl --install`}</CodeBox>
-                    <Text>ユーザー名とパスワードが求められるので入力する。インストールが完了すると自動でLinuxの仮想環境に入る。</Text>
+                    <Text>ユーザー名とパスワードが求められるので入力します。インストールが完了すると自動でLinuxの仮想環境に入ります。</Text>
                     <CodeBox lang={"bash"} comment={"Linuxの仮想環境(@の左に登録したユーザー名が表示)"}>{`user@DESKTOP:~$`}</CodeBox>
                     <SubSection>コマンドプロンプトを再起動し、wslのバージョンが2になっているか確認しておく。</SubSection>
                     <CodeBox lang={"bash"} comment={"コマンドプロンプトで実行"}>
@@ -44,13 +44,13 @@ export default function test() {
                 <Section title="Ubuntuのインストール">
                     <SubSection>MicroSoftのストアからLinuxディストリビューションであるUbuntuをインストールする。</SubSection>
                     <ImageSet alt="MicroSoftのストアのUbuntu" height={300} width={600} image={image2} />
-                    <Text>Ubuntuのターミナルを開くとLinuxの仮想環境を利用することが出来る。</Text>
+                    <Text>Ubuntuのターミナルを開くとLinuxの仮想環境を利用出来ます。</Text>
                 </Section>
                 <Section title="VS Codeのセッティング">
                     <SubSection>MicroSoftのストアのからVS Codeをインストールする。</SubSection>
                     <SubSection>VS Codeの拡張機能WSLをインストールする。</SubSection>
                     <ImageSet alt="拡張機能wsl" height={200} width={600} image={image3} />
-                    <Text>VS Codeのエディタ左下の{`「≶」`}マークから「Connect to WSL」でLinux上のフォルダにアクセスできる。</Text>
+                    <Text>VS Codeのエディタ左下の{`「≶」`}マークから「Connect to WSL」でLinux上のフォルダにアクセスできるようになります。</Text>
                 </Section>
             </Contents>
         </>

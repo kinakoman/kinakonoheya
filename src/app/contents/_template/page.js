@@ -24,7 +24,7 @@ export default function test() {
                         本文のテキストが本文のテキストで本文のテキストが本文のテキスト
                         本文のテキストが本文のテキストで本文のテキストが本文のテキスト
                     </Text>
-                    <CodeBox lang={"javascript"} comment={コードの例}>{`console.log("test")`}</CodeBox>
+                    <CodeBox lang={"javascript"} comment={"コードの例"}>{`console.log("test")`}</CodeBox>
                 </Section>
             </Contents>
         </>
