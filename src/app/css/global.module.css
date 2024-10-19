@@ -5,10 +5,10 @@
 }
 
 .contentsTitle {
-    text-align: center;
+    /* text-align: center; */
     font-size: 40px;
     width: fit-content;
-    margin-inline: auto;
+    /* margin-inline: auto; */
 
 }
 
@@ -31,6 +31,7 @@
     font-size: 18px;
     line-height: 30px;
 }
+
 
 .section .text:nth-of-type(1) {
     margin-top: 30px;

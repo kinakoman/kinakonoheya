@@ -1,6 +1,7 @@
 import Meta from '@/components/Meta'
 import Contents from '@/components/contents/Contents'
 import Section from '@/components/contents/Section'
+import SubSection from '../../components/contents/SubSection'
 import Text from '@/components/contents/Text'
 import CodeBox from '../../components/contents/CodeBox'
 
@@ -14,8 +15,9 @@ export default function test() {
     return (
         <>
             <Meta title={data.title} />
-            <Contents title={data.title}>
-                <Section title="サブセクションがサブセクション">
+            <Contents data={data}>
+                <Section title="セクションがセクション">
+                    <SubSection>サブセクションの内容</SubSection>
                     <Text>
                         本文のテキストが本文のテキストで本文のテキストが本文のテキスト
                         本文のテキストが本文のテキストで本文のテキストが本文のテキスト
