@@ -5,6 +5,7 @@ import SubSection from '../../components/contents/SubSection'
 import Text from '@/components/contents/Text'
 import CodeBox from '../../components/contents/CodeBox'
 import CodeIn from '../../components/contents/CodeIn'
+import LinkIn from '../../components/contents/LinkIn'
 
 export const data = {
     title: "ページのタイトルを書きます",
