@@ -4,6 +4,7 @@ import Section from '@/components/contents/Section'
 import SubSection from '../../components/contents/SubSection'
 import Text from '@/components/contents/Text'
 import CodeBox from '../../components/contents/CodeBox'
+import { Link } from 'react-router-dom'
 
 export const data = {
     title: "UbuntuでのPython環境構築",
