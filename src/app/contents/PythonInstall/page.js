@@ -82,20 +82,16 @@ Anaconda3-2024.06-1-Linux-x86_64.sh  anaconda3`}
                     <SubSection>.pyファイルの作成</SubSection>
                     <Text>Pythonの作業ディレクトリを用意し、Pythonファイルを作成します。</Text>
                     <CodeBox lang={"python"} comment={"sample/sample.py"}>{`import numpy as np
-
 x=30
-
 print("x=",x)
-
 y=np.sin(np.pi*30/180)
-
-print("y",y)`}</CodeBox>
+print("y=",y)`}</CodeBox>
                     <SubSection>.pyファイルの実行</SubSection>
                     <Text>コマンドラインでpython3コマンドで.pyファイルを実行できます。</Text>
                     <CodeBox lang={"shell"} comment={"ターミナルで実行"}>
                         {`sample$ python3 sample.py
 x= 30
-y 0.49999999999999994`}
+y= 0.49999999999999994`}
                     </CodeBox>
                 </Section>
             </Contents>

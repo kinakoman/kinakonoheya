@@ -28,14 +28,14 @@ export default function test() {
                 </Section>
                 <Section title="wslのインストール">
                     <SubSection>「Windowsの機能の有効化と無効化」から「Linux用Windowsサブシステム」にチェックを入れる。</SubSection>
-                    <ImageSet image={image1} height={300} width={400} alt={"Windowsの機能の有効化と無効化"} />
+                    <ImageSet image={image1} height={250} width={300} alt={"Windowsの機能の有効化と無効化"} />
                     <SubSection>コマンドプロンプトからwslをインストールする。</SubSection>
-                    <CodeBox lang={"bash"} comment={"コマンドプロンプトで実行"}>{`wsl --install`}</CodeBox>
+                    <CodeBox lang={"shell"} comment={"コマンドプロンプトで実行"}>{`>wsl --install`}</CodeBox>
                     <Text>ユーザー名とパスワードが求められるので入力します。インストールが完了すると自動でLinuxの仮想環境に入ります。</Text>
                     <CodeBox lang={"bash"} comment={"Linuxの仮想環境(@の左に登録したユーザー名が表示)"}>{`user@DESKTOP:~$`}</CodeBox>
                     <SubSection>コマンドプロンプトを再起動し、wslのバージョンが2になっているか確認しておく。</SubSection>
-                    <CodeBox lang={"bash"} comment={"コマンドプロンプトで実行"}>
-                        {`C:\\Users\\user>wsl --list --verbose
+                    <CodeBox lang={"shell"} comment={"コマンドプロンプトで実行"}>
+                        {`>wsl --list --verbose
   NAME      STATE           VERSION
 * Ubuntu    Running         2`}
                     </CodeBox>
