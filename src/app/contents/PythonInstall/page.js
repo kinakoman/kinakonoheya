@@ -49,7 +49,7 @@ Anaconda3-2024.06-1-Linux-x86_64.sh  anaconda3`}
                         よって、パスを通してコマンドを使用可能な状態にします。
                     </Text>
                     <CodeBox lang={"shell"} comment={"ホームディレクトリで実行"}>
-                        {`~$ echo 'export PATH=$PATH :/anaconda3/bin' >> ~/.bashrc`}
+                        {`~$ echo 'export PATH=$PATH:/anaconda3/bin' >> ~/.bashrc`}
                     </CodeBox>
                     <Text>.bashrcファイルの更新をコマンドラインに適用します。</Text>
                     <CodeBox lang={"shell"} comment={"ホームディレクトリで実行"}>

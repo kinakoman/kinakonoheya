@@ -10,7 +10,7 @@ import LinkIn from '../../components/contents/LinkIn'
 export const data = {
     title: "VS CodeでのJupyterファイルの実行",
     tag: ["Jupyer Notebook", "Python", "Ubuntu"],
-    date: ["2024", "10", "20"]
+    date: ["9999", "99", "99"]
 }
 
 export default function test() {
