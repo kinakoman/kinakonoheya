@@ -29,6 +29,15 @@ export default function test() {
                         本文のテキストが本文のテキストで本文のテキストが本文のテキスト
                         本文のテキストが本文のテキストで本文のテキストが本文のテキスト
                     </Text>
+                    <Text>
+                        本文のテキストが本文のテキストで本文のテキストが本文のテキスト
+                        本文のテキストが本文のテキストで本文のテキストが本文のテキスト
+                        <CodeIn>
+                            {`console.log`}
+                        </CodeIn>
+                        本文のテキストが本文のテキストで本文のテキストが本文のテキスト
+                        本文のテキストが本文のテキストで本文のテキストが本文のテキスト
+                    </Text>
                     <LinkIn link={"PythonInstall"} title={"ページのタイトルページのタイトルページのタイトル"}></LinkIn>
                     <CodeBox lang={"javascript"} comment={"コードの例"}>{`console.log("test")`}</CodeBox>
                 </Section>
