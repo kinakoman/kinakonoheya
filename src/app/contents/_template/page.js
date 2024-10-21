@@ -18,8 +18,8 @@ export default function test() {
         <>
             <Meta title={data.title} />
             <Contents data={data}>
-                <Section title="セクションがセクション">
-                    <SubSection>サブセクションの内容</SubSection>
+                <Section title="セクションタイトル">
+                    <SubSection>サブセクションタイトル</SubSection>
                     <Text>
                         本文のテキストが本文のテキストで本文のテキストが本文のテキスト
                         本文のテキストが本文のテキストで本文のテキストが本文のテキスト

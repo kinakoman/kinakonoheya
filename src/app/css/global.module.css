@@ -211,3 +211,9 @@
     margin: 10px auto 0 auto;
     line-height: 1.6;
 }
+
+@media screen and (max-width:640px) {
+    .searchTag {
+        display: none;
+    }
+}

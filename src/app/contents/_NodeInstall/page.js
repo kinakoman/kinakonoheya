@@ -8,8 +8,8 @@ import CodeIn from '../../components/contents/CodeIn'
 import LinkIn from '../../components/contents/LinkIn'
 
 export const data = {
-    title: "VS CodeでのJupyterファイルの実行",
-    tag: ["Jupyer Notebook", "Python", "Ubuntu"],
+    title: "Node.jsのインストール方法",
+    tag: ["Ubuntu", "Linux", "Node.js"],
     date: ["9999", "99", "99"]
 }
 
@@ -18,17 +18,9 @@ export default function test() {
         <>
             <Meta title={data.title} />
             <Contents data={data}>
-                <Section title="セクションタイトル">
-                    <SubSection>サブセクションタイトル</SubSection>
-                    <Text>
-                        本文のテキストが本文のテキストで本文のテキストが本文のテキスト
-                        本文のテキストが本文のテキストで本文のテキストが本文のテキスト
-                        <CodeIn>
-                            {`console.log`}
-                        </CodeIn>
-                        本文のテキストが本文のテキストで本文のテキストが本文のテキスト
-                        本文のテキストが本文のテキストで本文のテキストが本文のテキスト
-                    </Text>
+                <Section title="はじめに"></Section>
+                {/* <Section title="セクションがセクション">
+                    <SubSection>サブセクションの内容</SubSection>
                     <Text>
                         本文のテキストが本文のテキストで本文のテキストが本文のテキスト
                         本文のテキストが本文のテキストで本文のテキストが本文のテキスト
@@ -40,7 +32,7 @@ export default function test() {
                     </Text>
                     <LinkIn link={"PythonInstall"} title={"ページのタイトルページのタイトルページのタイトル"}></LinkIn>
                     <CodeBox lang={"javascript"} comment={"コードの例"}>{`console.log("test")`}</CodeBox>
-                </Section>
+                </Section> */}
             </Contents>
         </>
     )

@@ -26,10 +26,11 @@ export default async function getStaticProps() {
     })
 
     linkArr.sort((a, b) => { return b.dateInt - a.dateInt })
+    let TagList = [...new Set(allTag)]
 
     return (
         <>
-            <LinkSet linkArr={linkArr} />
+            <LinkSet linkArr={linkArr} TagList={TagList} />
         </>
     )
 
