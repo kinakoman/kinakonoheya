@@ -6,6 +6,8 @@ import Text from '@/components/contents/Text'
 import CodeBox from '../../components/contents/CodeBox'
 import CodeIn from '../../components/contents/CodeIn'
 import LinkIn from '../../components/contents/LinkIn'
+import ImageSet from '../../components/contents/ImageSet'
+import image from "../../icon.png"
 
 export const data = {
     title: "ページのタイトルを書きます",
@@ -31,6 +33,7 @@ export default function test() {
                     </Text>
                     <LinkIn link={"PythonInstall"} title={"ページのタイトルページのタイトルページのタイトル"}></LinkIn>
                     <CodeBox lang={"javascript"} comment={"コードの例"}>{`console.log("test")`}</CodeBox>
+                    <ImageSet alt="テスト画像" height={200} width={200} image={image} />
                 </Section>
             </Contents>
         </>
