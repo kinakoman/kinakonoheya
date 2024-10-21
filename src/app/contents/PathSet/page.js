@@ -20,7 +20,7 @@ export default function test() {
             <Contents data={data}>
                 <Section title="はじめに">
                     <Text>
-                        Ubuntuにプログラミング言語をインストールする際に、たびたび「パスを通す」という作業を行います。いろんなサイトを見ていると、「パスを通す」ための方法を
+                        Ubuntuにプログラミング言語をインストールする際に、たびたび「パスを通す」という作業を行います。いろんなサイトを見ていると「パスを通す」ための方法は
                         提供してくれているので、操作自体は簡単に行えますがその内容はおまじない的になってしまいます。この記事では「パスを通す」とは何かを解説し、実行方法の解説も行います。
                         OSはLinux、ディストリビューションはUbuntuを想定します。
                     </Text>
@@ -66,7 +66,8 @@ export default function test() {
                     <Text>.bashrcへの記述も含めたパス開通のコマンドがまさに最初に示したコマンドになります。</Text>
                     <CodeBox lang={"shell"} comment={"condaコマンドのパス開通"}>{`~$ echo 'export PATH=$PATH:/anaconda3/bin' >> ~/.bashrc`}</CodeBox>
                     <Text><CodeIn>echo</CodeIn>は出力用コマンド、<CodeIn>{`>>`}</CodeIn>は出力をファイルに追記するためのコマンドであり、出力(<CodeIn>{`'export PATH=$PATH:/anaconda3/bin'`}</CodeIn>)
-                        をホームディレクトリの.bashrc(<CodeIn>{`~/.bashrc`}</CodeIn>)に追記しています。これでパスの開通が自由にできます。</Text>
+                        をホームディレクトリの.bashrc(<CodeIn>{`~/.bashrc`}</CodeIn>)に追記しています。</Text>
+                    <Text>これでパスの開通が自由にできます。</Text>
                 </Section>
                 {/* <Section title="セクションがセクション">
                     <SubSection>サブセクションの内容</SubSection>

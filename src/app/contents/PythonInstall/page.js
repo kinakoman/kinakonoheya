@@ -4,6 +4,8 @@ import Section from '@/components/contents/Section'
 import SubSection from '../../components/contents/SubSection'
 import Text from '@/components/contents/Text'
 import CodeBox from '../../components/contents/CodeBox'
+import ImageSet from '../../components/contents/ImageSet'
+import image1 from "./image1.jpg"
 
 export const data = {
     title: "UbuntuでのPython環境構築",
@@ -76,6 +78,10 @@ Anaconda3-2024.06-1-Linux-x86_64.sh  anaconda3`}
                     <CodeBox lang={"shell"} comment={"モジュールのインストール"}>{`~$ pip install moduleName`}</CodeBox>
                     <CodeBox lang={"shell"} comment={"モジュールのアップグレード"}>{`~$ pip install -U moduleName`}</CodeBox>
                     <CodeBox lang={"shell"} comment={"インストール済みのモジュールの確認"}>{`~$ pip list`}</CodeBox>
+                </Section>
+                <Section title="VS Codeのセッティング">
+                    <Text>Pythonの拡張機能をインストールします。</Text>
+                    <ImageSet alt="拡張機能Python" height={200} width={600} image={image1} />
                 </Section>
                 <Section title="コマンドラインでの.pyファイルの実行">
                     <Text>仮想環境内でPythonファイルを実行できます。</Text>

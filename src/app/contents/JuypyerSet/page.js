@@ -7,7 +7,6 @@ import CodeBox from '../../components/contents/CodeBox'
 import CodeIn from '../../components/contents/CodeIn'
 import LinkIn from '../../components/contents/LinkIn'
 import ImageSet from '../../components/contents/ImageSet'
-import image1 from "./image1.jpg"
 import image2 from "./image2.jpg"
 import image3 from "./image3.jpg"
 import image4 from "./image4.jpg"
@@ -31,9 +30,7 @@ export default function test() {
                     <LinkIn link={"PythonInstall"} title={"UbuntuでのPython環境構築"}></LinkIn>
                 </Section>
                 <Section title="VS Codeのセッティング">
-                    <SubSection>拡張機能のインストール</SubSection>
-                    <Text>PythonとJupyterの拡張機能をインストールします。</Text>
-                    <ImageSet alt="拡張機能Python" height={200} width={600} image={image1} />
+                    <Text>Jupyterの拡張機能をインストールします。</Text>
                     <ImageSet alt="拡張機能Jupyter" height={200} width={600} image={image2} />
                 </Section>
                 <Section title="仮想環境の選択と実行">
