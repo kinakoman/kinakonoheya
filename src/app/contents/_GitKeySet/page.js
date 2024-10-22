@@ -10,8 +10,8 @@ import ImageSet from '../../components/contents/ImageSet'
 import image from "../../icon.png"
 
 export const data = {
-    title: "GitHubの始め方",
-    tag: ["GitHub", "Ubuntu"],
+    title: "GitHubへのSSHキー登録",
+    tag: ["git", "GitHub", "Ubuntu"],
     date: ["2024", "99", "99"]
 }
 
