@@ -12,7 +12,7 @@ import image from "../../icon.png"
 export const data = {
     title: "GitHubの始め方",
     tag: ["GitHub", "Ubuntu"],
-    date: ["9999", "99", "99"]
+    date: ["2024", "99", "99"]
 }
 
 export default function test() {
