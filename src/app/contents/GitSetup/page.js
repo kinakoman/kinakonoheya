@@ -64,18 +64,18 @@ export default function test() {
                     <Text>リポジトリを作成すると上のような画面が表示されます。
                         Quick setupでSSHを選択し、表示されたurlは記録しておきます。</Text>
                     <SubSection>ローカルリポジトリの作成</SubSection>
-                    <Text>次に、作成したhomepageリポジトリと紐づけるためのローカルフォルダを作成します。今回は、homepage_localとうフォルダを作成することにします。</Text>
+                    <Text>作成したhomepageリポジトリと紐づけるためのローカルフォルダを作成します。今回は、homepage_localとうフォルダを作成することにします。</Text>
                     <Text>次に、作成したフォルダ内でgitの初期化コマンドを実行します。</Text>
                     <CodeBox lang={"shell"} comment={"gitの初期化"}>{`homepage_local$ git init`}</CodeBox>
-                    <Text>これで、作成したローカルフォルダ内にGitHubと紐づけるために必要な隠しファイルが作成されているはずです。</Text>
+                    <Text>これで作成したローカルフォルダ内に、GitHubと紐づけるために必要な隠しファイルが作成されているはずです。</Text>
                     <CodeBox lang={"shell"} comment={"gitの隠しファイル"}>{`homepage_local$ ls -a
 .  ..  .git`}</CodeBox>
                     <SubSection>リモートリポジトリとローカルリポジトリの紐づけ</SubSection>
                     <Text>ローカル上にリモートリポジトリのurlを登録することでリポジトリの紐づけが出来ます。gitはデフォルトでoriginという登録先が提供されているので、先ほど記録したリモートリポジトリのurl
                         をoriginに登録します。
                     </Text>
-                    <CodeBox lang={"shell"} comment={"orginへのurlの登録"}>{`homepage_local$ git remote add origin リモートリポジトリのurl`}</CodeBox>
-                    <CodeBox lang={"shell"} comment={"orginの確認"}>{`homepage_local$ git remote -v`}</CodeBox>
+                    <CodeBox lang={"shell"} comment={"originへのurlの登録"}>{`homepage_local$ git remote add origin リモートリポジトリのurl`}</CodeBox>
+                    <CodeBox lang={"shell"} comment={"originの確認"}>{`homepage_local$ git remote -v`}</CodeBox>
                 </Section>
                 <Section title="ファイルの更新とプッシュの実行">
                     <Text>リポジトリの準備が出来たので、実際にファイルを追加してリモートリポジトリに反映してみます。</Text>
@@ -98,10 +98,11 @@ test.txt`}</CodeBox>
                     <SubSection>リモートリポジトリにプッシュ</SubSection>
                     <Text>最後に、ローカルリポジトリの内容をリモートリポジトリに反映させます。これをプッシュと呼びます。</Text>
                     <CodeBox lang={"shell"} comment={"プッシュ"}>{`homepage_local$ git push origin master`}</CodeBox>
-                    <Text>masterとはデフォルトで設定されるメインのブランチになります。コマンドは、originのリポジトリのmasterというブランチにローカルリポジトリをプッシュする、という操作になっています。</Text>
+                    <Text>masterとはデフォルトで設定されるメインのブランチになります。コマンドの説明としては、origin(リポジトリ)のmaster(ブランチ)にローカルリポジトリをプッシュする、という操作になっています。</Text>
                     <SubSection>リモートリポジトリの確認</SubSection>
                     <Text>プッシュが成功していれば、リモートリポジトリに更新が反映されているはずです。</Text>
                     <ImageSet alt="リポジトリの構成" height={250} width={500} image={image5} />
+
                 </Section>
 
                 {/* <Text>
