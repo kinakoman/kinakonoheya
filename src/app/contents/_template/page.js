@@ -22,7 +22,7 @@ export default function test() {
             <Contents data={data}>
                 <Section title="はじめに">
                 </Section>
-                <Section title="セクション名">
+                {/* <Section title="セクション名">
                     <SubSection>サブセクションタイトル</SubSection>
                     <Text>
                         本文のテキストが本文のテキストで本文のテキストが本文のテキスト
@@ -36,7 +36,7 @@ export default function test() {
                     <LinkIn link={"PythonInstall"} title={"ページのタイトルページのタイトルページのタイトル"}></LinkIn>
                     <CodeBox lang={"javascript"} comment={"コードの例"}>{`console.log("test")`}</CodeBox>
                     <ImageSet alt="テスト画像" height={200} width={200} image={image} />
-                </Section>
+                </Section> */}
             </Contents>
         </>
     )
