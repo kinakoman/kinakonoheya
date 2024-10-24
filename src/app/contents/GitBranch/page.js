@@ -45,7 +45,7 @@ export default function test() {
                     </Text>
                     <CodeBox lang={"shell"} comment={"ブランチの追加"}>{`$ git switch -c new_branch
 Switched to a new branch 'new_branch'`}</CodeBox>
-                    <Text>今回はnew_branchというブランチを作成しています。switchコマンドはブランチ間の移動行うコマンドで、-cオプションでブランチの新規作成
+                    <Text>今回はnew_branchというブランチを作成しています。switchコマンドはブランチ間の移動を行うコマンドで、-cオプションでブランチの新規作成
                         が可能です。
                     </Text>
                     <Text>ブランチはリスト表示することが可能です。*がついているブランチが現在いるブランチになります。</Text>
@@ -129,7 +129,7 @@ Auto-merging main.txt
 CONFLICT (content): Merge conflict in main.txt
 Automatic merge failed; fix conflicts and then commit the result.`}</CodeBox>
                     <Text>コマンドラインに出力される通りに、CONFLICT(競合)が発生しマージに失敗しています。これは、二つのブランチで同じファイルの更新を行った結果、
-                        どちらの更新を採用すればよいか判断でいないためです。
+                        どちらの更新を採用すればよいか判断できていないためです。
                     </Text>
                     <Text>競合の解決にはrestoreコマンドを利用します。</Text>
                     <CodeBox lang={"shell"} comment={"現在のブランチの更新を採用"}>{`$ git restore --ours main.txt`}</CodeBox>
