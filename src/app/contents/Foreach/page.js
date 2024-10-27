@@ -86,7 +86,7 @@ console.log(filterArray)
                     <Text>returnに条件式を書くことで、その条件に一致する要素を新しい配列に加えていきます。</Text>
                     <SubSection>find関数</SubSection>
                     <Text>find関数はfilter関数と同様に配列の要素から条件に一致する要素を取り出すことが出来ます。</Text>
-                    <CodeBox lang={"javascript"} comment={"filter関数"}>{`const array = [
+                    <CodeBox lang={"javascript"} comment={"find関数"}>{`const array = [
     { name: "tanaka", class: "A" },
     { name: "yamanaka", class: "B" },
     { name: "suzuki", class: "A" },

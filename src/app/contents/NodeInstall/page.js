@@ -41,6 +41,7 @@ nvm`}</CodeBox>
                     <CodeBox lang={"shell"} comment={"再起動の代わりにこれでも良い"}>{`~$ source .bashrc`}</CodeBox>
                     <SubSection>Node.jsとnpmのインストール</SubSection>
                     <CodeBox lang={"shell"} comment={"最新版のNode.jsとnpmのインストール"}>{`~$ nvm install --lts --latest-npm`}</CodeBox>
+                    <Text>--ltsコマンドはNodeの最新の安定バージョンであるLTSバージョンをインストールし、--latest-npmはnpmの最新バージョンをインストールします。</Text>
                     <Text>Node.jsとnpmのバージョンを確認します。</Text>
                     <CodeBox lang={"shell"} comment={"Node.jsのバージョン確認"}>{`~$ node -v
 v20.18.0`}</CodeBox>
