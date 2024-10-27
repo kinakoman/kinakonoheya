@@ -97,7 +97,7 @@ console.log(findResult)
 // 出力結果
 // { name: 'tanaka', class: 'A' }`}</CodeBox>
                     <Text>find関数はfilter関数と異なり、返り値は配列ではなく条件と一致した要素そのものです。要素の先頭から最初に条件に一致した
-                        要素が返ってきます。上の例では"suzuki"は返ってきません。
+                        要素が返ってきます。上の例では{`"suzuki"`}は返ってきません。
                     </Text>
                     <Text>find関数はfor文でbreakを利用する時の書き換えとして利用できます。</Text>
                     <CodeBox lang={"javascript"} comment={"for文のbreak"}>{`const array = [
