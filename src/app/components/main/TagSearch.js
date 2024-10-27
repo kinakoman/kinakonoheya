@@ -2,14 +2,14 @@
 import { useState } from "react"
 import styles from "@/css/global.module.css"
 
-export default function TafSearch({ TagList, TagNow, setTagNow }) {
+export default function TafSearch({ TagList, TagNow, setTagNow, setPageNow, pageNum, pageNow }) {
     const [searchBoxOn, setSearchBoxOn] = useState("OFF")
 
     let TagButton = TagList.map((element) => {
-        return <div style={{ height: "fit-content", border: "2px solid rgba(0,0,0,0.5)", cursor: "pointer", padding: "10px 10px", alignContent: "center", lineHeight: "30px", fontSize: "30px", marginRight: "40px", borderRadius: "10px" }} onClick={() => { setTagNow(element); setSearchBoxOn("SELECT") }} key={`tagButton${element}`}># {element}</div>
+        return <div style={{ height: "fit-content", border: "2px solid rgba(0,0,0,0.5)", cursor: "pointer", padding: "10px 10px", alignContent: "center", lineHeight: "30px", fontSize: "30px", marginRight: "40px", borderRadius: "10px" }} onClick={() => { setTagNow(element); setSearchBoxOn("SELECT"); setPageNow(1) }} key={`tagButton${element}`}># {element}</div>
     }
     )
-    TagButton.unshift(<div style={{ height: "fit-content", border: "2px solid rgba(0,0,0,0.5)", cursor: "pointer", padding: "10px 10px", alignContent: "center", lineHeight: "30px", fontSize: "30px", marginRight: "40px", borderRadius: "10px" }} onClick={() => { setTagNow("all"); setSearchBoxOn("SELECT") }} key={`tagButtonall`}>ALL</div>)
+    TagButton.unshift(<div style={{ height: "fit-content", border: "2px solid rgba(0,0,0,0.5)", cursor: "pointer", padding: "10px 10px", alignContent: "center", lineHeight: "30px", fontSize: "30px", marginRight: "40px", borderRadius: "10px" }} onClick={() => { setTagNow("all"); setSearchBoxOn("SELECT"); setPageNow(1) }} key={`tagButtonall`}>ALL</div>)
 
     return (
         <>

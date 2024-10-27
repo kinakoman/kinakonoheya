@@ -10,9 +10,9 @@ import ImageSet from '../../components/contents/ImageSet'
 import image from "../../icon.png"
 
 export const data = {
-    title: "ページのタイトルを書きます",
-    tag: ["tag", "tag2"],
-    date: ["9999", "99", "99"]
+    title: "Next.jsの始め方",
+    tag: ["Next.js"],
+    date: ["2024", "99", "99"]
 }
 
 export default function test() {

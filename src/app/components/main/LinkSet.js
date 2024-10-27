@@ -28,7 +28,7 @@ export default function LinkSet({ linkArr, TagList }) {
 
     return (
         <>
-            <TagSearch TagList={TagList} tagNow={tagNow} setTagNow={setTagNow}></TagSearch>
+            <TagSearch TagList={TagList} tagNow={tagNow} setTagNow={setTagNow} setPageNow={setPageNow} pageNum={linkArr.length} pageNow={pageNow}></TagSearch>
             <ul className={style.list}>
                 {listOn(linkArr, pageNow)}
             </ul>

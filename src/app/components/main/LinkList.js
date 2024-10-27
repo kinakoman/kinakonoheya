@@ -22,7 +22,7 @@ export default async function getStaticProps() {
         )
     }))
     linkArr = linkArr.filter(function (element) {
-        return element.link !== '_template'
+        return !/_/.test(element.link)
     })
 
     linkArr.sort((a, b) => { return b.dateInt - a.dateInt })
