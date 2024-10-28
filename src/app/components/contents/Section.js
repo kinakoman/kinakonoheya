@@ -1,4 +1,5 @@
 import styles from '@/css/global.module.css'
+import "@/css/global.module.css"
 export default function Section({ title, children }) {
     return (
         <>

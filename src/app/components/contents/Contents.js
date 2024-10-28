@@ -2,7 +2,7 @@ import styles from '@/css/global.module.css'
 
 export default function pageContents({ data, children }) {
     return (
-        <div className={styles.contents}>
+        <div className={`${styles.contents} target-toc`} >
             <h1 className={styles.contentsTitle}>{data.title}</h1>
             <div className={styles.DataOfPage}>
                 <div style={{ display: 'flex', alignItems: "center" }}>
