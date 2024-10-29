@@ -33,7 +33,7 @@ export default function test() {
                         SGの利用や独自のコンポーネントでさらに利便性を高めています。
                     </Text>
                     <Text>SSRとSGの違いについてこちらの記事でもまとめています。</Text>
-                    <LinkIn link={"TypesOfWebs"} title={"SSRとSGの特徴"}></LinkIn>
+                    <LinkIn link={"TypesOfWebs"} title={"SPA・CSR・SSR・SSG"}></LinkIn>
                     <Text>
                         Next.jsはSPAの弱点でもあった初回ロードの長さをSGを利用することで解決し、初回ロード・ページ遷移ともに高速なwebページの作成が可能です。
                     </Text>
