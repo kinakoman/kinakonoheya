@@ -9,9 +9,9 @@ import LinkIn from '../../components/contents/LinkIn'
 import ImageSet from '../../components/contents/ImageSet'
 
 export const data = {
-    title: "【Next.js入門#3】layout.jsの使い方",
-    tag: ["Next.js"],
-    date: ["2024", "10", "30"]
+    title: "【Next.js入門#4】コンポーネントの作成",
+    tag: ["Next.js", "React"],
+    date: ["9999", "99", "99"]
 }
 
 export default function test() {
@@ -20,9 +20,6 @@ export default function test() {
             <Meta title={data.title} />
             <Contents data={data}>
                 <Section title="はじめに">
-                    <Text>この記事はNext.js入門第2回の記事の続きになります。</Text>
-                    <LinkIn link={"NextPractice2"} title={"【Next.js入門#2】タグとスタイル"}></LinkIn>
-                    <Text>この記事ではlayout.jsの使い方についてまとめます。</Text>
                 </Section>
                 {/* <Section title="セクション名">
                     <SubSection>サブセクションタイトル</SubSection>
