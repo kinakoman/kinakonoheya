@@ -45,18 +45,13 @@
 }
 
 .text {
-    margin-top: 10px;
+    margin-top: 30px;
     font-size: 18px;
     line-height: 30px;
 }
 
-
-.section .text:nth-of-type(1) {
-    margin-top: 30px;
-
-}
-
 .subsection {
+    font-size: 20px;
     margin-top: 30px;
     font-weight: bold;
 }
@@ -66,9 +61,8 @@
         font-size: 14px;
     }
 
-    .section .text:nth-of-type(1) {
-        margin-top: 15px;
-
+    .subsection {
+        font-size: 16px;
     }
 }
 
@@ -210,7 +204,7 @@
 
 .codeBox {
     width: 100%;
-    margin: 10px auto 0 auto;
+    margin: 30px auto 0 auto;
     line-height: 1.6;
 }
 
