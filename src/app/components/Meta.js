@@ -3,7 +3,6 @@ export default function Meta({ title }) {
     return (
         <>
             <title>{text}</title>
-            <link rel="icon" href="../icon.png"></link>
         </>
     )
 }

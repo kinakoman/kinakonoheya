@@ -7,7 +7,6 @@ import CodeBox from '../../components/contents/CodeBox'
 import CodeIn from '../../components/contents/CodeIn'
 import LinkIn from '../../components/contents/LinkIn'
 import ImageSet from '../../components/contents/ImageSet'
-import image from "../../icon.png"
 import image1 from "./image1.jpg"
 import image2 from "./image2.jpg"
 

@@ -7,7 +7,6 @@ import CodeBox from '../../components/contents/CodeBox'
 import CodeIn from '../../components/contents/CodeIn'
 import LinkIn from '../../components/contents/LinkIn'
 import ImageSet from '../../components/contents/ImageSet'
-import image from "../../icon.png"
 import image1 from "./image1.jpg"
 
 export const data = {
@@ -72,7 +71,7 @@ export default function test() {
                     <Text>サーバー側は出来上がったがファイルを渡すだけ、ブラウザはファイルの表示を行うだけのため、初回リクエストの表示スピードは非常に高速になります。
                     </Text>
                     <Text>一方で、ビルド済みのhtmlファイルを用意する必要があるため、webページの更新を行うたびに再ビルドが必要だったり、動的なアプリケーション開発には全く適さないデメリットもあります。</Text>
-                    <Text>Next.jsはSSGベースのSPAアプリケーション開発が可能です。さらに、Next.jsではっページごと、コンポーネントごとにCSRとSSRの選択が可能になっています。</Text>
+                    <Text>Next.jsはSSGベースのSPAアプリケーション開発が可能です。さらに、Next.jsではページごと、コンポーネントごとにCSRとSSRの選択が可能になっています。</Text>
                 </Section>
                 {/* <Section title="セクション名">
                     <SubSection>サブセクションタイトル</SubSection>
