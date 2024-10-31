@@ -25,6 +25,7 @@ export default function test() {
                     <Text>Next.jsはwebページ・アプリケーション開発で最近よく利用されているフレームワークです。この記事を第一弾に、Next.jsの入門学習として
                         簡単なwebページの作成をまとめていきます。以降の記事は随時更新予定です。
                     </Text>
+                    <Text>Next.jsで必須となる要素を学習しながら、最終的には読者の皆様がこのブログサイトの枠組みを作成して頂けることを目指します。</Text>
                     <Text>この記事では、Next.jsの概要とプロジェクトの開始方法についてまとめます。</Text>
                 </Section>
                 <Section title="Next.jsとは">
@@ -65,6 +66,28 @@ Ok to proceed? (y) y
                     <Text>プロジェクトディレクトリに移ります。ディレクトリ内にはNext.jsフレームワークの各種モジュール等が生成されています。各種ファイルの詳細な説明は
                         記事の中で随時紹介していきます。
                     </Text>
+                    <Text>Next.jsのバージョンは15.0.1になっています。</Text>
+                    <CodeBox lang={"shell"} comment={"バージョンの確認"}>{`~/next-sample$ cat package.json
+{
+  "name": "next-sample",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "react": "19.0.0-rc-69d4b800-20241021",
+    "react-dom": "19.0.0-rc-69d4b800-20241021",
+    "next": "15.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "15.0.1"
+  }
+}`}</CodeBox>
                     <Text>では、Next.jsのページを表示してみます。ターミナルで次のようにコマンドを入力します。コマンドはpackage.jsonから変更可能です。</Text>
                     <CodeBox lang={"shell"} comment={"ページの表示"}>{`~/next-sample$ npm run dev`}</CodeBox>
                     <Text>デフォルトでlocalhost:3000にページが表示されるはずです。</Text>

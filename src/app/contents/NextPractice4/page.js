@@ -106,7 +106,7 @@ export default function RootLayout({ children }) {
                     <ImageSet alt="ヘッダー適用後のページ" height={200} width={700} image={image2} />
                 </Section>
                 <Section title="おわりに">
-                    <Text>今回の記事はここまでです。コンポーネント間で値のやり取りが可能になるpropsの概念について解説します。</Text>
+                    <Text>今回の記事はここまでです。次回はコンポーネント間で値のやり取りが可能になるpropsの概念について解説します。</Text>
                     <LinkIn link={"NextPractice5"} title={"【Next.js入門#5】propsの使い方"}></LinkIn>
                 </Section>
                 {/* <Section title="セクション名">

@@ -68,7 +68,7 @@ export default function RootLayout({ children }) {
                     </Text>
                 </Section>
                 <Section title="おわりに">
-                    <Text>今回の記事はここまでです。Next.jsで重要な概念であるコンポーネントについて解説します。</Text>
+                    <Text>今回の記事はここまでです。次回はNext.jsで重要な概念であるコンポーネントについて解説します。</Text>
                     <LinkIn link={"NextPractice4"} title={"【Next.js入門#4】コンポーネントの作成"}></LinkIn>
                 </Section>
                 {/* <Section title="セクション名">
