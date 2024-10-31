@@ -66,6 +66,7 @@ export default function test() {
                     <Text>作成したhomepageリポジトリと紐づけるためのローカルフォルダを作成します。今回は、homepage_localとうフォルダを作成することにします。</Text>
                     <Text>次に、作成したフォルダ内でgitの初期化コマンドを実行します。</Text>
                     <CodeBox lang={"shell"} comment={"gitの初期化"}>{`homepage_local$ git init`}</CodeBox>
+                    <Text>この時にホームディレクトリなどでinitコマンドを実行しないように注意してください。ローカルのフォルダが全て公開されてしまいます。</Text>
                     <Text>これで作成したローカルフォルダ内に、GitHubと紐づけるために必要な隠しファイルが作成されているはずです。</Text>
                     <CodeBox lang={"shell"} comment={"gitの隠しファイル"}>{`homepage_local$ ls -a
 .  ..  .git`}</CodeBox>
