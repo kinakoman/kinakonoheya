@@ -111,7 +111,7 @@ export default function Home() {
                 </Section>
                 <Section title="おわりに">
                     <Text>今回の記事はここまでです。次回はreturn内でのJavaScript関数の実行方法を説明します。</Text>
-                    <LinkIn link={"NextPractice6"} title={"【Next.js入門#6】JavaScript関数の実行"}></LinkIn>
+                    <LinkIn link={"NextPractice6"} title={"【Next.js入門#6】JavaScriptの実行と{}"}></LinkIn>
                 </Section>
                 {/* <Section title="セクション名">
                     <SubSection>サブセクションタイトル</SubSection>

@@ -81,7 +81,7 @@ export default function test() {
                     <CodeBox lang={"shell"} comment={"エラー"}>{`Each child in a list should have a unique "key" prop.
 
 Check the top-level render call using <ul>. See https://react.dev/link/warning-keys for more information.`}</CodeBox>
-                    <Text>これは、今回のようにNext.jsで配列を元にタグ出力する行う際に必須となる、key propsの指定を行っていないためです。</Text>
+                    <Text>これは、今回のようにNext.jsで配列を元にタグ出力を行う際に必須となる、key propsの指定を行っていないためです。</Text>
                     <Text>次回は、このkey propsの指定と、key props指定に有効なモジュールであるUUIDについて紹介します。</Text>
                     <LinkIn link={"NextPractice7"} title={"【Next.js入門#7】key propsとUUID"}></LinkIn>
                 </Section>

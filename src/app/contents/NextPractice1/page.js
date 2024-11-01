@@ -106,7 +106,7 @@ Ok to proceed? (y) y
                     <ImageSet alt="更新後画面" height={250} width={400} image={image2} />
                 </Section>
                 <Section title="おわりに">
-                    <Text>今回の記事はここまでです。次回はNext.jsの基礎解いてタグの生成とスタイルの適用についてまとめます。</Text>
+                    <Text>今回の記事はここまでです。次回はNext.jsの基礎としてタグの生成とスタイルの適用についてまとめます。</Text>
                     <LinkIn link={"NextPractice2"} title={"【Next.js入門#2】タグとスタイル"}></LinkIn>
                 </Section>
 
