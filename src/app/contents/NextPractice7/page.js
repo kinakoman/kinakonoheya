@@ -11,7 +11,7 @@ import ImageSet from '../../components/contents/ImageSet'
 export const data = {
     title: "【Next.js入門#7】key propsとUUID",
     tag: ["Next.js", "React"],
-    date: ["2024", "11", "03"]
+    date: ["2024", "11", "02"]
 }
 
 export default function test() {

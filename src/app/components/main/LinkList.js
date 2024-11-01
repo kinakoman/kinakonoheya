@@ -21,12 +21,14 @@ export default async function getStaticProps() {
             }
         )
     }))
+    linkArr.reverse()
     linkArr = linkArr.filter(function (element) {
         return !/_/.test(element.link)
     })
 
     linkArr.sort((a, b) => { return b.dateInt - a.dateInt })
     let TagList = [...new Set(allTag)]
+    TagList.sort()
 
     return (
         <>
