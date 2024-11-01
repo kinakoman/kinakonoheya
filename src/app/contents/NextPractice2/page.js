@@ -97,7 +97,7 @@ export default function Home() {
           <Text>これまでは外部のcssで定義したスタイルをJSファイルの読み込む方法でしたが、JSファイル内で変数としてスタイルを
             定義し、タグに適用することもできます。
           </Text>
-          <Text>各コンポーネントに適用されているスタイルが複雑化した時は、
+          <Text>アプリケーションの構成ファイルが増えた場合などは、
             JSファイル一つでスタイルの内容まで確認できるこの方法をとると修正等が簡単に行えると思います。
           </Text>
           <CodeBox lang={"javascript"} comment={"/next-sample/src/app/page.js"}>{`import "./css/styles.css"
@@ -118,11 +118,11 @@ const styleIn = {
   color: "blue"
 }`}</CodeBox>
           <Text>スタイルの適用に成功していればページは以下のようになっているはずです。
-            以降の記事ではmodule.cssでのスタイル適用を利用することにします。</Text>
+          </Text>
           <ImageSet alt="スタイル適用後のページ" height={250} width={400} image={image1} />
         </Section>
         <Section title="おわりに">
-          <Text>今回の記事はここまでです。次回はlayout.jsとページ構成について解説します。</Text>
+          <Text>今回の記事はここまでです。次回はlayout.jsの使い方について解説します。</Text>
           <LinkIn link={"NextPractice3"} title={"【Next.js入門#3】layout.jsの使い方"}></LinkIn>
         </Section>
         {/* <Section title="セクション名">

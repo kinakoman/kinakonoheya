@@ -32,14 +32,14 @@ export default function test() {
                     <Text>webページを作成する最も簡単な方法は、そのページの要素全てをhtmlファイルに記述していくことです。
                         しかし、これでは可読性の低下や、要素の使いまわしが出来ない等のデメリットがあります。
                     </Text>
-                    <Text>そこで、webページの要素をパーツ化し、パーツごとに別ファイルとして作成、
-                        そのファイルをhtmlファイルに読み込むことで各パーツを利用してみます。
+                    <Text>そこで、webページの要素をパーツとして分解し、パーツごとに別ファイルとして作成します。
+                        そしてそのファイルをhtmlファイルに読み込むことで各パーツを利用します。
                     </Text>
-                    <Text>そうすることで、同一ページあるいは遷移後ページでのパーツの使いまわし、
-                        各パーツの改良・修正が非常に簡易化します。
+                    <Text>そうすることで、同一ページあるいは遷移後ページでのパーツの使いまわしや、
+                        各パーツの改良・修正が非常に簡単になります。
                         また、パーツごとにcssなどの外部モジュールを独立して利用できるため、
                         外部モジュールの依存関係の問題等も発生しにくく、
-                        また全く別のアプリケーションへのパーツ使いまわしも容易に行えます。
+                        また全く別のアプリケーションへのパーツの使いまわしも容易に行えます。
                     </Text>
                     <Text>このようなアプリケーションのパーツ、あるいはパーツ化したファイルのことをコンポーネントと呼びます。</Text>
                     <ImageSet alt="コンポーネントの概念" height={500} width={700} image={image1} />
@@ -52,10 +52,9 @@ export default function test() {
                     <Text>まず、ヘッダーコンポーネントのファイルを作成します。
                         今回は新たにcomponentとというフォルダを作成し、その中にHeader.jsファイルを作成します。
                     </Text>
-                    <Text>componentの記述方法はpage.jsと全く同じであり、export default 関数の返り値の中に、
-                        出力したいタグを要素を記述していきます。
+                    <Text>componentの記述方法はpage.jsと全く同じであり、export default 関数の返り値の中に出力したいタグ要素を記述していきます。
                     </Text>
-                    <Text>css等の外部モジュールなども各コンポーネントごとにインポートします。</Text>
+                    <Text>css等の外部モジュールも各コンポーネントごとにインポートします。</Text>
                     <CodeBox lang={"javascript"} comment={"/next-sample/src/app/component/Header.js"}>{`import styles from "../page.module.css"
 export default function Header() {
     return (
@@ -80,7 +79,7 @@ export default function Header() {
                         コンポーネントに指定する変数は1文字目が大文字である必要あります。今回は元ファイルの関数に合わせて
                         Headerでインポートします。
                     </Text>
-                    <Text>インポートしたコンポーネントはタグを同じ感覚で使用でき、export default関数の返り値の中で、
+                    <Text>インポートしたコンポーネントはタグを同じ感覚で使用でき、export default 関数の返り値の中で、
                         任意の箇所で呼び出すことが出来ます。
                     </Text>
                     <CodeBox lang={"javascript"} comment={"/next-sample/src/app/layout.js"}>{`import "./globals.css";
@@ -102,7 +101,7 @@ export default function RootLayout({ children }) {
     </html>
   );
 }`}</CodeBox>
-                    <Text>ブラウザでページを確認するとヘッダーが適用されいていることがわかります。</Text>
+                    <Text>ブラウザでページを確認するとヘッダーが適用されていることがわかります。</Text>
                     <ImageSet alt="ヘッダー適用後のページ" height={200} width={700} image={image2} />
                 </Section>
                 <Section title="おわりに">

@@ -28,7 +28,7 @@ export default function test() {
                     <Text>今回の記事ではlayout.jsの使い方についてまとめます。</Text>
                 </Section>
                 <Section title="layout.jsとは">
-                    <Text>webページを作る上で、ページ遷移はページの多機能化を行う上で必須になります。</Text>
+                    <Text>webページを作る上で、ページ遷移はアプリケーションの多機能化を行う上で必須になります。</Text>
                     <Text>各ページは独自のコンテンツを当然持ちますが、
                         例えばヘッダーやフッターのように遷移後のすべてのページで共通のパーツも存在するはずです。
                     </Text>
@@ -60,7 +60,7 @@ export default function RootLayout({ children }) {
                         bodyタグの子要素の{`{children}`}の箇所にはpage.jsの内容が入ることになります。
                     </Text>
                     <Text>よって、遷移後の全ページでhtmlタグとbodyタグの生成が行われ、その子要素に各ページのコンテンツが生成されていくことになります。</Text>
-                    <Text>RootLayoutの上のmedadata変数はhtmlファイルのメタデータを設定するのに使用します。
+                    <Text>RootLayoutの上のmetadata変数はhtmlファイルのメタデータを設定するのに使用します。
                         詳しい記述の仕方は今後紹介していきます。
                     </Text>
                     <Text>また、最初にインポートされているglobal.cssは普通のcssではありますが、
