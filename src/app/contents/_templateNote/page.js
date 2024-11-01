@@ -32,7 +32,6 @@ testiD.addEventListener("mouseout",function () {
                 <Sec title="はじめにの">
                     <Sub>こんにちは3</Sub>
                     <Sub>こんにちは4</Sub>
-
                 </Sec>
 
                 {/* <Section title="セクション名">
