@@ -22,7 +22,7 @@ export default function test() {
             <Meta title={data.title} />
             <Contents data={data}>
                 <Section title="はじめに">
-                    <Text>この記事はNext.js入門第3回の記事の続きになります。</Text>
+                    <Text>この記事はNext.js入門第4回の記事の続きになります。</Text>
                     <LinkIn link={"NextPractice4"} title={"【Next.js入門#4】コンポーネントの作成"}></LinkIn>
                     <Text>今回の記事では、
                         コンポーネント間での値のやり取りが可能になるpropsの概念を学習します。

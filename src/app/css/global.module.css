@@ -13,13 +13,14 @@
 .contentsTitle {
     /* text-align: center; */
     font-size: 40px;
-    width: fit-content;
+    width: calc((100vw - 100%) / 2 + 100%);
     /* margin-inline: auto; */
 }
 
 @media screen and (max-width:640px) {
     .contentsTitle {
         font-size: 30px;
+        width: 100%;
     }
 }
 
