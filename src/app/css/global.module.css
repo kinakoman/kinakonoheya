@@ -216,3 +216,59 @@
         display: none;
     }
 }
+
+.sectionStudy {
+    width: 100%;
+    margin-top: 20px;
+    /* margin-bottom: 30px; */
+}
+
+.sectionStudy:nth-of-type(1) {
+    margin-top: 20px;
+}
+
+.sectionTitleStudy {
+    font-size: 20px;
+    height: 40px;
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.5);
+    align-content: center;
+}
+
+@media screen and (max-width:640px) {
+    .sectionTitleStudy {
+        font-size: 18px;
+        height: 30px;
+    }
+}
+
+
+.textStudy {
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 30px;
+}
+
+.subsectionStudy {
+    font-size: 16px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+@media screen and (max-width:640px) {
+    .textStudy {
+        font-size: 14px;
+    }
+
+    .subsectionStudy {
+        font-size: 16px;
+    }
+}
+
+.codeBoxStudy {
+    width: 100%;
+    margin: 10px auto 0 auto;
+    line-height: 1.4;
+    position: relative;
+}

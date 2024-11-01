@@ -20,7 +20,7 @@ export default function Toc() {
     return (
         <>
             <div className={styles.section}>
-                <div className={styles.sectionTitle} style={{ fontWeight: "bold" }}>目次</div>
+                <div className={styles.sectionTitleStudy} style={{ fontWeight: "bold" }}>目次</div>
             </div>
             <nav className="toc" style={tocStyle} />
         </>
@@ -28,6 +28,7 @@ export default function Toc() {
 }
 
 const tocStyle = {
-    marginTop: "30px",
-    paddingLeft: "30px"
+    marginTop: "20px",
+    height: "fit-content"
+    // paddingLeft: "30px"
 }

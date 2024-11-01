@@ -1,17 +1,15 @@
 import Meta from '@/components/Meta'
 import Contents from '@/components/contents/Contents'
-import Section from '@/components/contents/Section'
-import SubSection from '../../components/contents/SubSection'
-import Text from '@/components/contents/Text'
-import CodeBox from '../../components/contents/CodeBox'
-import CodeIn from '../../components/contents/CodeIn'
-import LinkIn from '../../components/contents/LinkIn'
-import ImageSet from '../../components/contents/ImageSet'
+import Sec from '@/components/study/Sec'
+import Sub from '@/components/study/Sub'
+import Tx from '@/components/study/Tx'
+import Code from '@/components/study/Code'
+import Toc from "../../components/contents/Toc"
 
 export const data = {
-    title: "【Next.js入門#7】key propsとUUID",
-    tag: ["Next.js", "React"],
-    date: ["2024", "11", "02"]
+    title: "テスト",
+    tag: ["tag", "tag2"],
+    date: ["9999", "99", "99"]
 }
 
 export default function test() {
@@ -19,16 +17,24 @@ export default function test() {
         <>
             <Meta title={data.title} />
             <Contents data={data}>
-                <Section title="はじめに">
-                    <Text>この記事はNext.js入門第6回の記事の続きになります。</Text>
-                    <LinkIn link={"NextPractice6"} title={"【Next.js入門#6】JavaScriptの実行と{}"}></LinkIn>
-                    <Text>今回の記事では、
-                        key propsの指定とUUDIによるランダムIDの生成についてまとめます。
-                    </Text>
-                </Section>
-                <Section title="key propsの必要性">
+                <Toc />
+                <Sec title="はじめに">
+                    <Sub>こんにちは</Sub>
+                    <Tx>これは本文</Tx>
+                    <Code lang={"javascript"} comment={"コードの例"}>{`const testiD=document.getElementById("test")
+console.log(testiD)
+testiD.addEventListener("mouseout",function () {
+    this.classList.add("testadd")
+})`}</Code>
+                    <Sub>こんにちは2</Sub>
 
-                </Section>
+                </Sec>
+                <Sec title="はじめにの">
+                    <Sub>こんにちは3</Sub>
+                    <Sub>こんにちは4</Sub>
+
+                </Sec>
+
                 {/* <Section title="セクション名">
                     <SubSection>サブセクションタイトル</SubSection>
                     <Text>

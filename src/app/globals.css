@@ -86,10 +86,20 @@ footer {
 
 
 .node-name--H2 {
-  line-height: 35px;
-  font-size: 20px;
+  /* line-height: 35px; */
+  font-size: 16px;
 }
+
+.node-name--H2:hover {
+  color: #ff0055;
+}
+
 
 .node-name--H3 {
   padding-left: 10px;
+  font-size: 16px;
+}
+
+.node-name--H3:hover {
+  color: #ff0055;
 }

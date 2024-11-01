@@ -11,7 +11,7 @@ import ImageSet from '../../components/contents/ImageSet'
 export const data = {
     title: "【Next.js入門#6】JavaScriptの実行と{}",
     tag: ["Next.js"],
-    date: ["2024", "11", "01"]
+    date: ["2024", "11", "02"]
 }
 
 export default function test() {
