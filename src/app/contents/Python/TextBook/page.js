@@ -32,6 +32,9 @@ $ source .bashrc
                     <Code lang={"shell"} tab={""}>{`$ python3 test.py
 Hello,World
 `}</Code>
+                </Sec>
+
+                <Sec title="基本構文">
                     <Sub>変数</Sub>
                     <Tx>Pythonでは変数定義に初期化やデータ型の指定は必要ありません。</Tx>
                     <Code lang={"python"} tab={""}>{`# int型
@@ -44,6 +47,7 @@ text="Hello"
 arr=[10,20,30]
 `}</Code>
                 </Sec>
+
                 <Sec title="Numpy">
                     <Sub>ライブラリのインポート</Sub>
                     <Code lang={"python"} tab={""}>{`import numpy as np`}</Code>
@@ -62,11 +66,10 @@ print(arr.dtype)        #要素のデータ型`}</Code>
                     <Sub>単一要素配列</Sub>
                     <Tx>引数に任意の配列のシェイプを受け取り配列を生成することが出来ます。</Tx>
                     <Code lang={"python"} tab={""}>{`one=np.ones((2,3))                  #2行3列の1のみの配列
-sull=np.full((3,4),20)              #3行4列の20のみの配列
+full=np.full((3,4),20)              #3行4列の20のみの配列
 empty=np.empty((10,10))             #10x10の空配列
 zeros=np.zeros((2,2,3))             #2x2x3の0の配列(float)
-zeros_like=np.zeros_like(zeros)     #zerosと同じshapeの0の配列(int)
-print(zeros_like)`}</Code>
+zeros_like=np.zeros_like(zeros)     #zerosと同じshapeの0の配列(int)`}</Code>
                     <Sub>等差配列</Sub>
                     <Tx>等差・連番要素の配列はarangeかlinspaceを使用します。</Tx>
                     <Code lang={"python"} tab={""}>{`# 引数はstart、end、step
@@ -105,6 +108,7 @@ print(x[2:])    #[2 3 4 5 6 7 8 9]`}
                     <Code lang={"python"} >{`x=np.array([["00","01","02","03"],
             ["10","11","12","13"],
             ["20","21","22","23"]])
+
 print(x[:,1:3])
 # [['01' '02']
 #  ['11' '12']
