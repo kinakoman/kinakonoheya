@@ -88,18 +88,43 @@ footer {
 .node-name--H2 {
   /* line-height: 35px; */
   font-size: 16px;
+  position: relative;
+  align-content: center;
+  padding-left: 24px;
+}
+
+.node-name--H2::before {
+  content: "・";
+  position: absolute;
+  left: -5px;
+  top: 50%;
+  font-size: 30px;
+  font-weight: bold;
+  translate: 0 -50%;
 }
 
 .node-name--H2:hover {
   color: #ff0055;
+
 }
 
 
 .node-name--H3 {
-  padding-left: 10px;
+  padding-left: 34px;
   font-size: 16px;
+  position: relative;
 }
 
 .node-name--H3:hover {
   color: #ff0055;
+}
+
+.node-name--H3::before {
+  content: "▹";
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  translate: 0 -50%;
 }
