@@ -85,7 +85,7 @@
     height: 80px;
     border-radius: 5px;
     margin: 5px;
-    border: 2px solid rgba(46, 210, 255, 0.3);
+    border: 2px solid rgba(0, 0, 0, 0.2);
     list-style: none;
     position: relative;
     overflow: hidden;

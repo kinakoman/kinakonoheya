@@ -28,7 +28,7 @@ export default function test() {
                     <Text>この記事では、gitのブランチ機能に関係するコマンドの扱い方について紹介します。</Text>
                     <Text>前提として、git initコマンドでローカルリポジトリ用に準備したフォルダが用意されているとします。
                         まだの方はこちらをご覧ください。</Text>
-                    <LinkIn link={"GitSetup"} title={"GitHubの始め方"}></LinkIn>
+                    <LinkIn link={"Git/GitSetup"} title={"GitHubの始め方"}></LinkIn>
                     <Text>今回はローカルリポジトリ上でブランチ操作を行っていきます。</Text>
                 </Section>
                 <Section title="ブランチの追加とマージ">

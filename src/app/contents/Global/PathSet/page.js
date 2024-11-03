@@ -46,7 +46,7 @@ export default function test() {
                 </Section>
                 <Section title="パスの開通と.bashrcの利用">
                     <Text>過去の記事でAnacondaをインストールした際、condaコマンドのパスを通す際以下のコマンドを紹介しています。</Text>
-                    <LinkIn link={"PythonInstall"} title={"UbuntuでのPython環境構築"}></LinkIn>
+                    <LinkIn link={"Python/PythonInstall"} title={"UbuntuでのPython環境構築"}></LinkIn>
                     <CodeBox lang={"shell"} comment={"condaコマンドのパス開通"}>{`~$ echo 'export PATH=$PATH:/anaconda3/bin' >> ~/.bashrc`}</CodeBox>
                     <Text>以下では、このコマンドでなぜパスの開通が出来るのかを説明します。(anaconda3はホームディレクトリにあるとします。)</Text>
                     <SubSection>パスの開通</SubSection>

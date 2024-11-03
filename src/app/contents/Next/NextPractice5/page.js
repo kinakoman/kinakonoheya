@@ -23,7 +23,7 @@ export default function test() {
             <Contents data={data}>
                 <Section title="はじめに">
                     <Text>この記事はNext.js入門第4回の記事の続きになります。</Text>
-                    <LinkIn link={"NextPractice4"} title={"【Next.js入門#4】コンポーネントの作成"}></LinkIn>
+                    <LinkIn link={"Next/NextPractice4"} title={"【Next.js入門#4】コンポーネントの作成"}></LinkIn>
                     <Text>今回の記事では、
                         コンポーネント間での値のやり取りが可能になるpropsの概念を学習します。
                     </Text>
@@ -106,12 +106,12 @@ export default function Home() {
                     <Text>「ページリスト」にコンポーネントで定義したスタイルが適用されています。</Text>
                     <SubSection>childrenはlayout.jsにも</SubSection>
                     <Text>入門第三回で、layout.jsのchildrenにpage.jsの内容が入ると説明しました。</Text>
-                    <LinkIn link={"NextPractice3"} title={"【Next.js入門#3】layout.jsの使い方"}></LinkIn>
+                    <LinkIn link={"Next/NextPractice3"} title={"【Next.js入門#3】layout.jsの使い方"}></LinkIn>
                     <Text>これはまさにpropsのchildrenであり、Next.jsではデフォルトでpage.jsがlayout.jsにchildrenとして渡されるように設定されています。</Text>
                 </Section>
                 <Section title="おわりに">
                     <Text>今回の記事はここまでです。次回はreturn内でのJavaScript関数の実行方法を説明します。</Text>
-                    <LinkIn link={"NextPractice6"} title={"【Next.js入門#6】JavaScriptの実行と{}"}></LinkIn>
+                    <LinkIn link={"Next/NextPractice6"} title={"【Next.js入門#6】JavaScriptの実行と{}"}></LinkIn>
                 </Section>
                 {/* <Section title="セクション名">
                     <SubSection>サブセクションタイトル</SubSection>

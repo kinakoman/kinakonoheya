@@ -22,7 +22,7 @@ export default function test() {
       <Contents data={data}>
         <Section title="はじめに">
           <Text>この記事はNext.js入門第1回の記事の続きになります。</Text>
-          <LinkIn link={"NextPractice1"} title={"【Next.js入門#1】Next.jsの始め方"}></LinkIn>
+          <LinkIn link={"Next/NextPractice1"} title={"【Next.js入門#1】Next.jsの始め方"}></LinkIn>
           <Text>この記事ではNext.jsでのタグの生成とスタイルの適用についてまとめます。</Text>
         </Section>
         <Section title="タグの生成">
@@ -123,7 +123,7 @@ const styleIn = {
         </Section>
         <Section title="おわりに">
           <Text>今回の記事はここまでです。次回はlayout.jsの使い方について解説します。</Text>
-          <LinkIn link={"NextPractice3"} title={"【Next.js入門#3】layout.jsの使い方"}></LinkIn>
+          <LinkIn link={"Next/NextPractice3"} title={"【Next.js入門#3】layout.jsの使い方"}></LinkIn>
         </Section>
         {/* <Section title="セクション名">
                     <SubSection>サブセクションタイトル</SubSection>

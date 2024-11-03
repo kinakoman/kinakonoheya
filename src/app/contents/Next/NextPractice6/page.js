@@ -21,7 +21,7 @@ export default function test() {
             <Contents data={data}>
                 <Section title="はじめに">
                     <Text>この記事はNext.js入門第5回の記事の続きになります。</Text>
-                    <LinkIn link={"NextPractice5"} title={"【Next.js入門#5】propsの使い方"}></LinkIn>
+                    <LinkIn link={"Next/NextPractice5"} title={"【Next.js入門#5】propsの使い方"}></LinkIn>
                     <Text>今回の記事では、
                         Next.jsでのJavaScript構文の実行方法について解説します。
                     </Text>
@@ -70,7 +70,7 @@ export default function test() {
                     <Text>これまでの学習の中で、claaNameにmodule.cssの変数を代入する時や、
                         propsを利用する時は{`{}`}を使うという説明をしてきました。
                     </Text>
-                    <Text>この{`{}`}はまさにJavsScript構文を使用するための{`{}`}であり
+                    <Text>この{`{}`}はまさにJavsScript構文を使用するためのものであり
                         本来はJS変数であるクラス名やpropsをreturn内で記述するために使用します。
                     </Text>
                 </Section>
@@ -83,7 +83,7 @@ export default function test() {
 Check the top-level render call using <ul>. See https://react.dev/link/warning-keys for more information.`}</CodeBox>
                     <Text>これは、今回のようにNext.jsで配列を元にタグ出力を行う際に必須となる、key propsの指定を行っていないためです。</Text>
                     <Text>次回は、このkey propsの指定と、key props指定に有効なモジュールであるUUIDについて紹介します。</Text>
-                    <LinkIn link={"NextPractice7"} title={"【Next.js入門#7】key propsとUUID"}></LinkIn>
+                    <LinkIn link={"Next/NextPractice7"} title={"【Next.js入門#7】key propsとUUID"}></LinkIn>
                 </Section>
                 {/* <Section title="セクション名">
                     <SubSection>サブセクションタイトル</SubSection>

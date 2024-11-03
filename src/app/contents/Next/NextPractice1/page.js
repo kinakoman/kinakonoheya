@@ -33,14 +33,14 @@ export default function test() {
                         SGの利用や独自のコンポーネントでさらに利便性を高めています。
                     </Text>
                     <Text>SSRとSGの違いについてこちらの記事でもまとめています。</Text>
-                    <LinkIn link={"TypesOfWebs"} title={"SPA・CSR・SSR・SSG"}></LinkIn>
+                    <LinkIn link={"Global/TypesOfWebs"} title={"SPA・CSR・SSR・SSG"}></LinkIn>
                     <Text>
                         Next.jsはSPAの弱点でもあった初回ロードの長さをSGを利用することで解決し、初回ロード・ページ遷移ともに高速なwebページの作成が可能です。
                     </Text>
                 </Section>
                 <Section title="Next.jsの始め方">
                     <Text>以降の記事はnpmのインストールを前提とします。まだの方は以下の記事をご覧ください。</Text>
-                    <LinkIn link={"NodeInstall"} title={"Node.jsのインストール方法"}></LinkIn>
+                    <LinkIn link={"JavaScript/NodeInstall"} title={"Node.jsのインストール方法"}></LinkIn>
                     <SubSection>プロジェクトの作成</SubSection>
                     <Text>Next.jsのプロジェクトは次のコマンドで実行できます。今回はnext-sampleという名前でプロジェクトを作成します。</Text>
                     <CodeBox lang={"shell"} comment={"Nextプロジェクトの作成"}>{`~$ npm create next-app@latest
@@ -107,7 +107,7 @@ Ok to proceed? (y) y
                 </Section>
                 <Section title="おわりに">
                     <Text>今回の記事はここまでです。次回はNext.jsの基礎としてタグの生成とスタイルの適用についてまとめます。</Text>
-                    <LinkIn link={"NextPractice2"} title={"【Next.js入門#2】タグとスタイル"}></LinkIn>
+                    <LinkIn link={"Next/NextPractice2"} title={"【Next.js入門#2】タグとスタイル"}></LinkIn>
                 </Section>
 
                 {/* <Section title="セクション名">

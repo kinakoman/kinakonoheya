@@ -27,7 +27,7 @@ export default function test() {
                 <Section title={"はじめに"}>
                     <Text>この記事では、VS CodeでのJupyterファイルの実行方法についてまとめています。</Text>
                     <Text>OSはLinux、仮想環境はAnacondaを想定しています。Anacondaのインストール方法は過去の記事でまとめているので、まだの方はそちらをご覧ください。</Text>
-                    <LinkIn link={"PythonInstall"} title={"UbuntuでのPython環境構築"}></LinkIn>
+                    <LinkIn link={"Python/PythonInstall"} title={"UbuntuでのPython環境構築"}></LinkIn>
                 </Section>
                 <Section title="VS Codeのセッティング">
                     <Text>Jupyterの拡張機能をインストールします。</Text>

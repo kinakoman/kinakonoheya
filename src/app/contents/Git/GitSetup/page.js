@@ -80,7 +80,7 @@ export default function test() {
                 <Section title="ファイルの更新とプッシュの実行">
                     <Text>リポジトリの準備が出来たので、実際にファイルを追加してリモートリポジトリに反映してみます。</Text>
                     <Text>以降の操作にはGitHubへのSSHキーの登録が必要になります。別の記事でキーの登録については紹介しているので、まだの方はそちらをご覧ください。</Text>
-                    <LinkIn link={"GitKeySet"} title={"GitHubへのSSHキー登録"}></LinkIn>
+                    <LinkIn link={"Git/GitKeySet"} title={"GitHubへのSSHキー登録"}></LinkIn>
                     <SubSection>リポジトリの構成</SubSection>
                     <Text> gitのリポジトリ構成は次のように分解されています。</Text>
                     <ImageSet alt="リポジトリの構成" height={400} width={500} image={image4} />

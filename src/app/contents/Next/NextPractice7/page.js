@@ -20,9 +20,9 @@ export default function test() {
             <Contents data={data}>
                 <Section title="はじめに">
                     <Text>この記事はNext.js入門第6回の記事の続きになります。</Text>
-                    <LinkIn link={"NextPractice6"} title={"【Next.js入門#6】JavaScriptの実行と{}"}></LinkIn>
+                    <LinkIn link={"Next/NextPractice6"} title={"【Next.js入門#6】JavaScriptの実行と{}"}></LinkIn>
                     <Text>今回の記事では、
-                        key propsの指定とUUDIによるランダムIDの生成についてまとめます。
+                        key propsの指定とUUIDによるランダムIDの生成についてまとめます。
                     </Text>
                 </Section>
                 <Section title="key propsの必要性">
@@ -91,7 +91,7 @@ export default function LinkSet({ linkList }) {
                 </Section>
                 <Section title="おわりに">
                     <Text>今回の記事はここまでです。次回はNext.jsでのページ遷移について解説します。</Text>
-                    <LinkIn link={"NextPractice8"} title={"【Next.js入門#8】Next.jsでのページ遷移"}></LinkIn>
+                    <LinkIn link={"Next/NextPractice8"} title={"【Next.js入門#8】Next.jsでのページ遷移"}></LinkIn>
                 </Section>
                 {/* <Section title="セクション名">
                     <SubSection>サブセクションタイトル</SubSection>

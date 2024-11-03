@@ -23,7 +23,7 @@ export default function test() {
             <Contents data={data}>
                 <Section title="はじめに">
                     <Text>この記事はNext.js入門第3回の記事の続きになります。</Text>
-                    <LinkIn link={"NextPractice3"} title={"【Next.js入門#3】layout.jsの使い方"}></LinkIn>
+                    <LinkIn link={"Next/NextPractice3"} title={"【Next.js入門#3】layout.jsの使い方"}></LinkIn>
                     <Text>今回の記事では、
                         React、Next.jsでのアプリケーション開発で重要な概念となるコンポーネントについて学びます。
                     </Text>
@@ -106,7 +106,7 @@ export default function RootLayout({ children }) {
                 </Section>
                 <Section title="おわりに">
                     <Text>今回の記事はここまでです。次回はコンポーネント間で値のやり取りが可能になるpropsの概念について解説します。</Text>
-                    <LinkIn link={"NextPractice5"} title={"【Next.js入門#5】propsの使い方"}></LinkIn>
+                    <LinkIn link={"Next/NextPractice5"} title={"【Next.js入門#5】propsの使い方"}></LinkIn>
                 </Section>
                 {/* <Section title="セクション名">
                     <SubSection>サブセクションタイトル</SubSection>

@@ -21,7 +21,7 @@ export default function test() {
             <Contents data={data}>
                 <Section title="はじめに">
                     <Text>この記事はNext.js入門第2回の記事の続きになります。</Text>
-                    <LinkIn link={"NextPractice2"} title={"【Next.js入門#2】タグとスタイル"}></LinkIn>
+                    <LinkIn link={"Next/NextPractice2"} title={"【Next.js入門#2】タグとスタイル"}></LinkIn>
                     <Text>前回までの記事ではNext.jsの基礎を簡単におさえただけでしたが、
                         今回からは実際のwebページ開発を想定して各機能の勉強をしていきます。
                     </Text>
@@ -69,7 +69,7 @@ export default function RootLayout({ children }) {
                 </Section>
                 <Section title="おわりに">
                     <Text>今回の記事はここまでです。次回はNext.jsで重要な概念であるコンポーネントについて解説します。</Text>
-                    <LinkIn link={"NextPractice4"} title={"【Next.js入門#4】コンポーネントの作成"}></LinkIn>
+                    <LinkIn link={"Next/NextPractice4"} title={"【Next.js入門#4】コンポーネントの作成"}></LinkIn>
                 </Section>
                 {/* <Section title="セクション名">
                     <SubSection>サブセクションタイトル</SubSection>
