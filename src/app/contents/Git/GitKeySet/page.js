@@ -1,4 +1,3 @@
-import Meta from '@/components/Meta'
 import Contents from '@/components/contents/Contents'
 import Section from '@/components/contents/Section'
 import SubSection from '../../../components/contents/SubSection'
@@ -18,11 +17,12 @@ export const data = {
     tag: ["git", "GitHub", "Ubuntu"],
     date: ["2024", "10", "23"]
 }
-
+export const metadata = {
+    title: `${data.title} | きなこの部屋`
+}
 export default function test() {
     return (
         <>
-            <Meta title={data.title} />
             <Contents data={data}>
                 <Section title="始めに">
                     <Text>GitHubへのpush、あるいはpullを行うには、リモートリポジトリへの認証を行う必要があります。認証にはHTTPSを用いる方法とSSHを用いる方法が挙げられます。</Text>

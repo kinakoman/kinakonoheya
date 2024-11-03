@@ -1,4 +1,4 @@
-import Meta from '@/components/Meta'
+
 import Contents from '@/components/contents/Contents'
 import Section from '@/components/contents/Section'
 import SubSection from '@/components/contents/SubSection'
@@ -13,11 +13,13 @@ export const data = {
     tag: ["Python"],
     date: ["2024", "11", "04"]
 }
+export const metadata = {
+    title: `${data.title} | きなこの部屋`
+}
 
 export default function test() {
     return (
         <>
-            <Meta title={data.title} />
             <Contents data={data}>
                 <Section title="はじめに">
                     <Text>Numpy配列の要素指定の方法にfancy indexingがあります。
@@ -38,7 +40,7 @@ export default function test() {
                     <CodeBox lang={"python"} comment={"fancy indexing"}>{`>>> arr=np.array([[0,1,2],[3,4,5],[6,7,8]])
 >>> print(arr[[0,1,2],[1,0,2]])
 [1 3 8]`}</CodeBox>
-                    <Text>fancy indexingでは、配列のインデックスに元配列の軸の数を同数の{`[]`}引数を求められます。また、各{`[]`}の要素数は出力したい要素数に一致します。
+                    <Text>fancy indexingでは、配列のインデックスに元配列の軸の数と同数の{`[]`}引数を求められます。また、各{`[]`}の要素数は出力したい要素数に一致します。
                         {`[]`}は順に元配列の軸のインデックスを指定します。
                     </Text>
                     <Text>上の例では、出力する要素の第一軸のインデックスがそれぞれ{`0,1,2`}、第二軸のインデックスが{`1,0,2`}になり、

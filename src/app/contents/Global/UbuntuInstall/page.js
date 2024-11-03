@@ -1,4 +1,3 @@
-import Meta from '@/components/Meta'
 import Contents from '@/components/contents/Contents'
 import Section from '@/components/contents/Section'
 import SubSection from '../../../components/contents/SubSection'
@@ -15,11 +14,13 @@ export const data = {
     tag: ["Ubuntu", "Linux"],
     date: ["2024", "10", "19"]
 }
+export const metadata = {
+    title: `${data.title} | きなこの部屋`
+}
 
 export default function test() {
     return (
         <>
-            <Meta title={data.title} />
             <Contents data={data}>
                 <Section title="はじめに">
                     <Text>この記事では、WSLを用いてWindows上にlinuxの実行環境を用意する手順を紹介します。

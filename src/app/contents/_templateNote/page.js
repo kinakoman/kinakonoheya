@@ -1,4 +1,3 @@
-import Meta from '@/components/Meta'
 import Contents from '@/components/contents/Contents'
 import Sec from '@/components/study/Sec'
 import Sub from '@/components/study/Sub'
@@ -11,11 +10,13 @@ export const data = {
     tag: ["tag", "tag2"],
     date: ["9999", "99", "99"]
 }
+export const metadata = {
+    title: `${data.title} | きなこの部屋`
+}
 
 export default function test() {
     return (
         <>
-            <Meta title={data.title} />
             <Contents data={data}>
                 <Toc />
                 {/* <Sec title="はじめに">

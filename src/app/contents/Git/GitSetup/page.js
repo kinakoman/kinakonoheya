@@ -1,4 +1,3 @@
-import Meta from '@/components/Meta'
 import Contents from '@/components/contents/Contents'
 import Section from '@/components/contents/Section'
 import SubSection from '../../../components/contents/SubSection'
@@ -18,11 +17,13 @@ export const data = {
     tag: ["git", "GitHub", "Ubuntu"],
     date: ["2024", "10", "22"]
 }
+export const metadata = {
+    title: `${data.title} | きなこの部屋`
+}
 
 export default function test() {
     return (
         <>
-            <Meta title={data.title} />
             <Contents data={data}>
                 <Section title="はじめに">
                     <Text>GitHubはリモート上でのバージョン管理システムです。元々はローカル上でソースコードのバージョン管理の行うgitのシステムを、リモート上で共有・公開することが出来るのがGitHubになっています。</Text>

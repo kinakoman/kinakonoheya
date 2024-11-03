@@ -1,4 +1,4 @@
-import Meta from '@/components/Meta'
+
 import Contents from '@/components/contents/Contents'
 import Section from '@/components/contents/Section'
 import SubSection from '../../../components/contents/SubSection'
@@ -12,11 +12,13 @@ export const data = {
     tag: ["Python", "Ubuntu", "Anaconda"],
     date: ["2024", "10", "20"]
 }
+export const metadata = {
+    title: `${data.title} | きなこの部屋`
+}
 
 export default function test() {
     return (
         <>
-            <Meta title={data.title} />
             <Contents data={data}>
                 <Section title="始めに">
                     <Text>この記事ではUbuntuでのPython実行環境の構築方法について紹介します。Pythonの仮想環境にはAnacondaを利用し、インストールから

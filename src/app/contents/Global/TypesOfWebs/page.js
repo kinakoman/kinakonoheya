@@ -1,4 +1,3 @@
-import Meta from '@/components/Meta'
 import Contents from '@/components/contents/Contents'
 import Section from '@/components/contents/Section'
 import SubSection from '../../../components/contents/SubSection'
@@ -14,11 +13,13 @@ export const data = {
     tag: ["React", "Next.js", "HTML"],
     date: ["2024", "10", "30"]
 }
+export const metadata = {
+    title: `${data.title} | きなこの部屋`
+}
 
 export default function test() {
     return (
         <>
-            <Meta title={data.title} />
             <Contents data={data}>
                 <Section title="はじめに">
                     <Text>この記事ではwebページ作成において重要な概念である、CSRとSSRとSSG違い、SPAの概念についてまとめています。

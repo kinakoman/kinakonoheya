@@ -1,4 +1,4 @@
-import Meta from '@/components/Meta'
+
 import Contents from '@/components/contents/Contents'
 import Section from '@/components/contents/Section'
 import SubSection from '../../../components/contents/SubSection'
@@ -18,11 +18,13 @@ export const data = {
     tag: ["git", "GitHub"],
     date: ["2024", "10", "23"]
 }
+export const metadata = {
+    title: `${data.title} | きなこの部屋`
+}
 
 export default function test() {
     return (
         <>
-            <Meta title={data.title} />
             <Contents data={data}>
                 <Section title="はじめに">
                     <Text>この記事では、gitのブランチ機能に関係するコマンドの扱い方について紹介します。</Text>

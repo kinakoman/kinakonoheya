@@ -5,7 +5,7 @@ import Link from "next/link"
 export default function GetTitle({ link, title, children }) {
     return (
         <div>
-            <Link className={style.linkBox} href={`${link}`} onClick={() => window.scrollTo(0, 0)}>{title}{children}</Link>
+            <Link className={style.linkBox} href={`${link}`}>{title}{children}</Link>
         </div>
     )
 }

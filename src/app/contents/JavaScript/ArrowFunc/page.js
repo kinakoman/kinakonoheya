@@ -1,4 +1,3 @@
-import Meta from '@/components/Meta'
 import Contents from '@/components/contents/Contents'
 import Section from '@/components/contents/Section'
 import SubSection from '../../../components/contents/SubSection'
@@ -14,11 +13,13 @@ export const data = {
     tag: ["JavaScript"],
     date: ["2024", "10", "27"]
 }
+export const metadata = {
+    title: `${data.title} | きなこの部屋`
+}
 
 export default function test() {
     return (
         <>
-            <Meta title={data.title} />
             <Contents data={data}>
                 <Section title="はじめに">
                     <Text>JavaScriptで関数を宣言する場合、functionとアロー関数の2つを利用することが出来ます。単に関数を実行するだけなら
