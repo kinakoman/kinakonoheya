@@ -1,12 +1,12 @@
 import Meta from '@/components/Meta'
 import Contents from '@/components/contents/Contents'
 import Section from '@/components/contents/Section'
-import SubSection from '../../components/contents/SubSection'
+import SubSection from '@/components/contents/SubSection'
 import Text from '@/components/contents/Text'
-import CodeBox from '../../components/contents/CodeBox'
-import CodeIn from '../../components/contents/CodeIn'
-import LinkIn from '../../components/contents/LinkIn'
-import ImageSet from '../../components/contents/ImageSet'
+import CodeBox from '@/components/contents/CodeBox'
+import CodeIn from '@/components/contents/CodeIn'
+import LinkIn from '@/components/contents/LinkIn'
+import ImageSet from '@/components/contents/ImageSet'
 
 export const data = {
     title: "ページのタイトルを書きます",
