@@ -61,7 +61,7 @@ export default function test() {
                         返り値の中でliタグを生成し、export default 関数のreturn内で出力している形になります。
                     </Text>
                     <Text>map関数のelementをタグの中で記述する際に{`{element}`}としていますが、
-                        これはmap関数の中でも返り値の中であっても、
+                        これはmap関数の返り値の中であっても、
                         htmlタグを記述する際はJavaSctipt構文は許されないというルールが適用されるためです。
                     </Text>
                     <Text>上の例では、export default 関数のreturnの外でmap関数の出力を新たに配列に格納し、

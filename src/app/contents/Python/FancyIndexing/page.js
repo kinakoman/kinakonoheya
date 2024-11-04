@@ -51,7 +51,7 @@ export default function test() {
 [3 4 5]`}</CodeBox>
                     <Text>上の例では{`arr[1]`}のインデックス{`[0,1,2]`}が順に出力されます。全軸がそれぞれ同じ値なら通常のインデキシングになります。</Text>
                     <SubSection>1軸目のfancy index</SubSection>
-                    <Text>{`[]`}が1つだけなら1軸目を各インデックスの要素を全て取り出すことになります。</Text>
+                    <Text>{`[]`}が1つだけなら1軸目の各インデックスの要素を全て取り出すことになります。</Text>
                     <CodeBox lang={"python"} comment={"1軸目の指定"}>{`>>> arr=np.zeros((3,3,3))
 >>> arr[1,1,1]=1
 >>> print(arr)

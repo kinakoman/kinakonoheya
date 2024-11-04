@@ -8,7 +8,7 @@ import Toc from "@/components/contents/Toc"
 export const data = {
     title: "Python入門学習",
     tag: ["Python"],
-    date: ["2024", "11", "02"]
+    date: ["2024", "11", "04"]
 }
 export const metadata = {
     title: `${data.title} | きなこの部屋`
@@ -29,10 +29,17 @@ $ source .bashrc
 `}</Code>
                     <Sub>Hello,World</Sub>
                     <Tx>Pythonファイルの実行にはpython3コマンドを利用します。</Tx>
-                    <Code lang={"python"} tab={""}>{`print("Hello,World")`}</Code>
+                    <Code lang={"python"} tab={"test.py"}>{`print("Hello,World")`}</Code>
                     <Code lang={"shell"} tab={""}>{`$ python3 test.py
 Hello,World
 `}</Code>
+                    <Tx>Pythonはインタプリタ言語で対話形式の実行も可能です。</Tx>
+                    <Code lang={"shell"} tab={"ターミナル"}>{`$ python3
+Python 3.11.3 (main, Apr 19 2023, 23:54:32) [GCC 11.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> print("Hello,World")
+Hello,World
+>>> exit()`}</Code>
                 </Sec>
 
                 <Sec title="基本構文">
@@ -47,6 +54,83 @@ text="Hello"
 # 配列
 arr=[10,20,30]
 `}</Code>
+                    <Tx>カンマで区切って同時に定義もすることも可能です。</Tx>
+                    <Code lang={"python"}>{`x,y,z=5,10,"text"
+print(x,y,z)
+# 5 10 text`}
+                    </Code>
+                    <Sub>比較演算子</Sub>
+                    <Tx>比較演算子はTrueとFalseのブール値を出力します。</Tx>
+                    <Code lang={"python"}>{`>>> x,y,z=5,10,10
+>>> x==y
+False
+>>> x!=y
+True
+>>> x<z
+True
+>>> y<=z
+True
+>>> x>z
+False
+>>> x>=z
+False`}</Code>
+                    <Sub>論理演算子</Sub>
+                    <Tx>論理演算子はブール値をもとに真偽判断を行います。andは論理積、orは論理和、notは真偽の反転を行います。</Tx>
+                    <Code lang={"python"}>{`>>> x,y=True,False
+>>> x and y
+False
+>>> x or y
+True
+>>> not y
+True
+>>> x and not y
+True`}</Code>
+                    <Sub>if文</Sub>
+                    <Tx>論理演算を元に条件分岐を行います。条件が1個、2個ならelseとifを、3個以上ならelifを利用します。</Tx>
+                    <Code lang={"python"}>{`x,y=5,10
+if(x==y):
+    print("x=y")
+else:
+    print("x≠y")
+    
+z=10
+if(x==z):
+    print("x=z")
+elif(x==y):
+    print("x=y")
+else:
+    print("x≠z and x≠y")`}</Code>
+                    <Sub>for文</Sub>
+                    <Tx>for文はデータ構造やリストから繰り返し数を取得します。
+                    </Tx>
+                    <Code lang={"python"}>{`# データ構造から繰り返し
+for i in range(5):
+    print(i)
+# 文字列から繰り返し
+word="python"
+for letter in word:
+    print(letter)
+# リストから繰り返し
+list=["one","two","three"]
+for i,text in enumerate(list):
+    print(i,text)`}</Code>
+                    <Sub>break,continue</Sub>
+                    <Tx>breakでは繰り返しの中断、continueでは次の繰り返し処理へのスキップが可能です。</Tx>
+                    <Code lang={"python"}>{`list=["zero","one","two","three"]
+
+for i,text in enumerate(list):
+    if i==1:
+        print("break")
+        break
+    print(i,text)
+
+for i,text in enumerate(list):
+    print(i)
+    if(i==2):
+        print("continue")
+        continue
+    #i==2ではtextの出力はされずi=3にスキップ
+    print(text)`}</Code>
                 </Sec>
 
                 <Sec title="Numpy">
@@ -118,6 +202,26 @@ print(x[:,1:3])
 print(x[:2,1:])
 # [['01' '02' '03']
 #  ['11' '12' '13']]`}
+                    </Code>
+                    <Sub>配列の論理演算</Sub>
+                    <Tx>Numpy配列では論理演算を用いた操作が可能です。</Tx>
+                    <Code lang={"python"} >{`x=np.array([1,3,5,7])
+y=np.array([0,4,2,9])
+
+# 配列の論理演算(ブール配列の生成)
+print(x>4)
+# [False False  True  True]
+
+# ブール配列でのインデキシング
+print(x[x>y])
+# [1 5]
+
+# ブール配列を用いた要素操作
+newArr=np.zeros(np.shape(x))
+# ブール配列のTrueのインデックスに代入
+newArr[x<y]=1
+print(newArr)
+# [0. 1. 0. 1.]`}
                     </Code>
                 </Sec>
 
