@@ -19,7 +19,7 @@ export default function Toc() {
 
     return (
         <>
-            <div className={styles.section}>
+            <div className={styles.section} style={{ marginTop: "20px" }}>
                 <div className={styles.sectionTitleStudy} style={{ fontWeight: "bold" }}>目次</div>
             </div>
             <nav className="toc" style={tocStyle} />

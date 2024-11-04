@@ -6,7 +6,7 @@ import Code from '@/components/study/Code'
 import Toc from "@/components/contents/Toc"
 
 export const data = {
-    title: "Python入門学習",
+    title: "【Python入門学習】",
     tag: ["Python"],
     date: ["2024", "11", "04"]
 }
