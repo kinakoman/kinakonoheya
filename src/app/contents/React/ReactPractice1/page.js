@@ -44,11 +44,11 @@ export default function test() {
                         {`--template typescript`}でTypeScriptを導入します。
                     </Text>
                     <Text>Reactのバージョンは次の通りです。</Text>
-                    <CodeBox lang="shell" comment="/react-sample/package.json">{`{
+                    <CodeBox lang="json" comment="/react-sample/package.json">{`{
   "name": "react-sample",
   "version": "0.1.0",
   "private": true,
-  ~~~~~
+  ~省略~
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -69,19 +69,19 @@ export default function test() {
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-~~~~~~
+~省略~
   }
 }`}</CodeBox>
-                    <Section title="ローカル環境での開発">
-                        <Text>以下のコマンドを実行してローカル環境でのアプリケーション開発を開始できます。コマンドはpackage.jsonから変更することも可能です。</Text>
-                        <CodeBox lang="shell" comment="アプリケーションの起動">{`/react-sample$ npm start`}</CodeBox>
-                        <Text>デフォルトでlocalhost:3000にアプリケーションが起動します。下のような画面が出力されれば成功しています。</Text>
-                        <ImageSet alt="テスト画像" height={300} width={600} image={image1} />
-                    </Section>
-                    <Section title="おわりに">
-                        <Text>今回の記事はここまでです。次回はGithubを用いたReactアプリケーションの公開方法についてまとめます。</Text>
-                        <LinkIn link={"NextPractice2"} title={"GitHub pagesを用いたReactの公開"}></LinkIn>
-                    </Section>
+                </Section>
+                <Section title="ローカル環境での開発">
+                    <Text>以下のコマンドを実行してローカル環境でのアプリケーション開発を開始できます。コマンドはpackage.jsonから変更することも可能です。</Text>
+                    <CodeBox lang="shell" comment="アプリケーションの起動">{`/react-sample$ npm start`}</CodeBox>
+                    <Text>デフォルトでlocalhost:3000にアプリケーションが起動します。下のような画面が出力されれば成功しています。</Text>
+                    <ImageSet alt="テスト画像" height={300} width={600} image={image1} />
+                </Section>
+                <Section title="おわりに">
+                    <Text>今回の記事はここまでです。次回はGithubを用いたReactアプリケーションの公開方法についてまとめます。</Text>
+                    <LinkIn link={"React/ReactPractice2"} title={"【React入門#2】GitHub pagesでの公開"}></LinkIn>
                 </Section>
                 {/* <Section title="セクション名">
                     <SubSection>サブセクションタイトル</SubSection>
