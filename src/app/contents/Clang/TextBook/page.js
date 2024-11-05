@@ -120,8 +120,113 @@ printf("%ld\\n", sizeof(x));
 printf("%ld\\n", sizeof(arr));
 // 12
 // int型が3つで3x4=12`}</Code>
-                    {/* <Sub>配列の繰り返し処理</Sub> */}
                 </Sec>
+                <Sec title="基本構文">
+                    <Sub>for文</Sub>
+                    <Tx>for文は{`()`}の中で初期化、条件式、変化式を記述し、条件式がTrueの間繰り返しを実行します。</Tx>
+                    <Code lang="c">{`for (int i = 0; i < 5; i++)
+{
+    printf("%d\\n", i);
+}`}</Code>
+                    <Sub>配列の繰り返し</Sub>
+                    <Tx>sizeof演算子を用いれば配列のサイズ数回繰り返し実行することが簡単に記述できます。</Tx>
+                    <Code lang="c">{` int arr[3];
+// sizeof(arr)/sizeof(arr[0])で配列サイズを取得
+for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
+{
+    arr[i] = i;
+    printf("%d\\n", arr[i]);
+}`}</Code>
+                    <Sub>while,do-while文</Sub>
+                    <Tx>while文は条件式だけ記述して繰り返しを実行します。</Tx>
+                    <Code lang="c">{`int count = 0;
+while (count < 10)
+{
+    printf("%d\\n", count);
+    count++;
+}`}</Code>
+                    <Tx>do-while文もwhile文と同様ですが、繰り返しの条件判定が処理の実行後に行われるという点で異なります。</Tx>
+                    <Code lang="c">{`int answer, num;
+do
+{
+    num++;
+    printf("%d\\n", num);
+    answer = num % 10;
+} while (answer != 0);`}
+                    </Code>
+                    <Sub>if文</Sub>
+                    <Tx>比較演算子や論理演算子を元に条件分岐を行います。
+                        条件が複数ある場合はif elseやelseを利用します。
+                    </Tx>
+                    <Code lang="c">{`int a = 10;
+if (a < 10)
+{
+    printf("a<10\\n");
+}
+else if (a > 10)
+{
+    printf("a>10\\n");
+}
+else
+{
+    printf("a=10\\n");
+}`}</Code>
+                    <Sub>比較演算子</Sub>
+                    <Tx>比較演算子には{`==、!=、<=、<、>=、>`}があります。</Tx>
+                    <Sub>論理演算子</Sub>
+                    <Tx>論理演算子には論理積{`(&&)`}、論理和{`(||)`}、真偽反転{`(!)`}があります。</Tx>
+                    <Code lang="c">{`int a = 10;
+int b = 5;
+int c = 5;
+
+if (a == b && b == c)
+{
+    printf("good\\n");
+}
+else
+{
+    printf("bad\\n");
+}
+
+if (a == b || b == c)
+{
+    printf("good\\n");
+}
+else
+{
+    printf("bad\\n");
+}
+
+if (!(a == b) && b == c)
+{
+    printf("good\\n");
+}
+else
+{
+    printf("bad\\n");
+}`}</Code>
+                    <Sub>switch文</Sub>
+                    <Tx>ある変数の値に応じて条件分岐を行いたい場合はswitch文が適しています。{`()`}には参照したい変数を入れ、
+                        caseで条件分岐したい値を指定して処理を書きます。処理の最後にはbreakを入れます。
+                    </Tx>
+                    <Tx>どの値にも一致しなかった時のためにdefaultの分岐も記述します。</Tx>
+                    <Code lang="c">{`int a = 1;
+switch (a)
+{
+case 1:
+    printf("a=1\\n");
+    break;
+case 2:
+    printf("a=2\\n");
+    break;
+case 3:
+    printf("a=3\\n");
+    break;
+default:
+    break;
+}`}</Code>
+                </Sec>
+
                 {/* <Sec title="はじめに">
                     <Sub>こんにちは</Sub>
                     <Tx>これは本文</Tx>
