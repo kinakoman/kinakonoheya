@@ -11,7 +11,8 @@ import image1 from "./image1.jpg"
 export const data = {
     title: "UbuntuでのC/C++環境構築",
     tag: ["C言語", "C++", "Ubuntu"],
-    date: ["2024", "10", "22"]
+    date: ["2024", "10", "22"],
+    latest: ["2024", "10", "24"]
 }
 export const metadata = {
     title: `${data.title} | きなこの部屋`

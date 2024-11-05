@@ -8,7 +8,8 @@ import Toc from "@/components/contents/Toc"
 export const data = {
     title: "テスト",
     tag: ["tag", "tag2"],
-    date: ["9999", "99", "99"]
+    date: ["9999", "99", "99"],
+    // latest: ["9999", "99", "99"]
 }
 export const metadata = {
     title: `${data.title} | きなこの部屋`

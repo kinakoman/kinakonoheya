@@ -4,6 +4,7 @@
   "homepage": "https://kinakoman.github.io/kinakonoheya/",
   "private": true,
   "scripts": {
+    "git": "git add . && git commit -m \"commit\" && git push origin master",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
