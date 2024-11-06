@@ -8,7 +8,8 @@ import Toc from "@/components/contents/Toc"
 export const data = {
     title: "【C言語入門学習】",
     tag: ["C言語"],
-    date: ["2024", "11", "05"]
+    date: ["2024", "11", "05"],
+    latest: ["2024", "11", "06"]
 }
 export const metadata = {
     title: `${data.title} | きなこの部屋`
@@ -90,7 +91,9 @@ printf("%f\\n", y);
 // 桁指定
 printf("%.8f\\n", y);
 // 文字型の出力
-printf("%c\\n", z);`}</Code>
+printf("%c\\n", z);
+// 指定を増やして対応する変数をカンマで区切れば同時に複数出力できます
+printf("%d,%f,%c\\n", x, y, z);`}</Code>
                 </Sec>
                 <Sec title="配列">
                     <Sub>配列の初期化</Sub>
@@ -121,7 +124,30 @@ printf("%ld\\n", sizeof(arr));
 // 12
 // int型が3つで3x4=12`}</Code>
                 </Sec>
+
+
                 <Sec title="基本構文">
+                    <Sub>関数の定義</Sub>
+                    <Tx>関数はmainの外で宣言し、戻り値の型 関数名 (引数)の形で定義します。戻り値が無い場合は型指定はvoidとします。</Tx>
+                    <Code lang="c">{`void output()
+{
+    printf("Hello\\n");
+}
+
+int calcSum(int a, int b)
+{
+    return a + b;
+}
+int main(int argc, char const *argv[])
+{
+    output();
+    // Hello
+    int a = 10;
+    int b = 5;
+    printf("%d\\n", calcSum(a, b));
+    // 15
+    return 0;
+}`}</Code>
                     <Sub>for文</Sub>
                     <Tx>for文は{`()`}の中で初期化、条件式、変化式を記述し、条件式がTrueの間繰り返しを実行します。</Tx>
                     <Code lang="c">{`for (int i = 0; i < 5; i++)
@@ -226,7 +252,114 @@ default:
     break;
 }`}</Code>
                 </Sec>
+                <Sec title="ポインタ">
+                    <Sub>アドレスの概念</Sub>
+                    <Tx>変数を宣言するとメモリが割り当てられます。{`&+変数`}でメモリのアドレスにアクセスできます。</Tx>
+                    <Code lang="c">{`int x;
+// %pで出力
+printf("%p\\n", &x);
+// 0x7ffcaecb30c4`}</Code>
+                    <Sub>ポインタ型変数</Sub>
+                    <Tx>ポインタ型変数の宣言はデータ型の横に{`*`}を付けます。ポインタ型変数にはアドレスを代入します。</Tx>
+                    <Code lang="c">{`// int型通常変数
+int x;
+// intポインタ型変数
+int *x_p;
+// ポインタ型変数の初期化
+x_p = &x;`}</Code>
+                    <Sub>通常変数モード</Sub>
+                    <Tx>ポインタ型変数に{`*`}を付けると通常変数としてアドレスに格納された値を操作できます。</Tx>
+                    <Code lang="c">{`int x = 10;
+int *x_p = &x;
 
+// 通常変数モードで操作
+*x_p = 20;
+
+printf("%d,%d\\n", x, *x_p);
+// 20,20
+// ポインタはアドレスに格納された値を参照するので
+// アドレス元のxの値も更新されます`}</Code>
+                    <Sub>ダブルポインタ</Sub>
+                    <Tx>ポインタ型変数もメモリとアドレスが割り当てられます。ダブルポインタはポインタ型変数のポインタです。</Tx>
+                    <Code lang="c">{`int x = 10;
+int *x_p = &x;
+int **x_pp = &x_p;
+
+printf("%p,%p\\n", &x, x_p);
+// 0x7ffe0abdbf54,0x7ffe0abdbf54
+
+printf("%p,%p\\n", &x_p, x_pp);
+// 0x7ffe0abdbf58,0x7ffe0abdbf58`}</Code>
+                    <Sub>配列とポインタ</Sub>
+                    <Tx>配列とポインタはほぼ等価です。ポインタ型変数の初期化には配列の変数も代入できます。</Tx>
+                    <Code lang="c">{`int arr[] = {0, 1, 2};
+int *arr_p = arr;`}</Code>
+                    <Tx>配列を代入したポインタ型変数は、変数+indexで元配列の要素のアドレスを参照することが出来ます。(配列の変数も同様。)</Tx>
+                    <Code lang="c">{`char str[] = "Hello";
+char *str_p = str;
+
+printf("%p,%p,%p,%p\\n", str, &str[0], str_p, str_p + 1);
+// 0x7fff033a3d62,0x7fff033a3d62,0x7fff033a3d62,0x7fff033a3d63
+printf("%c,%c\\n", *(str + 1), *(str_p + 4));
+// e,o`}</Code>
+                    <Tx>配列とポインタの相違点として、ポインタはアドレスを変数として更新できますが配列はできません。</Tx>
+                    <Code lang="c">{`int arr[] = {0, 1};
+int *arr_p = arr;
+
+arr_p++;
+printf("%d\\n", *arr_p);
+// 1
+
+// これはエラー
+// arr++;
+// printf("%d\\n", *arr);
+// arrはあくまで&arr[0]であり変数として操作できない`}</Code>
+                    <Sub>関数のポインタ渡し</Sub>
+                    <Tx>関数の引数にポインタを渡せば関数の中で直接アドレスの操作が可能です。</Tx>
+                    <Code lang="c">{`void overWrite(int a, int *b_p)
+{
+    a = 10;
+    *b_p = 10;
+}
+int main(int argc, char const *argv[])
+{
+    int a = 5;
+    int b = 5;
+    int *b_p = &b;
+
+    printf("%d,%d\\n", a, b);
+    // 5,5
+
+    overWrite(a, b_p);
+
+    printf("%d,%d\\n", a, b);
+    // 通常変数を渡したaの値は変化しないがアドレスを渡したbの値は上書きされる
+    // 5,10
+
+    return 0;
+}`}</Code>
+                    <Tx>通常変数を渡すと関数の中で新しいメモリにその値が保存されますがポインタはメモリが共通なのでメモリの節約にもなります。</Tx>
+                    <Code lang="c">{`void showAddress(int a, int *b_p)
+{
+    printf("%p,%p\\n", &a, b_p);
+}
+int main(int argc, char const *argv[])
+{
+    int a = 5;
+    int b = 5;
+    int *b_p = &b;
+
+    printf("%p,%p\\n", &a, b_p);
+    // 0x7ffc0fac11d8,0x7ffc0fac11dc
+
+    showAddress(a, b_p);
+    // 0x7ffc0fac11ac,0x7ffc0fac11dc
+    // aは関数内で新しいメモリが割り当てられている、bは共通
+
+    return 0;
+}
+`}</Code>
+                </Sec>
                 {/* <Sec title="はじめに">
                     <Sub>こんにちは</Sub>
                     <Tx>これは本文</Tx>
