@@ -112,7 +112,9 @@ double arr_3[] = {3.2, 4.1, 5.4};`}</Code>
                     <Code lang={"c"}>{`char str[] = {'a', 'b', 'c', '\\0'};`}</Code>
                     <Tx>文字列をそのまま格納することも可能です。1文字ずつ要素として格納され、ヌル文字も自動で格納されます。
                         文字列はダブルクォーテーション{`(")`}で囲みます。</Tx>
-                    <Code lang={"c"}>{`char str_2[] = "hello";`}</Code>
+                    <Code lang={"c"}>{`char str_2[] = "hello";
+printf("%s\\n", str_2);`}</Code>
+                    <Tx>文字列の出力には{`%s`}を利用します。配列はインデックスを指定せず変数のみを指定します。</Tx>
                     <Sub>sizeof演算子</Sub>
                     <Tx>sizeof演算子で配列に割り当てられたバイトサイズを表示できます</Tx>
                     <Code lang="c">{`int x;
@@ -314,6 +316,10 @@ printf("%d\\n", *arr_p);
 // arr++;
 // printf("%d\\n", *arr);
 // arrはあくまで&arr[0]であり変数として操作できない`}</Code>
+                    <Sub>ポインタの文字列</Sub>
+                    <Tx>ポインタを配列として直接文字列を代入して扱うことも可能です。</Tx>
+                    <Code lang="c">{`char *name = "Tanaka";
+printf("%s\\n", name);`}</Code>
                     <Sub>関数のポインタ渡し</Sub>
                     <Tx>関数の引数にポインタを渡せば関数の中で直接アドレスの操作が可能です。</Tx>
                     <Code lang="c">{`void overWrite(int a, int *b_p)
@@ -360,6 +366,77 @@ int main(int argc, char const *argv[])
 }
 `}</Code>
                 </Sec>
+                <Sec title="構造体">
+                    <Sub>構造体とは</Sub>
+                    <Tx>構造体とは、ある対象の関連項目をまとめたものです。各関連項目はメンバと呼ばれ、変数をメンバとして設定します。
+                        構造体を宣言したものは実体と呼ばれ、この実体を通してメンバへの値の代入などを行います。
+                    </Tx>
+                    <Sub>構造体の作成</Sub>
+                    <Tx>構造体の作成はmain関数の外で行います。メンバはデータ型と変数名を設定します。作成時に変数の初期化はできません。</Tx>
+                    <Code lang="c">{`struct number
+{
+int x;
+int y;
+};`}</Code>
+                </Sec>
+                <Sub>構造体の宣言</Sub>
+                <Tx>構造体の宣言はmain関数で行います。宣言時には使用する構造体と構造体変数を明記します。メンバの初期化も同時に行うことが出来ます。</Tx>
+                <Code lang="c">{`struct person
+{
+    char *name;
+    int age;
+    double height;
+};
+int main(int argc, char const *argv[])
+{
+    struct person Tanaka = {"Tanaka", 24, 1.74};
+    return 0;
+}`}</Code>
+                <Sub>メンバへのアクセス</Sub>
+                <Tx>メンバには変数名.メンバ名の形でアクセスします。</Tx>
+                <Code lang="c">{`struct number
+{
+    int x;
+    double y;
+};
+int main(int argc, char const *argv[])
+{
+    struct number data;
+    data.x = 1;
+    data.y = 1.234;
+    printf("%d,%f\\n", data.x, data.y);
+    return 0;
+}`}</Code>
+                <Sub>構造体のポインタ</Sub>
+                <Tx>構造体変数にポインタを当てることも可能です。ポインタからメンバにアクセスする際は.の代わりに{`->`}を使います。</Tx>
+                <Code lang="c">{`struct number
+{
+    int x;
+    double y;
+};
+int main(int argc, char const *argv[])
+{
+    struct number data = {1, 1.2345};
+    struct number *data_p = &data;
+    printf("%d,%f\\n", data_p->x, data_p->y);
+    return 0;
+}`}</Code>
+                <Sub>構造体の配列</Sub>
+                <Tx>構造体変数を配列として宣言できます。メンバには配列{`[インデックス]`}.メンバ名でアクセスします。
+                </Tx>
+                <Code lang="c">{`struct number
+{
+    int x;
+};
+int main(int argc, char const *argv[])
+{
+    struct number data[3];
+    for (int i = 0; i < sizeof(data) / sizeof(data[0]); i++)
+    {
+        data[i].x = i;
+    }
+    printf("%d,%d,%d\\n", data[0].x, data[1].x, data[2].x);
+}`}</Code>
                 {/* <Sec title="はじめに">
                     <Sub>こんにちは</Sub>
                     <Tx>これは本文</Tx>
