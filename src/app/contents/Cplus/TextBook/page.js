@@ -9,7 +9,7 @@ export const data = {
     title: "【C++入門学習】",
     tag: ["C++"],
     date: ["2024", "11", "06"],
-    // latest: ["9999", "99", "99"]
+    latest: ["2024", "11", "07"]
 }
 export const metadata = {
     title: `${data.title} | きなこの部屋`
@@ -71,20 +71,86 @@ std::string name = "Tanaka";
 std::cout << name << std::endl;
 // Tanaka`}</Code>
                 </Sec>
-                {/* <Sec title="はじめに">
-                    <Sub>こんにちは</Sub>
-                    <Tx>これは本文</Tx>
-                    <Code lang={"javascript"} tab={"コードの例"}>{`const testiD=document.getElementById("test")
-console.log(testiD)
-testiD.addEventListener("mouseout",function () {
-    this.classList.add("testadd")
-})`}</Code>
-                    <Sub>こんにちは2</Sub>
+                <Sec title="クラス">
+                    <Sub>クラスとは</Sub>
+                    <Tx>クラスはオブジェクト指向プログラミングで必須の概念です。構造体とよく似ていますが、メンバに関数を持つことが出来るようになっています。</Tx>
+                    <Sub>クラスの生成</Sub>
+                    <Tx>クラスの生成はmain関数の外で行います。以下に示すのはクラスの簡単な例です。</Tx>
+                    <Code lang="cpp">{`class Number
+{
+public:
+    int x;
+    void show()
+    {
+        std::cout << x << std::endl;
+    }
+};`}</Code>
+                    <Sub>クラスの宣言</Sub>
+                    <Tx>クラスの宣言はmain関数内で行います。メンバへのアクセスはクラス変数.メンバ名で行います。</Tx>
+                    <Code lang="cpp">{`class Number
+{
+public:
+    int x;
+    void show()
+    {
+        std::cout << x << std::endl;
+    }
+};
+int main(int argc, char const *argv[])
+{
+    Number data;
+    data.x = 10;
+    data.show();
+
+    return 0;
+}`}</Code>
+                    <Sub>public,private</Sub>
+                    <Tx>クラスにはpublicとprivateのアクセス制限を設定します。publicのメンバはクラス外から自由にアクセス可能ですがprivateのメンバはクラス外からアクセスできません。</Tx>
+                    <Code lang="cpp">{`class Number
+{
+public:
+    int x;
+private:
+    int y;  
+};
+int main(int argc, char const *argv[])
+{
+    Number data;
+    // アクセス可能
+    data.x = 10;
+    // privateはアクセス不可でエラー
+    // data.y=10;
+    
+    return 0;
+}`}</Code>
+                    <Sub>カプセル化</Sub>
+                    <Tx>privateのメンバは外部からアクセスできないため、クラス内にアクセス用の関数などを用意します。これをアクセッサと呼び、メンバの外部操作を禁止し内部からの操作を受け付けることをカプセル化と呼びます。</Tx>
+                    <Code lang="cpp">{`class Number
+{
+public:
+    void setNum(int x0, int y0)
+    {
+        x = x0;
+        y = y0;
+    }
+    void show()
+    {
+        std::cout << x << "," << y << std::endl;
+    }
+private:
+    int x;
+    int y;
+};
+int main(int argc, char const *argv[])
+{
+    Number data;
+    data.setNum(10, 12);
+    data.show();
+    // 10,12
+    return 0;
+}`}</Code>
                 </Sec>
-                <Sec title="はじめにの">
-                    <Sub>こんにちは3</Sub>
-                    <Sub>こんにちは4</Sub>
-                </Sec> */}
+
             </Contents>
         </>
     )
