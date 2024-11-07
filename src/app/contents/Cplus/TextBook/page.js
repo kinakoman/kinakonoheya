@@ -62,15 +62,77 @@ bool flag = true;
 std::cout << x << y << z << std::endl;
 // bool型の出力は1と0
 std::cout << flag << !flag << std::endl;`}</Code>
+                    <Sub>参照渡し</Sub>
+                    <Tx>&で変数を宣言し別の変数を代入することで参照渡しが可能です。参照渡しでは複数の変数で同じアドレスを参照するため値の紐づけが行われます。</Tx>
+                    <Code lang="cpp">{`int a = 10;
+int &b = a;
+std::cout << &a << "," << &b << std::endl;
+// 0x7ffdffa0688c,0x7ffdffa0688c
+std::cout << b << std::endl;
+// 10
+a = 20;
+std::cout << b << std::endl;
+// 20`}</Code>
+                    <Sub>関数のオーバーロード</Sub>
+                    <Tx>C言語では同名の関数は定義できませんが、C++では引数が違う同名の関数を定義できます。これを関数のオーバーロードと呼びます。</Tx>
+                    <Code lang="cpp">{`void output(int x)
+{
+    std::cout << "引数はint型でした:" << x << std::endl;
+}
+void output(char a)
+{
+    std::cout << "引数はchar型でした:" << a << std::endl;
+}
+int main(int argc, char const *argv[])
+{
+    int x = 10;
+    char a = 'A';
+
+    output(x);
+    // 引数はintでした:10
+    output(a);
+    // 引数は文字列でした:Hello
+    return 0;
+}`}</Code>
                 </Sec>
+
                 <Sec title="string">
-                    <Sub>文字列型の宣言</Sub>
+                    <Sub>文字列型の実装</Sub>
                     <Tx>C++では文字列型が実装されています。利用するにはstringライブラリをインクルードします。</Tx>
-                    <Code lang="cpp">{`// 文字列型の宣言にはstd::string
-std::string name = "Tanaka";
-std::cout << name << std::endl;
-// Tanaka`}</Code>
+                    <Code lang="cpp">{`#include <iostream>
+#include <string>
+
+int main(int argc, char const *argv[])
+{
+    // 文字列型の宣言にはstd::string
+    std::string name = "Tanaka";
+    std::cout << name << std::endl;
+    // Tanaka
+    return 0;
+}`}</Code>
+                    <Sub>文字列型の初期化</Sub>
+                    <Tx>文字列型の宣言や初期化は以下のように行います。</Tx>
+                    <Code lang="cpp">{`std::string s1;
+std::string s2 = "Hello";
+// Hello
+std::string s3("World");
+// World
+std::string s4(s3);
+// World
+std::string s5(10, 'a');
+// aaaaaaaaaa
+// 同じ文字を10個格納`}</Code>
+                    <Sub>文字の抽出</Sub>
+                    <Tx>文字列から任意の箇所の文字を抽出できます。</Tx>
+                    <Code lang="cpp">{`std::string s1 = "Hello,World";
+// 1文字抽出
+char c = s1[3];
+// n番目以降の抽出
+std::string s2 = s1.substr(6);
+// n番目以降のm文字抽出
+std::string s3 = s1.substr(6, 3);`}</Code>
                 </Sec>
+
                 <Sec title="クラス">
                     <Sub>クラスとは</Sub>
                     <Tx>クラスはオブジェクト指向プログラミングで必須の概念です。構造体とよく似ていますが、メンバに関数を持つことが出来るようになっています。</Tx>
@@ -150,7 +212,83 @@ int main(int argc, char const *argv[])
     return 0;
 }`}</Code>
                 </Sec>
+                <Sub>コンストラクタ</Sub>
+                <Tx>コンストラクタはクラスの宣言時に一度実行される関数です。コンストラクタは戻り値なしでクラス名と同じ名前として宣言します。</Tx>
+                <Code lang="cpp">{`class Number
+{
+public:
+    Number()
+    {
+        std::cout << "コンストラクタ" << std::endl;
+    }
+};
+int main(int argc, char const *argv[])
+{
+    Number data;
+    // コンストラクタ
+    return 0;
+}`}</Code>
+                <Sub>コンストラクタでの初期化</Sub>
+                <Tx>コンストラクタは引数を設定できます。初期化などに利用すると便利です。</Tx>
+                <Code lang="cpp">{`class Number
+{
+public:
+    Number(int x0, int y0)
+    {
+        x = x0;
+        y = y0;
+    }
+    void show()
+    {
+        std::cout << x << "," << y << std::endl;
+    }
 
+private:
+    int x;
+    int y;
+};
+int main(int argc, char const *argv[])
+{
+    Number data(10, 20);
+    data.show();
+    // 10,20
+    return 0;
+}
+`}</Code>
+                <Sub>コンストラクタのオーバーロード</Sub>
+                <Tx>コンストラクタもオーバーロードで引数ごとに処理を分岐できます。</Tx>
+                <Code lang="cpp">{`class Number
+{
+public:
+    Number()
+    {
+        x = y = 0;
+    }
+    Number(int x0, int y0)
+    {
+        x = x0;
+        y = y0;
+    }
+    void show()
+    {
+        std::cout << x << "," << y << std::endl;
+    }
+
+private:
+    int x;
+    int y;
+};
+int main(int argc, char const *argv[])
+{
+    Number data(10, 20);
+    // Number()で初期化
+    Number data2;
+    data.show();
+    // 10,20
+    data2.show();
+    // 0,0
+    return 0;
+}`}</Code>
             </Contents>
         </>
     )

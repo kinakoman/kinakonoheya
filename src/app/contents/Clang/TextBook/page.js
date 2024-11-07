@@ -9,7 +9,7 @@ export const data = {
     title: "【C言語入門学習】",
     tag: ["C言語"],
     date: ["2024", "11", "05"],
-    latest: ["2024", "11", "06"]
+    latest: ["2024", "11", "07"]
 }
 export const metadata = {
     title: `${data.title} | きなこの部屋`
@@ -363,9 +363,22 @@ int main(int argc, char const *argv[])
     // aは関数内で新しいメモリが割り当てられている、bは共通
 
     return 0;
+}`}</Code>
+                    <Sub>ポインタ配列</Sub>
+                    <Tx>ポインタを配列として管理することもできます。配列変数[インデックス]がポインタとして機能します。</Tx>
+                    <Code lang="c">{`int a, b, c;
+int *arr_p[3] = {&a, &b, &c};
+
+for (int i = 0; i < 3; i++)
+{
+    *arr_p[i] = i;
 }
-`}</Code>
+printf("%d,%d,%d\\n", a, b, c);
+// 0,1,2`}</Code>
                 </Sec>
+
+
+
                 <Sec title="構造体">
                     <Sub>構造体とは</Sub>
                     <Tx>構造体とは、ある対象の関連項目をまとめたものです。各関連項目はメンバと呼ばれ、変数をメンバとして設定します。
@@ -378,10 +391,9 @@ int main(int argc, char const *argv[])
 int x;
 int y;
 };`}</Code>
-                </Sec>
-                <Sub>構造体の宣言</Sub>
-                <Tx>構造体の宣言はmain関数で行います。宣言時には使用する構造体と構造体変数を明記します。メンバの初期化も同時に行うことが出来ます。</Tx>
-                <Code lang="c">{`struct person
+                    <Sub>構造体の宣言</Sub>
+                    <Tx>構造体の宣言はmain関数で行います。宣言時には使用する構造体と構造体変数を明記します。メンバの初期化も同時に行うことが出来ます。</Tx>
+                    <Code lang="c">{`struct person
 {
     char *name;
     int age;
@@ -392,9 +404,9 @@ int main(int argc, char const *argv[])
     struct person Tanaka = {"Tanaka", 24, 1.74};
     return 0;
 }`}</Code>
-                <Sub>メンバへのアクセス</Sub>
-                <Tx>メンバには変数名.メンバ名の形でアクセスします。</Tx>
-                <Code lang="c">{`struct number
+                    <Sub>メンバへのアクセス</Sub>
+                    <Tx>メンバには変数名.メンバ名の形でアクセスします。</Tx>
+                    <Code lang="c">{`struct number
 {
     int x;
     double y;
@@ -407,9 +419,9 @@ int main(int argc, char const *argv[])
     printf("%d,%f\\n", data.x, data.y);
     return 0;
 }`}</Code>
-                <Sub>構造体のポインタ</Sub>
-                <Tx>構造体変数にポインタを当てることも可能です。ポインタからメンバにアクセスする際は.の代わりに{`->`}を使います。</Tx>
-                <Code lang="c">{`struct number
+                    <Sub>構造体のポインタ</Sub>
+                    <Tx>構造体変数にポインタを当てることも可能です。ポインタからメンバにアクセスする際は.の代わりに{`->`}を使います。</Tx>
+                    <Code lang="c">{`struct number
 {
     int x;
     double y;
@@ -421,10 +433,10 @@ int main(int argc, char const *argv[])
     printf("%d,%f\\n", data_p->x, data_p->y);
     return 0;
 }`}</Code>
-                <Sub>構造体の配列</Sub>
-                <Tx>構造体変数を配列として宣言できます。メンバには配列{`[インデックス]`}.メンバ名でアクセスします。
-                </Tx>
-                <Code lang="c">{`struct number
+                    <Sub>構造体の配列</Sub>
+                    <Tx>構造体変数を配列として宣言できます。メンバには配列{`[インデックス]`}.メンバ名でアクセスします。
+                    </Tx>
+                    <Code lang="c">{`struct number
 {
     int x;
 };
@@ -437,20 +449,35 @@ int main(int argc, char const *argv[])
     }
     printf("%d,%d,%d\\n", data[0].x, data[1].x, data[2].x);
 }`}</Code>
-                {/* <Sec title="はじめに">
-                    <Sub>こんにちは</Sub>
-                    <Tx>これは本文</Tx>
-                    <Code lang={"javascript"} tab={"コードの例"}>{`const testiD=document.getElementById("test")
-console.log(testiD)
-testiD.addEventListener("mouseout",function () {
-    this.classList.add("testadd")
-})`}</Code>
-                    <Sub>こんにちは2</Sub>
                 </Sec>
-                <Sec title="はじめにの">
-                    <Sub>こんにちは3</Sub>
-                    <Sub>こんにちは4</Sub>
-                </Sec> */}
+                <Sec title="メモリの動的確保">
+                    <Sub>mallocの導入</Sub>
+                    <Tx>メモリの動的確保に利用する関数がmalloc関数です。mallocを利用するにはstdlib.hをインクルードします。</Tx>
+                    <Code lang="c">{`#include <stdlib.h>`}</Code>
+                    <Sub>malloc関数の基本</Sub>
+                    <Tx>malloc関数は引数にメモリサイズを取りメモリを確保したポインタを返します。メモリサイズの指定にはsizeof演算子に各データ型を与えると便利です。
+                        mallocの先頭に{`(データ型 *)`}でデータ型を明示している場合が多いですが必須ではありません。使い終わったメモリ(ポインタ)はfree関数に渡して解放します。
+                    </Tx>
+                    <Code lang="c">{`int *a;
+char *b;
+double *c;
+
+a = (int *)malloc(sizeof(int));
+b = (char *)malloc(sizeof(char));
+c = (double *)malloc(sizeof(double));
+printf("%ld,%ld,%ld\\n", sizeof(*a), sizeof(*b), sizeof(*c));
+// 4,1,8
+
+free(a);
+free(b);
+free(c);`}</Code>
+                    <Sub>配列のメモリ確保</Sub>
+                    <Tx>配列の場合は引数に要素数をかけることでメモリを確保できます。</Tx>
+                    <Code lang="c">{`int *arr;
+int arr_length = 10;
+arr = (int *)malloc(sizeof(int) * arr_length);`}</Code>
+                </Sec>
+
             </Contents>
         </>
     )
