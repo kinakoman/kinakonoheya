@@ -2,6 +2,7 @@ import '@/globals.css'
 
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
+import ScrollTop from './components/main/ScrollTop';
 
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
         <div className='mainArea'>
           {children}
         </div>
+        <ScrollTop />
         <Footer />
       </body>
     </html>

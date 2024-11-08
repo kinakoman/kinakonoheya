@@ -268,3 +268,13 @@
     line-height: 1.4;
     position: relative;
 }
+
+.scrollButton:hover {
+    transform: scale(1.1);
+}
+
+@media screen and (max-width:640px) {
+    .scrollButton {
+        display: none;
+    }
+}
