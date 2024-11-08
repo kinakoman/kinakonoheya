@@ -369,8 +369,62 @@ public:
     // 初期化の追加
     Child(int x0, int y0) : Parent(x0), y(y0) {}
 };`}</Code>
+                    <Sub>親クラスのメンバ関数呼び出し</Sub>
+                    <Tx>子クラスのメンバ関数内で親クラスのメンバ関数を呼び出すことが出来ます。呼び出しは{`親クラス::メンバ関数`}の形で記述します。</Tx>
+                    <Code lang="cpp">{`class Parent
+{
+public:
+    int x;
+    Parent(int x0) : x(x0) {}
+    void show()
+    {
+        std::cout << x << std::endl;
+    }
+};
+class Child : public Parent
+{
+public:
+    int y;
+    // 親クラスのコンストラクタの継承
+    Child(int x0) : Parent(x0) {}
+    // 初期化の追加
+    Child(int x0, int y0) : Parent(x0), y(y0) {}
+    void showChild()
+    {
+        Parent::show();
+        std::cout << "以降は子要素独自" << std::endl;
+        std::cout << y << std::endl;
+    }
+};`}</Code>
                     <Sub>関数のオーバーライド</Sub>
-                    <Tx></Tx>
+                    <Tx>親クラスで定義されたメンバ関数と同名の関数を子クラスで再定義できます。これを関数のオーバーライドと言います。</Tx>
+                    <Code lang="cpp">{`class Parent
+{
+public:
+    void show()
+    {
+        std::cout << "これは親クラスで定義されている。" << std::endl;
+    }
+};
+class Child : public Parent
+{
+public:
+    void show()
+    {
+        std::cout << "これは子クラスで定義されている。" << std::endl;
+    }
+};
+int main(int argc, char const *argv[])
+{
+    Parent parent;
+    Child child;
+    parent.show();
+    // これは親クラスで定義されている。
+    child.show();
+    // これは子クラスで定義されている。
+    
+    return 0;
+}`}</Code>
                 </Sec>
 
             </Contents>
