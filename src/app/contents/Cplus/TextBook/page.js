@@ -9,7 +9,7 @@ export const data = {
     title: "【C++入門学習】",
     tag: ["C++"],
     date: ["2024", "11", "06"],
-    latest: ["2024", "11", "07"]
+    latest: ["2024", "11", "08"]
 }
 export const metadata = {
     title: `${data.title} | きなこの部屋`
@@ -238,6 +238,8 @@ public:
         x = x0;
         y = y0;
     }
+    // これでも可
+    // Number(int x0, int y0) : x(x0), y(y0) {}
     void show()
     {
         std::cout << x << "," << y << std::endl;
@@ -301,7 +303,76 @@ void Number::show()
 {
     std::cout << x << std::endl;
 }`}</Code>
+                    <Sub>継承</Sub>
+                    <Tx>親となるクラスの構成要素を引き継いだ子クラスを生成することが出来ます。これを継承と呼びます。
+                        継承を行うには{`class 子クラス名 : public 親クラス名`}で定義します。
+                    </Tx>
+                    <Code lang="cpp">{`class Parent
+{
+public:
+    int x;
+    int y;
+    void show()
+    {
+        std::cout << x << "," << y << std::endl;
+    };
+};
+class Child : public Parent
+{
+};
+int main(int argc, char const *argv[])
+{
+    Child data;
+    data.x = 10;
+    data.y = 20;
+    data.show();
+    // 10,20
+    return 0;
+}`}</Code>
+                    <Sub>protected</Sub>
+                    <Tx>親クラスでprivate演算子で定義されたメンバは子クラスからもアクセスできません。
+                        子クラスからはアクセス可能でクラス外からはアクセス不可に設定するにはprotected演算子を用います。
+                    </Tx>
+                    <Code lang="cpp">{`class Parent
+{
+protected:
+    int z;
+};
+class Child : public Parent
+{
+public:
+    void setZ(int z0)
+    {
+        z = z0;
+    }
+    void showZ()
+    {
+        std::cout << z << std::endl;
+    }
+};`}</Code>
+                    <Sub>継承コンストラクタ</Sub>
+                    <Tx>親クラスで定義されたコンストラクタを子クラスでも利用する場合は、再度子クラスでコンストラクタを定義し、親クラスのコンストラクタを実行します。
+                        子クラスで追加されたメンバを初期化する場合は親クラスのコンストラクタに追加して初期化できます。
+                    </Tx>
+                    <Code lang="cpp">{`class Parent
+{
+public:
+    int x;
+    Parent(int x0) : x(x0) {}
+};
+class Child : public Parent
+{
+public:
+    int y;
+    // 親クラスのコンストラクタの継承
+    Child(int x0) : Parent(x0) {}
+    // 初期化の追加
+    Child(int x0, int y0) : Parent(x0), y(y0) {}
+};`}</Code>
+                    <Sub>関数のオーバーライド</Sub>
+                    <Tx></Tx>
                 </Sec>
+
             </Contents>
         </>
     )
