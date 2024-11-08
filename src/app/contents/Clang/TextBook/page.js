@@ -319,7 +319,21 @@ printf("%d\\n", *arr_p);
                     <Sub>ポインタの文字列</Sub>
                     <Tx>ポインタを配列として直接文字列を代入して扱うことも可能です。</Tx>
                     <Code lang="c">{`char *name = "Tanaka";
-printf("%s\\n", name);`}</Code>
+printf("%s,%c\\n", name, *(name + 4));
+
+// char *arr = {'a', 'b', 'c', '\\0'};
+// 文字列だけの特別仕様で通常配列では不可能です`}</Code>
+                    <Sub>ポインタ配列</Sub>
+                    <Tx>ポインタを配列として管理することもできます。配列変数[インデックス]がポインタとして機能します。</Tx>
+                    <Code lang="c">{`int a, b, c;
+int *arr_p[3] = {&a, &b, &c};
+
+for (int i = 0; i < 3; i++)
+{
+    *arr_p[i] = i;
+}
+printf("%d,%d,%d\\n", a, b, c);
+// 0,1,2`}</Code>
                     <Sub>関数のポインタ渡し</Sub>
                     <Tx>関数の引数にポインタを渡せば関数の中で直接アドレスの操作が可能です。</Tx>
                     <Code lang="c">{`void overWrite(int a, int *b_p)
@@ -364,17 +378,6 @@ int main(int argc, char const *argv[])
 
     return 0;
 }`}</Code>
-                    <Sub>ポインタ配列</Sub>
-                    <Tx>ポインタを配列として管理することもできます。配列変数[インデックス]がポインタとして機能します。</Tx>
-                    <Code lang="c">{`int a, b, c;
-int *arr_p[3] = {&a, &b, &c};
-
-for (int i = 0; i < 3; i++)
-{
-    *arr_p[i] = i;
-}
-printf("%d,%d,%d\\n", a, b, c);
-// 0,1,2`}</Code>
                 </Sec>
 
 
@@ -476,6 +479,18 @@ free(c);`}</Code>
                     <Code lang="c">{`int *arr;
 int arr_length = 10;
 arr = (int *)malloc(sizeof(int) * arr_length);`}</Code>
+                    <Sub>二次元配列の動的確保</Sub>
+                    <Tx>二次元配列の場合で動的メモリを確保を行うにはダブルポインタを利用します。ダブルポインタに格納するポインタ数(行数)のメモリを確保し、
+                        各ポインタの要素数(列数)のメモリを確保します。ダブルポインタの動的確保は、mallocの戻り値はダブルポインタにする必要があるためメモリサイズにはポインタを指定します。
+                    </Tx>
+                    <Code lang="c">{`int **arr;
+arr = (int **)malloc(sizeof(int *) * 3);
+// 各ポインタのメモリを確保
+for (int i = 0; i < 3; i++)
+{
+    arr[i] = (int *)malloc(sizeof(int) * 4);
+}
+free(arr);`}</Code>
                 </Sec>
 
             </Contents>

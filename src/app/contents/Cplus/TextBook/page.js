@@ -211,10 +211,10 @@ int main(int argc, char const *argv[])
     // 10,12
     return 0;
 }`}</Code>
-                </Sec>
-                <Sub>コンストラクタ</Sub>
-                <Tx>コンストラクタはクラスの宣言時に一度実行される関数です。コンストラクタは戻り値なしでクラス名と同じ名前として宣言します。</Tx>
-                <Code lang="cpp">{`class Number
+
+                    <Sub>コンストラクタ</Sub>
+                    <Tx>コンストラクタはクラスの宣言時に一度実行される関数です。コンストラクタは戻り値なしでクラス名と同じ名前として宣言します。</Tx>
+                    <Code lang="cpp">{`class Number
 {
 public:
     Number()
@@ -228,9 +228,9 @@ int main(int argc, char const *argv[])
     // コンストラクタ
     return 0;
 }`}</Code>
-                <Sub>コンストラクタでの初期化</Sub>
-                <Tx>コンストラクタは引数を設定できます。初期化などに利用すると便利です。</Tx>
-                <Code lang="cpp">{`class Number
+                    <Sub>コンストラクタでの初期化</Sub>
+                    <Tx>コンストラクタは引数を設定できます。初期化などに利用すると便利です。</Tx>
+                    <Code lang="cpp">{`class Number
 {
 public:
     Number(int x0, int y0)
@@ -255,9 +255,9 @@ int main(int argc, char const *argv[])
     return 0;
 }
 `}</Code>
-                <Sub>コンストラクタのオーバーロード</Sub>
-                <Tx>コンストラクタもオーバーロードで引数ごとに処理を分岐できます。</Tx>
-                <Code lang="cpp">{`class Number
+                    <Sub>コンストラクタのオーバーロード</Sub>
+                    <Tx>コンストラクタもオーバーロードで引数ごとに処理を分岐できます。</Tx>
+                    <Code lang="cpp">{`class Number
 {
 public:
     Number()
@@ -289,6 +289,19 @@ int main(int argc, char const *argv[])
     // 0,0
     return 0;
 }`}</Code>
+                    <Sub>関数のクラス外定義</Sub>
+                    <Tx>メンバ関数はクラスの外でも定義できます。戻り値 クラス名::関数名の形でアクセスします。</Tx>
+                    <Code lang="cpp">{`class Number
+{
+public:
+    int x;
+    void show();
+};
+void Number::show()
+{
+    std::cout << x << std::endl;
+}`}</Code>
+                </Sec>
             </Contents>
         </>
     )
