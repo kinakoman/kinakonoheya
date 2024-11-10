@@ -9,7 +9,7 @@ export const data = {
     title: "【Go入門学習】",
     tag: ["Go"],
     date: ["2024", "11", "09"],
-    latest: ["2024", "11", "09"]
+    latest: ["2024", "11", "10"]
 }
 export const metadata = {
     title: `${data.title} | きなこの部屋`
@@ -150,9 +150,39 @@ fmt.Println(str)
 // [a b c d]`}</Code>
                     <Sub>len関数</Sub>
                     <Tx>len関数を用いて配列の要素数を取得できます。</Tx>
-                    <Code lang="go">{`x := []int{0, 1, 2, 3, 4, 5}
+                    <Code lang="go">{`x := [...]int{0, 1, 2, 3, 4, 5}
 fmt.Println(len(x))
 // 6`}</Code>
+                    <Sub>スライス</Sub>
+                    <Tx>Go言語において配列とスライスの最も大きな違いは、配列はサイズが固定であるのに対してスライスはサイズが可変である点です。
+                        スライスの宣言では配列と異なり要素数を指定しません。
+                    </Tx>
+                    <Code lang="go">{`x := []int{0, 1, 2, 3, 4, 5}
+fmt.Println(x)
+// [0 1 2 3 4 5]`}</Code>
+                    <Sub>要素の追加</Sub>
+                    <Tx>スライスに要素を追加するにはappendを利用します。</Tx>
+                    <Code lang="go">{`// int型のスライス宣言
+var x []int
+// 要素の追加
+x = append(x, 0)
+fmt.Println(x)
+// [0]
+x = append(x, 10, 20, 30)
+fmt.Println(x)
+// [0 10 20 30]
+
+// スライスを追加,変数の後に...で展開
+y := []int{40, 50, 60}
+x = append(x, y...)
+fmt.Println(x)
+// [0 10 20 30 40 50 60]`}</Code>
+                    <Sub>make関数</Sub>
+                    <Tx>スライスの初期化に便利なのがmake関数です。引数にはデータ型と要素数を取り、要素が全て0のスライスを生成します。</Tx>
+                    <Code lang="go">{`var x = make([]int, 5)
+// x := make([]int, 5) これでも可
+fmt.Println(x, len(x))
+// [0 0 0 0 0] 5`}</Code>
                 </Sec>
             </Contents>
         </>
