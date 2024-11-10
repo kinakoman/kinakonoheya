@@ -13,7 +13,7 @@ export default function TafSearch({ TagList, TagNow, setTagNow, setPageNow, page
 
     return (
         <>
-            <div className={styles.searchTag} style={{ height: searchBoxOn === "ON" ? `500px` : "50px", width: searchBoxOn === "ON" ? "90vw" : "100px", border: "solid 2px #76D9FF", backgroundColor: "white", position: "absolute", right: "5%", top: "20px", zIndex: "999", borderRadius: "5px", transition: searchBoxOn === "SELECT" ? "0s" : "all 0.3s", overflow: "hidden" }}>
+            <div className={styles.searchTag} style={{ height: searchBoxOn === "ON" ? `500px` : "50px", width: searchBoxOn === "ON" ? "90vw" : "100px", border: "solid 2px #76D9FF", backgroundColor: "white", position: "absolute", right: "5%", top: "20px", zIndex: "999", borderRadius: "5px", transition: searchBoxOn === "SELECT" ? "0s" : "all 0.2s ease-in-out", overflow: "hidden" }}>
                 <div style={{ height: "50px", width: "100px", borderRadius: "5px", position: "absolute", right: "0", cursor: "pointer", textAlign: "center", alignContent: "center" }} onClick={() => searchBoxOn === "ON" ? setSearchBoxOn("OFF") : setSearchBoxOn("ON")}>
                     <p style={{ fontWeight: "bold", fontSize: "20px", userSelect: "none" }}>{searchBoxOn === "ON" ? "× 閉じる" : "タグ検索"}</p>
                 </div>
