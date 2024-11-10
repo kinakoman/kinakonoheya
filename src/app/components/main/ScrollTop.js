@@ -6,8 +6,6 @@ export default function ScrollTop() {
     const [buttonOn, setButtonOn] = useState(false);
 
     const buttonSwitch = () => {
-        console.log(window.innerHeight)
-        console.log(window.scrollY)
         if (window.scrollY > window.innerHeight) {
             setButtonOn(true)
         }
