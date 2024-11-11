@@ -23,7 +23,7 @@ export default function test() {
             <Contents data={data}>
                 <Section title="はじめに">
                     <Text>Reactでオブジェクトにスクロールに応じた処理をさせたくなり、
-                        JavaScriptと同様にaddEventListenerｓで記述できるのか調べました。
+                        JavaScriptと同様にaddEventListenerで記述できるのか調べました。
                         結論としては以下のような記述方法になります。
                     </Text>
                     <CodeBox lang="javascript" comment="スクロールイベントの実装">{`const scrollEvent = () => {
