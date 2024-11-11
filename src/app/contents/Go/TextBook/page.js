@@ -9,7 +9,7 @@ export const data = {
     title: "【Go入門学習】",
     tag: ["Go"],
     date: ["2024", "11", "09"],
-    latest: ["2024", "11", "10"]
+    latest: ["2024", "11", "11"]
 }
 export const metadata = {
     title: `${data.title} | きなこの部屋`
@@ -209,6 +209,83 @@ for i := range x3 {
 }
 fmt.Println(x3)
 // [[0 0 0] [0 0 0] [0 0 0] [0 0 0] [0 0 0]]`}</Code>
+                    <Sub>map関数</Sub>
+                    <Tx>mapは"キー"に対して値を紐づけることが出来ます。スライスのインデックスを自身で設定できるイメージです。紐づけた値はキーで指定して出力できます。
+                        map[キーのデータ型]値のデータ型 で宣言します。
+                    </Tx>
+                    <Code lang="go">{`x := map[string]int{
+    "a": 1,
+    "b": 2,
+    "c": 3,
+}
+// rangeではインデックスの代わりにキーが得られます
+for c, i := range x {
+    fmt.Println(c, i)
+}
+// a 1
+// b 2
+// c 3`}</Code>
+                    <Tx>二次元のmapも可能です。</Tx>
+                    <Code lang="go">{`x := map[string][]string{
+    "a": {"aa", "ab", "ac"},
+    "b": {"ba", "bb", "bc"},
+    "c": {"ca", "cb", "cc"},
+}
+fmt.Println(x["a"])
+// [aa ab ac]`}</Code>
+                </Sec>
+                <Sec title="制御構文">
+                    <Sub>シャドーイング変数</Sub>
+                    <Tx>外側のブロックで宣言された変数を内側のブロックで再宣言すると、そのブロック内では値が上書きされることになります。上書きされて隠れた変数をシャドーイング変数と呼びます。</Tx>
+                    <Code lang="go">{`x := 10
+{
+    fmt.Println(x)
+    // 10
+    x := 20
+    fmt.Println(x)
+    // 20
+}
+fmt.Println(x)
+// 10`}</Code>
+                    <Sub>if文</Sub>
+                    <Tx>Go言語でも一般的なif文が利用できます。注意点として一連のelse ifやelseは前の{`{}`}の終わりと同じ行から書き始めます。また条件式は{`()`}で囲みません。</Tx>
+                    <Code lang="go">{`n := rand.Intn(10)
+if n > 5 {
+    fmt.Println("big")
+} else if n < 2 {
+    fmt.Println("small")
+} else {
+    fmt.Println("good")
+}`}</Code>
+                    <Sub>標準for文</Sub>
+                    <Tx>Go言語の標準for文はC言語などの他の言語のfor文と同様です。初期化式;条件式;変化式でループの制御を行います。
+                        式は{`()`}で囲みません。</Tx>
+                    <Code lang="go">{`for i := 0; i < 5; i++ {
+    fmt.Println(i)
+    }`}</Code>
+                    <Sub>条件のみのfor文</Sub>
+                    <Tx>Go言語にはwhile文は実装されていません。代わりに条件式のみを記述したfor文で同様の処理が可能です。</Tx>
+                    <Code lang="go">{`var i int = 0
+for i < 5 {
+    fmt.Println(i)
+    i++
+}`}</Code>
+                    <Sub>for-rangeループ</Sub>
+                    <Tx>配列やスライスにの要素数に対して繰り返し実行を行うのに有効なのがrange関数です。range関数は各要素に対してインデックスと要素を返します。
+                        {`_`}や変数の省略で必要のない値を無視することもできます。
+                    </Tx>
+                    <Code lang="go">{`str := []string{"a", "b", "c"}
+for i, c := range str {
+    fmt.Println(c, i)
+}
+// インデックスを無視
+for _, c := range str {
+    fmt.Println(c)
+}
+// インデックスのみ
+for i := range str {
+    fmt.Println(i)
+}`}</Code>
                 </Sec>
             </Contents>
         </>

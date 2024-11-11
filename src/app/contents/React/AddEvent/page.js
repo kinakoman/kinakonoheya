@@ -10,7 +10,7 @@ import ImageSet from '@/components/contents/ImageSet'
 export const data = {
     title: "addEventListenerとuseEffect",
     tag: ["React", "JavaScript"],
-    date: ["2024", "11", "10"],
+    date: ["2024", "11", "11"],
     // latest: ["9999", "99", "99"]
 }
 export const metadata = {
@@ -49,7 +49,7 @@ window.addEventListener('click', () => console.log("click!"))
 // クリック一回で"click!"が2回出力`}</CodeBox>
                     <SubSection>重複の解消</SubSection>
                     <Text>イベントの重複は2種類のアプローチで解決できます。</Text>
-                    <Text>一つ目はイベント処理の関数化です。addEventListenerは同じ記述を繰り返しても、同名の関数を追加しようとした場合関数の重複は行われません。</Text>
+                    <Text>一つ目はイベント処理の関数化です。addEventListenerは同じ記述を繰り返しても、同名の関数を追加しようとした場合2回目以降の追加は無視されます。</Text>
                     <CodeBox lang="javascript" comment="関数化で対処">{`const clickEvent = () => {
 console.log("click")
 }
@@ -57,7 +57,7 @@ window.addEventListener('click', clickEvent)
 window.addEventListener('click', clickEvent)
 // クリック一回で"click!"が1回出力`}</CodeBox>
                     <Text>二つ目はremoveEventListenerの利用です。addEventListenerと反対で処理の削除を行うことが出来ます。
-                        removeを適切に行うことでイベントの管理が明示的に管理できます。
+                        removeを利用すればイベントの管理が容易に行えます。
                     </Text>
                     <CodeBox lang="javascript" comment="removeEventListener">{`window.addEventListener('click', clickEvent)
 window.removeEventListener('click', clickEvent)
