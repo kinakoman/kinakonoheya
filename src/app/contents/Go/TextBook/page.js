@@ -287,6 +287,31 @@ for i := range str {
     fmt.Println(i)
 }`}</Code>
                 </Sec>
+                <Sub>for-rangeとmap</Sub>
+                <Tx>マップをfor-rangeでループすると、キーの順番が実行ごとに異なるという仕様があります。これはセキュリティの観点から実装されたGo独自の使用です。</Tx>
+                <Code lang="go">{`str := map[string]int{
+    "a": 1,
+    "b": 2,
+    "c": 3,
+}
+for i := 0; i < 3; i++ {
+    fmt.Println("ループ", i)
+    for c, num := range str {
+        fmt.Println(c, num)
+    }
+}
+// ループ 0
+// b 2
+// c 3
+// a 1
+// ループ 1
+// a 1
+// b 2
+// c 3
+// ループ 2
+// c 3
+// a 1
+// b 2`}</Code>
             </Contents>
         </>
     )

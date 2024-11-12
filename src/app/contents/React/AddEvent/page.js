@@ -10,8 +10,8 @@ import ImageSet from '@/components/contents/ImageSet'
 export const data = {
     title: "addEventListenerとuseEffect",
     tag: ["React", "JavaScript"],
-    date: ["2024", "11", "11"],
-    // latest: ["9999", "99", "99"]
+    date: ["2024", "11", "10"],
+    latest: ["2024", "11", "11"]
 }
 export const metadata = {
     title: `${data.title} | きなこの部屋`
