@@ -9,7 +9,7 @@ export const data = {
     title: "【Go入門学習】",
     tag: ["Go"],
     date: ["2024", "11", "09"],
-    latest: ["2024", "11", "11"]
+    latest: ["2024", "11", "13"]
 }
 export const metadata = {
     title: `${data.title} | きなこの部屋`
@@ -286,32 +286,63 @@ for _, c := range str {
 for i := range str {
     fmt.Println(i)
 }`}</Code>
-                </Sec>
-                <Sub>for-rangeとmap</Sub>
-                <Tx>マップをfor-rangeでループすると、キーの順番が実行ごとに異なるという仕様があります。これはセキュリティの観点から実装されたGo独自の使用です。</Tx>
-                <Code lang="go">{`str := map[string]int{
+                    <Sub>for-rangeとmap</Sub>
+                    <Tx>マップをfor-rangeでループすると、キーの順番が実行ごとに異なるという仕様があります。これはセキュリティの観点から実装されたGo独自の使用です。</Tx>
+                    <Code lang="go">{`str := map[string]int{
     "a": 1,
     "b": 2,
     "c": 3,
-}
-for i := 0; i < 3; i++ {
-    fmt.Println("ループ", i)
-    for c, num := range str {
-        fmt.Println(c, num)
     }
-}
-// ループ 0
-// b 2
-// c 3
-// a 1
-// ループ 1
-// a 1
-// b 2
-// c 3
-// ループ 2
-// c 3
-// a 1
-// b 2`}</Code>
+    for i := 0; i < 3; i++ {
+        fmt.Println("ループ", i)
+        for c, num := range str {
+            fmt.Println(c, num)
+            }
+            }
+            // ループ 0
+            // b 2
+            // c 3
+            // a 1
+            // ループ 1
+            // a 1
+            // b 2
+            // c 3
+            // ループ 2
+            // c 3
+            // a 1
+            // b 2`}</Code>
+                    <Sub>switch文</Sub>
+                    <Tx>Go言語にもswitch文は実装されています。他の言語とは異なり各分岐の最後にbreakは必要ありません。</Tx>
+                    <Code lang="go">{`arr := []string{"dog", "cat", "lion", "worm"}
+for _, el := range arr {
+    switch el {
+    case "dog":
+        fmt.Println("good")
+    case "cat":
+        fmt.Println("not bad")
+    case "worm":
+        fmt.Println("bad")
+    default:
+        fmt.Println("normal")
+    }
+}`}</Code>
+                    <Sub>ブランクswitch</Sub>
+                    <Tx>Goのswitch文には変数の値での分岐だけでなく、条件式での分岐を行うこともできます。
+                    </Tx>
+                    <Code lang="go">{`for _, num := range arr {
+    switch { //変数の設定なし
+    case num > 5:
+        fmt.Println("big")
+    case num <= 5:
+        fmt.Println("small")
+    }
+}`}
+                    </Code>
+                </Sec>
+                <Sec title="関数">
+                    <Sub>関数の宣言</Sub>
+                    <Tx></Tx>
+                </Sec>
             </Contents>
         </>
     )

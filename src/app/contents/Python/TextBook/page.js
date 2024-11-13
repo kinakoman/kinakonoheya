@@ -8,7 +8,8 @@ import Toc from "@/components/contents/Toc"
 export const data = {
     title: "【Python入門学習】",
     tag: ["Python"],
-    date: ["2024", "11", "04"]
+    date: ["2024", "11", "04"],
+    latest: ["2024", "11", "13"]
 }
 export const metadata = {
     title: `${data.title} | きなこの部屋`
@@ -131,6 +132,48 @@ for i,text in enumerate(list):
         continue
     #i==2ではtextの出力はされずi=3にスキップ
     print(text)`}</Code>
+                </Sec>
+
+                <Sec title="関数">
+                    <Sub>関数の定義</Sub>
+                    <Tx>Pythonの関数定義は以下の通りです。引数が無い場合でも{`()`}は省略できません。</Tx>
+                    <Code lang="python">{`def Hello():
+    print("Hello")
+Hello()`}</Code>
+                    <Sub>引数と戻り値</Sub>
+                    <Tx>関数には引数と戻り値を設定できます。</Tx>
+                    <Code lang="python">{`def echo(word):
+    print(word)
+
+def add(a,b):
+    return a+b
+
+word="Hello"
+echo(word)
+# Hello
+
+a,b=10,20
+print(add(a,b))
+# 30`}</Code>
+                    <Sub>位置引数とキーワード引数</Sub>
+                    <Tx>関数を呼び出す際に渡す引数の順は定義した際の引数の順に一致させます。これを位置引数と呼びます。反対に定義した際の変数に明示的に代入して渡す引数をキーワード引数と呼びます。
+                        キーワード引数は渡す順番に制限はありません
+                    </Tx>
+                    <Code lang="python">{`def Info(age,birth):
+    print("年齢は",age)
+    print("誕生日は",birth)
+
+age=20
+birth=20001010
+
+Info(age,birth)
+# 年齢は 20
+# 誕生日は 20001010
+Info(birth=birth,age=age)
+# 年齢は 20
+# 誕生日は 20001010`}</Code>
+                    <Sub>関数内関数</Sub>
+
                 </Sec>
 
                 <Sec title="Numpy">
