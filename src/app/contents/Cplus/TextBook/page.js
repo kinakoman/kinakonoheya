@@ -98,7 +98,7 @@ int main(int argc, char const *argv[])
 
                 <Sec title="string">
                     <Sub>文字列型の実装</Sub>
-                    <Tx>C++では文字列型が実装されています。利用するにはstringライブラリをインクルードします。</Tx>
+                    <Tx>C++では文字列型が実装されています。利用するには標準ライブラリstringをインクルードします。</Tx>
                     <Code lang="cpp">{`#include <iostream>
 #include <string>
 
@@ -132,6 +132,77 @@ std::string s2 = s1.substr(6);
 // n番目以降のm文字抽出
 std::string s3 = s1.substr(6, 3);`}</Code>
                 </Sec>
+
+                <Sec title="vector">
+                    <Sub>vectorの実装</Sub>
+                    <Tx>vectorは動的な配列操作を可能にします。利用するには標準ライブラリvectorをインクルードします。</Tx>
+                    <Code lang="cpp">{`// vector宣言
+std::vector<int> vec1;
+// 要素数3のvector
+std::vector<std::string> vec2(3);
+// 要素数4で全ての要素がtrueのvector
+std::vector<bool> vec3(4, true);
+// 要素を指定
+std::vector<int> vec4 = {1, 2, 3, 4};`}</Code>
+                    <Sub>2次元vector</Sub>
+                    <Tx>2次元のvectorを宣言することも可能です。２次元のvectorは1次元のvectorの各要素がさらにvectorになっているイメージです。</Tx>
+                    <Code lang="cpp">{`// ２次元配列の宣言
+std::vector<std::vector<int>> vec1;
+// 3x3の２次元配列
+std::vector<std::vector<int>> vec2(3,std::vector<int>(3));
+// 4x4の全て10の２次元配列
+std::vector<std::vector<int>> vec3(4,std::vector<int>(4,10));
+// 要素数を指定
+std::vector<std::vector<int>> vec4 = {{1, 2, 3}, {3, 4, 5}};`}</Code>
+                    <Sub>要素数の取得</Sub>
+                    <Tx>要素数は{`size()`}で取得できます。</Tx>
+                    <Code lang="cpp">{`std::vector<int> vec(4);
+std::cout << vec.size() << std::endl;
+// 4`}</Code>
+                    <Sub>push_back関数</Sub>
+                    <Tx>push_backを用いれば末尾に要素を追加できます。</Tx>
+                    <Code lang="cpp">{`std::vector<int> vec;
+vec.push_back(10);
+std::cout << vec[0] << std::endl;
+// 10`}</Code>
+                    <Sub>イテレータ</Sub>
+                    <Tx>イテレータはポインタに近い概念で要素のアドレスを指し示すことが出来ます。C++のvectorはイテレータで要素を操作すること多いです。</Tx>
+                    <Code lang="cpp">{`std::vector<int>::iterator itr;`}</Code>
+                    <Sub>begin関数</Sub>
+                    <Tx>イテレータでvectorの要素を操作するにはイテレータにvectorのアドレスを渡します。
+                        begin関数はvectorの先頭のアドレスを与えることが出来ます。
+                        イテレータは{`*`}を付けて要素にアクセスできます。イテレータに加減算を行えばアドレスの変更が可能です。
+                    </Tx>
+                    <Code lang="cpp">{`std::vector<int> arr = {1, 2, 3, 4};
+std::vector<int>::iterator itr;
+
+itr = arr.begin();
+std::cout << *itr << std::endl;
+// 1
+std::cout << *(itr + 1) << std::endl;
+// 2`}</Code>
+                    <Sub>end関数</Sub>
+                    <Tx>end関数ではvectorの最後から一つ先のアドレスを与えます。</Tx>
+                    <Code lang="cpp">{`std::vector<int> arr = {1, 2, 3, 4};
+std::vector<int>::iterator itr;
+
+itr = arr.end();
+std::cout << *itr << std::endl;
+// 0
+// 存在しないアドレスなので0が表示
+
+// forループの制御に利用可能
+for (std::vector<int>::iterator itr = arr.begin(); itr != arr.end(); itr++)
+{
+    std::cout << *itr << std::endl;
+}
+// 1
+// 2
+// 3
+// 4`}</Code>
+                </Sec>
+
+
 
                 <Sec title="クラス">
                     <Sub>クラスとは</Sub>
