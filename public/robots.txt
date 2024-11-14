@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://kinakoman.github.io/kinakonoheya
+
+# Sitemaps
+Sitemap: https://kinakoman.github.io/kinakonoheya/sitemap.xml
