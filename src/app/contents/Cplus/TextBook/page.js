@@ -9,7 +9,7 @@ export const data = {
     title: "【C++入門学習】",
     tag: ["C++"],
     date: ["2024", "11", "06"],
-    latest: ["2024", "11", "08"]
+    latest: ["2024", "11", "14"]
 }
 export const metadata = {
     title: `${data.title} | きなこの部屋`
@@ -154,7 +154,7 @@ std::vector<std::vector<int>> vec2(3,std::vector<int>(3));
 std::vector<std::vector<int>> vec3(4,std::vector<int>(4,10));
 // 要素数を指定
 std::vector<std::vector<int>> vec4 = {{1, 2, 3}, {3, 4, 5}};`}</Code>
-                    <Sub>要素数の取得</Sub>
+                    <Sub>size関数</Sub>
                     <Tx>要素数は{`size()`}で取得できます。</Tx>
                     <Code lang="cpp">{`std::vector<int> vec(4);
 std::cout << vec.size() << std::endl;
@@ -165,6 +165,12 @@ std::cout << vec.size() << std::endl;
 vec.push_back(10);
 std::cout << vec[0] << std::endl;
 // 10`}</Code>
+                    <Sub>pop_back関数</Sub>
+                    <Tx>pop_back関数を用いれば末尾の要素を削除できます。</Tx>
+                    <Code lagn="cpp">{`std::vector<int> arr = {1, 2, 3, 4};
+arr.pop_back();
+std::cout << arr.size() << std::endl;
+// 3`}</Code>
                     <Sub>イテレータ</Sub>
                     <Tx>イテレータはポインタに近い概念で要素のアドレスを指し示すことが出来ます。C++のvectorはイテレータで要素を操作すること多いです。</Tx>
                     <Code lang="cpp">{`std::vector<int>::iterator itr;`}</Code>
@@ -200,6 +206,46 @@ for (std::vector<int>::iterator itr = arr.begin(); itr != arr.end(); itr++)
 // 2
 // 3
 // 4`}</Code>
+                    <Sub>auto型</Sub>
+                    <Tx>イテレータは変数宣言が長くなりがちなので、auto型を用いた型推定で記述を省略することも可能です。
+                        auto型で宣言を行う場合は同時にbegin関数かend関数で初期化を行います。
+                    </Tx>
+                    <Code lang="cpp">{` std::vector<int> arr = {1, 2, 3};
+auto itr = arr.begin();
+
+std::cout << *itr << std::endl;
+// 1`}</Code>
+                    <Sub>insert関数</Sub>
+                    <Tx>insert関数で任意の位置に要素の追加が可能です。引数には追加するアドレスのイテレータと追加する要素を取ります。</Tx>
+                    <Code lang="cpp">{`std::vector<int> arr = {1, 2, 3};
+
+arr.insert(arr.begin() + 1, 10);
+arr.insert(arr.end() - 1, 20);
+
+for (auto itr = arr.begin(); itr != arr.end(); itr++)
+{
+    std::cout << *itr << std::endl;
+}
+// 1
+// 10
+// 2
+// 20
+// 3`}</Code>
+                    <Sub>erase関数</Sub>
+                    <Tx>erase関数は要素の削除を行います。引数には削除する要素のイテレータを取ります。</Tx>
+                    <Code lang="cpp">{`std::vector<int> arr = {1, 2, 3, 4, 5, 6, 7};
+
+arr.erase(arr.begin() + 2);
+arr.erase(arr.end() - 2);
+for (auto itr = arr.begin(); itr != arr.end(); itr++)
+{
+    std::cout << *itr << std::endl;
+}
+// 1
+// 2
+// 4
+// 5
+// 7`}</Code>
                 </Sec>
 
 
