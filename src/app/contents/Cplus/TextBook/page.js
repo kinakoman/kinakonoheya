@@ -247,6 +247,27 @@ for (auto itr = arr.begin(); itr != arr.end(); itr++)
 // 5
 // 7`}</Code>
                 </Sec>
+                <Sec title="algorithm">
+                    <Sub>アルゴリズムの実装</Sub>
+                    <Tx>標準ライブラリalgorithmには配列操作などに利用可能なアルゴリズム関数が提供されています。</Tx>
+                    <Code lang="cpp">{`#include <algorithm>`}</Code>
+                    <Sub>min_element,max_element</Sub>
+                    <Tx>最大値と最小値を取得することが出来ます。引数には検索範囲をイテレータを渡します。
+                        戻り値はイテレータです。
+                    </Tx>
+                    <Code lang="cpp">{`std::vector<int> arr = {1, 2, 3, 4};
+
+// 最小値のイテレータを取得
+auto itr = std::min_element(arr.begin(), arr.end());
+std::cout << *itr << std::endl;
+// 1
+
+// 最大値のイテレータを取得
+itr = std::max_element(arr.begin(), arr.end());
+std::cout << *itr << std::endl;
+// 4`}</Code>
+                    <Sub>accumulate</Sub>
+                </Sec>
 
 
 
