@@ -355,6 +355,21 @@ func echo(str string) {
 func hello() {
 	fmt.Println("hello")
 }`}</Code>
+                    <Sub>複数の戻り値</Sub>
+                    <Tx>Goの関数は戻り値を複数もつことが可能です。戻り値の数に合わせてデータ型の宣言も行います。
+                    </Tx>
+                    <Code lang="go">{`func calc(x int, y int) (int, int) {
+	return x + y, x - y
+}
+
+func main() {
+	x, y := 10, 20
+
+	sum, sub := calc(x, y)
+
+	fmt.Println(sum, sub)
+	// 30 -10
+}`}</Code>
                 </Sec>
             </Contents>
         </>
