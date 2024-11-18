@@ -9,7 +9,7 @@ export const data = {
     title: "【Go入門学習】",
     tag: ["Go"],
     date: ["2024", "11", "09"],
-    latest: ["2024", "11", "13"]
+    latest: ["2024", "11", "18"]
 }
 export const metadata = {
     title: `${data.title} | きなこの部屋`
@@ -160,7 +160,7 @@ fmt.Println(len(x))
                     <Code lang="go">{`x := []int{0, 1, 2, 3, 4, 5}
 fmt.Println(x)
 // [0 1 2 3 4 5]`}</Code>
-                    <Sub>要素の追加</Sub>
+                    <Sub>append関数</Sub>
                     <Tx>スライスに要素を追加するにはappendを利用します。</Tx>
                     <Code lang="go">{`// int型のスライス宣言
 var x []int
@@ -341,7 +341,20 @@ for _, el := range arr {
                 </Sec>
                 <Sec title="関数">
                     <Sub>関数の宣言</Sub>
-                    <Tx></Tx>
+                    <Tx>関数はmain関数の外で定義します。関数の宣言はfunc 関数名(データ型)(戻り値型)で定義します。</Tx>
+                    <Code lang="go">{`func add(x int, y int) int {
+	return x + y
+}
+
+// 戻り値が無い場合は戻り値のデータ型は省略できます
+func echo(str string) {
+	fmt.Println(str)
+}
+
+// 引数が無い場合も()は記述します
+func hello() {
+	fmt.Println("hello")
+}`}</Code>
                 </Sec>
             </Contents>
         </>
