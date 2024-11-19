@@ -173,7 +173,36 @@ Info(birth=birth,age=age)
 # 年齢は 20
 # 誕生日は 20001010`}</Code>
                     <Sub>関数内関数</Sub>
+                    <Tx>関数の中で関数を定義して実行することもできます。関数内で定義した内側関数はその関数外からは利用できません。</Tx>
+                    <Code lang="python">{`def outer(x,y):
+    def inner (x,y):
+        return x+y
+    
+    print(inner(x,y))
 
+x,y=10,20
+outer(10,20)
+# 30`}</Code>
+                    <Sub>クロージャ―</Sub>
+                    <Tx>関数内関数を戻り値にすることで、外側関数の引数の状態を保持した関数を取り出すことが出来ます。戻り値となる内側関数をクロージャーと呼びます。
+                        クロージャーを利用すれば同じ関数で異なる処理を実行することが出来ます。</Tx>
+                    <Code lang="python">{`def outer(x):
+    def inner (str):
+        for i in range(x):
+            print(str)
+    
+    return inner
+
+x,y=outer(2),outer(4)
+
+x("hello")
+# hello
+# hello
+y("goodbye")
+# goodbye
+# goodbye
+# goodbye
+# goodbye`}</Code>
                 </Sec>
 
                 <Sec title="Numpy">

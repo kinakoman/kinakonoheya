@@ -6,6 +6,7 @@ import CodeBox from '../../../components/contents/CodeBox'
 import CodeIn from '../../../components/contents/CodeIn'
 import LinkIn from '../../../components/contents/LinkIn'
 import ImageSet from '../../../components/contents/ImageSet'
+import image1 from "./image1.jpg"
 
 export const data = {
     title: "LinuxでのGo言語の環境構築",
@@ -35,6 +36,10 @@ export default function test() {
                     <Text>goコマンドを利用するためにパスの開通をします。</Text>
                     <CodeBox lang={"shell"} comment={"パスの開通"}>{`~$ echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc`}</CodeBox>
                     <CodeBox lang={"shell"} comment={".bashrcの再起動"}>{`~$ source ~/.bashrc`}</CodeBox>
+                </Section>
+                <Section title="VS Codeのセッティング">
+                    <Text>Goの拡張機能をインストールします。</Text>
+                    <ImageSet alt="Goの拡張機能" height={200} width={600} image={image1} />
                 </Section>
                 <Section title="goファイルの実行">
                     <Text>goファイルを作成して実行してみます。</Text>

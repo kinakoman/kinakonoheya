@@ -2,7 +2,7 @@ import fs from "fs"
 import path from "path"
 import LinkSet from "./LinkSet"
 
-const contentsList = ["Next", "JavaScript", "Python", "Git", "Go", "Clang", "Global", "React", "Cplus", "Docker"]
+const contentsList = ["Next", "JavaScript", "Python", "Git", "Go", "Clang", "Global", "React", "Cplus", "Docker", "Java"]
 
 export default async function getStaticProps() {
     // const allFolders = []
