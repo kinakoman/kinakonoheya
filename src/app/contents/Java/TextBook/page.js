@@ -9,7 +9,7 @@ export const data = {
     title: "【Java入門学習】",
     tag: ["Java"],
     date: ["2024", "11", "20"],
-    // latest: ["9999", "99", "99"]
+    latest: ["2024", "11", "20"]
 }
 export const metadata = {
     title: `${data.title} | きなこの部屋`
@@ -57,7 +57,39 @@ System.out.println("a" + "b" + "c");
                 </Sec>
                 <Sec title="基本構文">
                     <Sub>変数宣言</Sub>
-                    <Tx>変数はデータ型を指定して宣言します。</Tx>
+                    <Tx>変数はデータ型を指定して宣言します。初期化も同時に行えます。</Tx>
+                    <Code lang="java">{`int x;
+x = 10;
+double y = 3.14;
+char word = 'a';
+String str = "hello";
+boolean flag = true;`}</Code>
+                    <Sub>型推論</Sub>
+                    <Tx>varを用いて型推論を行えます。</Tx>
+                    <Code lang="java">{`var num = 199;
+var txt = "string";`}</Code>
+                    <Sub>配列</Sub>
+                    <Tx>配列を宣言した後に配列サイズを指定する場合はnewを利用します。</Tx>
+                    <Code lang="java">{`int[] arr;
+arr = new int[5];
+System.out.println(arr.length);
+// 5
+
+// 宣言と同時に初期化
+String[] str = { "abc", "def", "ghi" };
+System.err.println(str[0] + str[1] + str[2]);
+// abcdefghi`}</Code>
+                    <Tx>2次元配列も当然扱えます。</Tx>
+                    <Code lang="java">{`// ２次元配列の初期化
+String[][] str;
+str = new String[2][2];
+System.err.println(str.length + ":" + str[0].length);
+// 2:2
+
+// 宣言と初期化
+int[][] arr = { { 0, 1, 2 }, { 3, 4, 5 } };`}</Code>
+                    <Sub>if分</Sub>
+
                 </Sec>
             </Contents>
         </>
