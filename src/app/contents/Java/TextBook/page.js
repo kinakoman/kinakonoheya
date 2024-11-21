@@ -320,6 +320,47 @@ public class Sample {
         // 値はob1と共有
     }
 }`}</Code>
+                    <Sub>public,private演算子</Sub>
+                    <Tx>public演算子が付いたメンバはクラス外から自由にアクセスが可能です。
+                        private演算子はクラス内部からのアクセスしか受け付けません。
+                    </Tx>
+                    <Code lang="java">{`class NewClass {
+    public int x = 10;
+    private int y = 20;
+}
+
+public class Sample {
+    public static void main(String[] args) {
+        NewClass ob = new NewClass();
+        System.out.println(ob.x);
+        // 10
+        // System.out.println(ob.y);
+        // アクセス不可でエラー
+    }
+}`}</Code>
+                    <Sub>カプセル化</Sub>
+                    <Tx>privateフィールドにアクセスするためにpublicメソッドを定義し、このメソッド経由でのみprivateフィールドにアクセスします。
+                        これをカプセル化と呼びます。privateをフィールドの値を変更する関数をセッター、privateフィールドを取得する関数をゲッターと呼ぶ場合もあります。</Tx>
+                    <Code lang="java">{`class NewClass {
+    private int x;
+
+    public void setter(int x) {
+        this.x = x;
+    }
+
+    public int getter() {
+        return this.x;
+    }
+}
+
+public class Sample {
+    public static void main(String[] args) {
+        NewClass ob = new NewClass();
+        ob.setter(20);
+        System.out.println(ob.getter());
+        // 20
+    }
+}`}</Code>
                 </Sec>
             </Contents>
         </>
