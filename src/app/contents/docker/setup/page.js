@@ -12,7 +12,7 @@ export const data = {
     title: "Dockerの始め方",
     tag: ["Docker", "Ubuntu"],
     date: ["2024", "11", "18"],
-    // latest: ["9999", "99", "99"]
+    latest: ["2024", "11", "21"]
 }
 export const metadata = {
     title: `${data.title} | きなこの部屋`
@@ -133,21 +133,53 @@ new_ubuntu`}</CodeBox>
 Error response from daemon: conflict: unable to remove repository reference "ubuntu:latest" (must force) - container 080ec8d
 841b6 is using its referenced image fec8bfd95b54`}</CodeBox>
                 </Section>
-                {/* <Section title="セクション名">
-                    <SubSection>サブセクションタイトル</SubSection>
-                    <Text>
-                        本文のテキストが本文のテキストで本文のテキストが本文のテキスト
-                        本文のテキストが本文のテキストで本文のテキストが本文のテキスト
-                        <CodeIn>
-                            {`console.log`}
-                        </CodeIn>
-                        本文のテキストが本文のテキストで本文のテキストが本文のテキスト
-                        本文のテキストが本文のテキストで本文のテキストが本文のテキスト
+                <Section title="Dockerfileの利用">
+                    <SubSection>Dockerfileとは</SubSection>
+                    <Text>Dockerfileとはimageの設計図のようなものです。Dockerfile内でベースとなるimageや、コンテナ作成時に自動で行う処理等を記述してコンテナのカスタマイズを行います。</Text>
+                    <SubSection>Dockerfileの作成</SubSection>
+                    <Text>Dockerfileを作成します。Dockerfileは拡張子なしでデフォルトではファイル名もDockerfileのままです。
+                        以下はUbuntuにrootディレクトリではなくuserとしてログインした状態でコンテナを作成するDockerfileです。
                     </Text>
-                    <LinkIn link={"PythonInstall"} title={"ページのタイトルページのタイトルページのタイトル"}></LinkIn>
-                    <CodeBox lang={"javascript"} comment={"コードの例"}>{`console.log("test")`}</CodeBox>
-                    <ImageSet alt="テスト画像" height={200} width={200} image={image} />
-                </Section> */}
+                    <CodeBox lang="dockerfile" comment="Dockerfile">{`FROM ubuntu:22.04
+
+# インストール
+RUN apt-get update -y
+RUN apt-get install -y wget curl sudo
+
+# userというユーザでログインして権限を付与
+RUN useradd -m -s /bin/bash user 
+RUN echo "user:0627" | chpasswd
+RUN gpasswd -a user sudo
+
+# .bashrcをコマンドラインから書き換える
+RUN chmod 644 /home/user/.bashrc
+RUN chown user:user /home/user/.bashrc
+
+# userに関連した設定
+USER user
+WORKDIR /home/user/
+ENV USER=user`}</CodeBox>
+                    <SubSection>imageのビルド</SubSection>
+                    <Text>Dockerfileからimageをビルドします。Dockerfileと同じディレクトリで以下のコマンドを実行します。</Text>
+                    <CodeBox lang="shell" comment="imageのビルド">{`$ docker build . -t sample`}</CodeBox>
+                    <Text>コマンドの最後にはビルドするimageの名前をしています。</Text>
+                    <CodeBox lang="shell" comment="imageの確認">{`$ docker image ls
+REPOSITORY     TAG       IMAGE ID       CREATED              SIZE
+sample         latest    df67c3e129cb   About a minute ago   145MB
+ubuntu_image   latest    152dd9ce9520   4 days ago           145MB`}</CodeBox>
+                    <Text>sampleのimageが追加されています。</Text>
+                    <SubSection>コンテナの起動</SubSection>
+                    <Text>ビルドしたimageを元にコンテナの起動してアクセスします。</Text>
+                    <CodeBox lang="shell" comment="コンテナの起動とアクセス">{`$ docker run -it -d --name sample_ubuntu sample
+$ docker exec  -it sample_ubuntu bash
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+user@23e1c9dd38ff:~$ whoami
+user`}</CodeBox>
+                    <Text>Docker Hubからpullしたimageの場合とは異なり、userでログインした状態でコンテナを起動できています。</Text>
+                </Section>
+
             </Contents>
         </>
     )
