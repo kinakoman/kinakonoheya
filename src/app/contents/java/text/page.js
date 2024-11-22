@@ -9,7 +9,7 @@ export const data = {
     title: "【Java入門学習】",
     tag: ["Java"],
     date: ["2024", "11", "20"],
-    latest: ["2024", "11", "20"]
+    latest: ["2024", "11", "22"]
 }
 export const metadata = {
     title: `${data.title} | きなこの部屋`
@@ -361,7 +361,39 @@ public class Sample {
         // 20
     }
 }`}</Code>
+                    <Sub>ジェネリック</Sub>
+                    <Tx>ジェネリックはクラスのメンバの型をインスタンス生成時に指定できる機能です。クラスの定義時にクラス名の横に{`<T>`}を記述し、メンバの型宣言の代わりにTを記述します。
+                        インスタンス生成時にはクラス名の横に{`<>`}でデータ型を宣言します。クラス定義時のTがこの時宣言したデータ型として利用できます。
+                    </Tx>
+                    <Code lang="java">{`class NewClass<T> {
+    private T num;
+
+    public void setter(T x) {
+        this.num = x;
+    }
+
+    public T getter() {
+        return num;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        NewClass<Integer> obj1 = new NewClass<Integer>();
+        obj1.setter(20);
+        System.out.println(obj1.getter());
+        // 20
+
+        // 右辺の<>のデータ型は省略可能
+        NewClass<String> obj2 = new NewClass<>();
+        obj2.setter("Hello");
+        System.out.println(obj2.getter());
+        // Hello
+    }
+}`}</Code>
                 </Sec>
+                <Sec title="インターフェース"></Sec>
+                <Sec title="コレクション"></Sec>
                 <Sec title="packageとimport">
                     <Sub>Javaにおけるimport</Sub>
                     <Tx>Javaでは別のファイルで定義したクラスをimportしてインスタンスを生成することが可能です。
