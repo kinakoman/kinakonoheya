@@ -8,7 +8,7 @@ import LinkIn from '@/components/contents/LinkIn'
 import ImageSet from '@/components/contents/ImageSet'
 
 export const data = {
-    title: "UbunutでのTypeScript環境構築",
+    title: "UbuntuでのTypeScript環境構築",
     tag: ["TypeScript", "Ubuntu"],
     date: ["2024", "11", "22"],
     // latest: ["9999", "99", "99"]
