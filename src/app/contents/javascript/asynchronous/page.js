@@ -180,6 +180,69 @@ async function AsyncFunc() {
 
 AsyncFunc();`}</CodeBox>
                 </Section>
+                <Section title="Promise.all">
+                    <SubSection>Promise.allの使い方</SubSection>
+                    <Text>Promise.allもPromiseを返す処理になりますが、
+                        引数には非同期処理で実行する内容ではなく、Promiseを要素に持つ配列を取ります。
+                    </Text>
+                    <Text>受け取った配列のPromiseが全てFullfilledになるとPromise.allは各Promiseの結果を配列として返します。
+                    </Text>
+                    <CodeBox lang="javascript" comment="Promise.allの使い方">{`const delay1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("delay1 complete")
+    }, 1000);
+})
+const delay2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("delay2 complete")
+    }, 2000);
+})
+const delay3 = async () => {  // asyncで定義した関数も渡せる
+    await new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve();
+        }, 3000);
+    })
+    return "delay3 complete"
+}
+
+// Promiseを要素に持つ配列
+const PromiseList = [delay1, delay2, delay3()]
+
+// Promise.allでPromiseを返す関数
+function PromiseAll() {
+    return Promise.all(PromiseList) // PromiseListを引数に渡す
+}
+PromiseAll().then(data => console.log(data)) // .thenで処理を続けることも可能`}</CodeBox>
+                    <SubSection>map関数を組み合わせる</SubSection>
+                    <Text>リストに対してPromiseを返す処理を行う際にはmap関数と組み合わせることで簡潔に記述することが出来ます。</Text>
+                    <CodeBox lang="javascript" comment="map関数でPromise配列">{`const list = ["a", "b", "c"]
+
+const PromiseList = list.map(async (element, index) => { // mapメソッドとasyncでPromiseの配列を作成
+    const data = await new Promise((resolve, reject) => { // 各要素のPromise処理
+        setTimeout(() => {
+            resolve(\`complete \${element}\`)
+        }, 1000 * index);
+    })
+    return data // async関数の返り値はresolveと等価
+})
+
+const PromiseAll = Promise.all(PromiseList)
+PromiseAll.then(data => console.log(data))
+// [ 'complete a', 'complete b', 'complete c' ]`}</CodeBox>
+                    <Text>さらにまとめて記述すれば以下のようになります。</Text>
+                    <CodeBox lang="javascript" comment="mapとPromise.allの組み合わせ">{`const list = ["a", "b", "c"]
+
+const PromiseAll = Promise.all(list.map(async (element, index) => {
+    const data = await new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(\`complete \${element}\`);
+        }, 1000 * index);
+    })
+    return data;
+}))
+PromiseAll.then((data) => console.log(data))`}</CodeBox>
+                </Section>
                 {/* <Section title="セクション名">
                     <SubSection>サブセクションタイトル</SubSection>
                     <Text>
