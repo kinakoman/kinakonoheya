@@ -8,7 +8,7 @@ import LinkIn from '@/components/contents/LinkIn'
 import ImageSet from '@/components/contents/ImageSet'
 
 export const data = {
-    title: "Go言語もインポートとモジュール",
+    title: "Go言語もインポートのモジュール",
     tag: ["Go"],
     date: ["2024", "11", "27"],
     // latest: ["9999", "99", "99"]
