@@ -94,8 +94,8 @@ go 1.22.1`}</CodeBox>
 import (
 	"fmt"
 
-	"github.com/kinakoman/submodule/submodule1"
-	"github.com/kinakoman/submodule/submodule2"
+	"github.com/username/submodule/submodule1"
+	"github.com/username/submodule/submodule2"
 )
 
 func Mainfunc() {
@@ -119,7 +119,7 @@ require github.com/username/submodule v0.0.0-20241126151143-cca76c49821b`}</Code
                     <Text>mainファイルを作成し、このファイル内でメインモジュールをインポートして実行してみます。</Text>
                     <CodeBox lang="go" comment="main/main.go">{`package main
 
-import "github.com/kinakoman/mainmodule/mainmodule1"
+import "github.com/username/mainmodule/mainmodule1"
 
 func main() {
 	mainmodule1.Mainfunc()
