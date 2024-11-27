@@ -114,7 +114,7 @@ go 1.22.1
 
 require github.com/username/submodule v0.0.0-20241126151143-cca76c49821b`}</CodeBox>
                     <Text>go.modのrequireに記述されているのはそのモジュールが必要としている外部モジュールのパスになります。</Text>
-                    <Text>最後にmainmoduleををプッシュして公開します。</Text>
+                    <Text>最後にmainmoduleをプッシュして公開します。</Text>
                     <SubSection>mainファイルで実行</SubSection>
                     <Text>mainファイルを作成し、このファイル内でメインモジュールをインポートして実行してみます。</Text>
                     <CodeBox lang="go" comment="main/main.go">{`package main

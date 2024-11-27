@@ -134,7 +134,7 @@ Automatic merge failed; fix conflicts and then commit the result.`}</CodeBox>
                     </Text>
                     <Text>競合の解決にはrestoreコマンドを利用します。</Text>
                     <CodeBox lang={"shell"} comment={"現在のブランチの更新を採用"}>{`$ git restore --ours main.txt`}</CodeBox>
-                    <CodeBox lang={"shell"} comment={"現在のブランチの更新を採用"}>{`$ git restore --theirs main.txt`}</CodeBox>
+                    <CodeBox lang={"shell"} comment={"マージしたブランチの更新を採用"}>{`$ git restore --theirs main.txt`}</CodeBox>
                     <Text>今回は--oursオプションを実行することします。</Text>
                     <CodeBox lang={"shell"} comment={"main.txtの確認"}>{`$ cat main.txt
 masterで更新したmain`}</CodeBox>
