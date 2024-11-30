@@ -17,6 +17,9 @@ export default function LinkSet({ linkArr, TagList }) {
         window.scrollTo(0, 0)
     }, [pageNow])
 
+    // サブコンテンツ用のリンクリスト
+    let subLink = linkArr.concat()
+
     // タグフィルター
     if (tagNow !== "all") {
         linkArr = linkArr.filter(function (element) {
@@ -27,11 +30,13 @@ export default function LinkSet({ linkArr, TagList }) {
         return element !== "tag" && element !== "tag2"
     })
 
+
+
     return (
         <>
             <div style={{ maxWidth: "1280px", display: "flex", marginInline: "auto" }}>
                 <div className={style.subList}>
-                    <SubList linkArr={linkArr}></SubList>
+                    <SubList linkArr={subLink}></SubList>
                 </div>
                 <div className={style.mainList}>
                     <div style={{ position: "relative", width: "100%", height: "100px", display: "flex", justifyContent: "center", alignItems: "center" }}>

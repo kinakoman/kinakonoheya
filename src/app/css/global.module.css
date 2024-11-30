@@ -277,7 +277,7 @@
 }
 
 .subList {
-    width: 30%;
+    width: 35%;
     height: 600px;
 }
 
@@ -316,7 +316,7 @@
 }
 
 .mainList {
-    width: 60%;
+    width: 65%;
     position: relative;
     /* margin-right: 10%; */
 }
