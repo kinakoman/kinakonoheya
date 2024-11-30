@@ -22,7 +22,8 @@ export default async function getStaticProps() {
                     title: Pagemodule.data.title,
                     tag: [...Pagemodule.data.tag],
                     date: [...Pagemodule.data.date],
-                    dateInt: parseInt(Pagemodule.data.date[0] + Pagemodule.data.date[1] + Pagemodule.data.date[2])
+                    dateInt: parseInt(Pagemodule.data.date[0] + Pagemodule.data.date[1] + Pagemodule.data.date[2]),
+                    latestInt: Pagemodule.data.latest ? parseInt(Pagemodule.data.latest[0] + Pagemodule.data.latest[1] + Pagemodule.data.latest[2]) : 0,
                 }
             )
         }))

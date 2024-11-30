@@ -7,6 +7,7 @@ import GetTag from "./GetTag"
 import GetTitle from "./GetTitle"
 import { useState, useEffect } from "react"
 import TagSearch from "./TagSearch"
+import SubList from "./SubList"
 
 export default function LinkSet({ linkArr, TagList }) {
     const [pageNow, setPageNow] = useState(1)
@@ -28,11 +29,21 @@ export default function LinkSet({ linkArr, TagList }) {
 
     return (
         <>
-            <TagSearch TagList={TagList} tagNow={tagNow} setTagNow={setTagNow} setPageNow={setPageNow} pageNum={linkArr.length} pageNow={pageNow}></TagSearch>
-            <ul className={style.list}>
-                {listOn(linkArr, pageNow)}
-            </ul>
-            <PagiNation pageNow={pageNow} setPageNow={setPageNow} listSize={linkArr.length} />
+            <div style={{ maxWidth: "1280px", display: "flex", marginInline: "auto" }}>
+                <div className={style.subList}>
+                    <SubList linkArr={linkArr}></SubList>
+                </div>
+                <div className={style.mainList}>
+                    <div style={{ position: "relative", width: "100%", height: "100px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                        <div style={{ fontSize: "30px", fontWeight: "bold" }}>記事一覧</div>
+                        <TagSearch TagList={TagList} tagNow={tagNow} setTagNow={setTagNow} setPageNow={setPageNow} pageNum={linkArr.length} pageNow={pageNow}></TagSearch>
+                    </div>
+                    <ul className={style.list}>
+                        {listOn(linkArr, pageNow)}
+                    </ul>
+                    <PagiNation pageNow={pageNow} setPageNow={setPageNow} listSize={linkArr.length} />
+                </div>
+            </div>
         </>
     )
 }
