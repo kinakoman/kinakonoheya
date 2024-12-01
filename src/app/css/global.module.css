@@ -278,7 +278,9 @@
 
 .subList {
     width: 35%;
-    height: 600px;
+    /* height: 600px; */
+    height: fit-content;
+    margin-bottom: 30px;
 }
 
 @media screen and (max-width:640px) {
