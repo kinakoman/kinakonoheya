@@ -34,19 +34,21 @@ export default function LinkSet({ linkArr, TagList }) {
 
     return (
         <>
-            <div style={{ maxWidth: "1280px", display: "flex", marginInline: "auto" }}>
+            <div style={{ maxWidth: "1280px", display: "flex", marginInline: "auto", paddingInline: "calc(1280px * 0.05)" }}>
                 <div className={style.subList}>
                     <SubList linkArr={subLink}></SubList>
                 </div>
-                <div className={style.mainList}>
-                    <div style={{ position: "relative", width: "100%", height: "100px", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                        <div style={{ fontSize: "30px", fontWeight: "bold" }}>記事一覧</div>
+                <div style={{ width: "70%" }}>
+                    <div className={style.mainList}>
+                        <div style={{ position: "relative", width: "100%", height: "100px", display: "flex", justifyContent: "center", alignItems: "center", marginInline: "auto" }}>
+                            <div style={{ fontSize: "30px", fontWeight: "bold" }}>記事一覧</div>
+                        </div>
                         <TagSearch TagList={TagList} tagNow={tagNow} setTagNow={setTagNow} setPageNow={setPageNow} pageNum={linkArr.length} pageNow={pageNow}></TagSearch>
+                        <ul className={style.list}>
+                            {listOn(linkArr, pageNow)}
+                        </ul>
+                        <PagiNation pageNow={pageNow} setPageNow={setPageNow} listSize={linkArr.length} />
                     </div>
-                    <ul className={style.list}>
-                        {listOn(linkArr, pageNow)}
-                    </ul>
-                    <PagiNation pageNow={pageNow} setPageNow={setPageNow} listSize={linkArr.length} />
                 </div>
             </div>
         </>

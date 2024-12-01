@@ -9,7 +9,7 @@ export const data = {
     title: "【Python入門学習】",
     tag: ["Python"],
     date: ["2024", "11", "04"],
-    latest: ["2024", "11", "30"]
+    latest: ["2024", "12", "01"]
 }
 export const metadata = {
     title: `${data.title} | きなこの部屋`
@@ -420,6 +420,17 @@ print(df.iloc[[0,1],[1,2]])
 print(df.iloc[1:2,0:3])
     #  name  age   from
 # No2  tanaka   38  Kyoto`}</Code>
+                    <Sub>csvファイルの読み込み</Sub>
+                    <Tx>csvファイルを読み込んでデータフレームを作成できます。{`header=None`}を指定すればcsvファイルの一行目もデータに含まれることになります。</Tx>
+                    <Code lang="python">{`df_csv=pd.read_csv("data.csv")  #  一行目をヘッダーに
+# df_csv=pd.read_csv("data.csv",header=None)  #  1行目もデータに含める
+print(df_csv)
+#      name  age   from
+# 0  suzuki   24  Osaka
+# 1  tanaka   38  Kyoto`}</Code>
+                    <Code lang="shell" tab="data.csv">{`name,age,from
+suzuki,24,Osaka
+tanaka,38,Kyoto`}</Code>
                 </Sec>
 
                 {/* <Sec title="はじめに">
