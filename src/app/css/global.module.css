@@ -308,7 +308,7 @@
     height: 100%;
     display: block;
     align-content: center;
-    /* transition: all 0.2s; */
+    transition: all 0.3s ease-in-out;
 }
 
 .subListLinkName:hover {
