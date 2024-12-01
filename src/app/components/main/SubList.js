@@ -16,9 +16,16 @@ export default function SubList({ linkArr }) {
             <div className={styles.contentsField}>
                 <div style={title}>最近の更新</div>
                 {sortedArr.map((element) => {
+                    let dateInt = element.latestInt ? element.latestInt : element.dateInt
                     return (
                         <div key={uuidv4()} className={styles.subListLink}>
-                            <Link href={element.link} className={styles.subListLinkName}>{element.title}</Link>
+                            <Link href={element.link} className={styles.subListLinkName}>
+                                {element.title}
+                                <div style={{ fontSize: "14px", width: "fit-content", position: "absolute", top: "100%", right: "0", translate: "0 -100%", opacity: "0.5" }}>
+                                    {dateInt.toString().slice(0, 4)}年{dateInt.toString().slice(4, 6)}月{dateInt.toString().slice(6, 8)}日更新!!
+                                </div>
+                            </Link>
+
                         </div>
                     )
                 })}
