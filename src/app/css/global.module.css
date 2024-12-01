@@ -308,11 +308,25 @@
     height: 100%;
     display: block;
     align-content: center;
-    transition: all 0.2s;
+    /* transition: all 0.2s; */
 }
 
 .subListLinkName:hover {
     background-color: rgba(0, 0, 0, 0.3);
+}
+
+.contentsField {
+    position: relative;
+    margin-inline: auto;
+    margin-top: 80px;
+    width: 90%;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: white;
+}
+
+.contentsField:nth-of-type(1) {
+    margin-top: 120px;
 }
 
 .mainList {
