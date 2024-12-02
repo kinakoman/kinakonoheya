@@ -78,7 +78,7 @@ window.removeEventListener('click', clickEvent)
                     </Text>
                     <Text>以上のことから、イベント処理はレンダリング時に追加され、再レンダリング直前(アンマウント時)に削除されることが理想です。</Text>
                     <SubSection>useEffectの利用</SubSection>
-                    <Text>useEffect関数は第二引数に指定して変数と連動させる形で関数内の処理の実行が可能です。</Text>
+                    <Text>useEffect関数は第二引数に指定した変数と連動させる形で関数内の処理の実行が可能です。</Text>
                     <Text>第二引数に何も指定しない場合はレンダリング時に必ず一回処理を行います。さらに、
                         returun内に処理の記述を行うと、コンポーネントがアンマウントされた時に処理が実行されます。
                     </Text>
