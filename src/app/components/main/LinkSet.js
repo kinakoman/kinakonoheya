@@ -34,11 +34,11 @@ export default function LinkSet({ linkArr, TagList }) {
 
     return (
         <>
-            <div style={{ maxWidth: "1280px", display: "flex", marginInline: "auto", paddingInline: "calc(1280px * 0.05)" }}>
+            <div className={style.container}>
                 <div className={style.subList}>
                     <SubList linkArr={subLink}></SubList>
                 </div>
-                <div style={{ width: "70%" }}>
+                <div className={style.mainListCotainer}>
                     <div className={style.mainList}>
                         <div style={{ position: "relative", width: "100%", height: "100px", display: "flex", justifyContent: "center", alignItems: "center", marginInline: "auto" }}>
                             <div style={{ fontSize: "30px", fontWeight: "bold" }}>記事一覧</div>

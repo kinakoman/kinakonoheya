@@ -50,8 +50,7 @@ Wrote to /home/nozaki/02_Javascript/02_express/sample-api/package.json:
 }`}</CodeBox>
                     <Text>次にexpressとnodemonのモジュールをインストールします。</Text>
                     <CodeBox lang="shell" comment="モジュールのインポート">{`/sample-api$ npm install express nodemon`}</CodeBox>
-                    <Text>package.jsonのdependenciesにインストールしたモジュールが追加されています。nodemonはexpressでサーバーを構築した際に、
-                        サーバーを実行しているファイルの更新をファイルの保存と同時に行ってくれるモジュールです。
+                    <Text>package.jsonのdependenciesにインストールしたモジュールが追加されています。nodemonは構築したサーバーの自動更新を行ってくれるモジュールです。
                     </Text>
                     <Text>サーバー起動時のコマンドとして、package.jsonのtestを削除して次のようにdevを追加します。</Text>
                     <CodeBox lang="json" comment="sample-api/package.json">{`{
@@ -96,7 +95,9 @@ app.listen(PORT, () => console.log("activate server"))  //  サーバーの起�
 [nodemon] watching extensions: js,mjs,cjs,json
 [nodemon] starting \`node server.js\`
 activate server`}</CodeBox>
-                    <Text>Ctrl+Cでプログラムを停止するまでサーバーは起動状態になります。</Text>
+                    <Text>Ctrl+Cでプログラムを停止するまでサーバーは起動状態になります。
+                        また、server.jsの内容更新すると、自動でサーバーの停止と再起動が行われ更新が適用されます。
+                    </Text>
                     <SubSection>getリクエストの設定</SubSection>
                     <Text>このサーバーがgetリクエスト受け取った際の処理を記述します。Expressではget関数を利用し、第一引数にgetリクエストのパス、第二引数に処理を記述します。</Text>
                     <CodeBox lang="javascript" comment="sample-api/server.js">{`const express = require("express")  
@@ -173,6 +174,51 @@ print(response_put.json())
 {'message': 'post request successed'}
 {'message': 'put request successed'}`}</CodeBox>
                     <Text>サーバー側で定義した各リクエストに対するレスポンスを取得できていることが分かります。</Text>
+                </Section>
+                <Section title="jsonデータの操作">
+                    <Text>server.jsでjson形式のデータを用意し、client.pyからアクセスします。まずはserver.jsの中でjsonデータを用意します。</Text>
+                    <CodeBox lang="javascript" comment="jsonデータ">{`const data = [
+    { name: "Yamada", age: "24" },
+    { name: "Suzuki", age: "32" },
+    { name: "Tanaka", age: "50" },
+]`}</CodeBox>
+                    <SubSection>getリクエスト</SubSection>
+                    <Text>getリクエストからserver.jsのjsonデータを取得します。server.jsでgetリクエストに対する処理にの中にjsonデータを返すように記述します。</Text>
+                    <CodeBox lang="javascript" comment="server.js">{`const express = require("express")
+const app = express()
+const PORT = 5000
+
+// json形式のデータ
+const data = [
+    { name: "Yamada", age: "24" },
+    { name: "Suzuki", age: "32" },
+    { name: "Tanaka", age: "50" },
+]
+// getリクエストの処理
+app.get("/", (req, res) => {
+    res.status(200).send(data)  //  statusコード200と一緒にdataを渡す
+})
+
+app.listen(PORT, () => console.log("activate server"))`}</CodeBox>
+                    <Text>client.pyでgetリクエストを送信し、jsonデータを取得します。</Text>
+                    <CodeBox lang="python" comment="client.py">{`import requests
+
+url="http://localhost:5000/"  #  サーバーのurl
+
+response_get=requests.get(url)  #  getリクエスト
+print(response_get.status_code)  #  statusコードの表示
+
+client_data=response_get.json()  #  レスポンスをjson形式に変換
+# jsonデータを表示
+print(client_data)
+print(client_data[0])
+print(client_data[0]["name"])`}</CodeBox>
+                    <CodeBox lang="shell" comment="実行結果">{`$ python3 client.py
+200
+[{'name': 'Yamada', 'age': '24'}, {'name': 'Suzuki', 'age': '32'}, {'name': 'Tanaka', 'age': '50'}]
+{'name': 'Yamada', 'age': '24'}
+Yamada`}</CodeBox>
+                    <Text>getリクエストに成功し、statusコードとjsonデータを取得できていることが分かります。</Text>
                 </Section>
                 {/* <Section title="セクション名">
                     <SubSection>サブセクションタイトル</SubSection>
