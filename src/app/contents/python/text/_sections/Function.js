@@ -75,6 +75,60 @@ y("goodbye")
 # goodbye
 # goodbye
 # goodbye`}</Code>
+                <Sub>デコレータ</Sub>
+                <Tx>クロージャ―を利用すれば関数を修飾した新たな関数を作ることが出来ます。</Tx>
+                <Code lang="python">{`# デコレータ関数を定義(クロージャを利用)
+def decorator(func): # 関数を引数にとる
+    #修飾した関数を定義
+    def new_func(text):
+        new_text=f"{text},world"
+        func(new_text)
+    
+    return new_func # 修飾した関数を返す
+
+# 関数を定義
+def echo(text):
+    print(text)
+
+decorated_echo=decorator(echo) # デコレートした関数を定義
+echo("hello")
+# hello
+decorated_echo("hello")
+# hello,world`}</Code>
+                <Tx>@を使えば再定義した関数をオブジェクトとして定義せずとも関数を修飾が可能です。</Tx>
+                <Code lang="python">{`@decorator # @デコレータ関数名、を記述
+def echo(text):
+    print(text)
+
+echo("hello")
+# hello,world
+# 関数が常に修飾された状態に`}</Code>
+                <Tx>可変長変数{`*args、**kwargs`}を利用すれば一つのデコレータで引数の異なる複数の関数を修飾できます。</Tx>
+                <Code lang="python">{`def decorator(func): 
+    def new_func(*args, **kwargs): # 再定義する関数の引数に*args, **kwargs
+        print("function starts")
+        func(*args, **kwargs)
+        print("function ends")
+    
+    return new_func # 修飾した関数を返す
+
+@decorator
+def echo(text):
+    print(text)
+
+@decorator
+def sum(x,y):
+    print(x+y)
+    
+echo("hello,world")
+# function starts
+# hello,world
+# function ends
+sum(10,20)
+# function starts
+# 30
+# function ends
+`}</Code>
             </Sec>
         </>
     )
