@@ -96,7 +96,7 @@ app.listen(PORT, () => console.log("activate server"))  //  サーバーの起�
 [nodemon] starting \`node server.js\`
 activate server`}</CodeBox>
                     <Text>Ctrl+Cでプログラムを停止するまでサーバーは起動状態になります。
-                        また、server.jsの内容更新すると、自動でサーバーの停止と再起動が行われ更新が適用されます。
+                        また、server.jsの内容を更新すると、自動でサーバーの停止と再起動が行われ更新が適用されます。
                     </Text>
                     <SubSection>getリクエストの設定</SubSection>
                     <Text>このサーバーがgetリクエスト受け取った際の処理を記述します。Expressではget関数を利用し、第一引数にgetリクエストのパス、第二引数に処理を記述します。</Text>
@@ -112,7 +112,7 @@ app.listen(PORT, () => console.log("activate server"))  //  listenは最後に�
 `}</CodeBox>
                     <Text>リクエストの処理はreqとresを引数として受け取ります。res.sendでリクエストに対するレスポンスを記述します。</Text>
                     <Text>サーバに対してgetリクエストを送信してみます。getリクエストの最も簡単な方法はブラウザでのアクセスです。
-                        ブラウザ上で{`"localhost:5000"`}でアクセスします
+                        ブラウザ上で{`"localhost:5000"`}でアクセスします。
                     </Text>
                     <Text>res.sendで記述したレスポンスが表示されているはずです。</Text>
                     <Text>また、get関数の第一引数のパスを変更することで、リクエスト先のurlを変更して処理を行うこともできます。(ページ遷移のリンクのイメージ)</Text>
@@ -183,8 +183,8 @@ print(response_put.json())
     { name: "Tanaka", age: "50" },
 ]`}</CodeBox>
                     <SubSection>getリクエスト</SubSection>
-                    <Text>getリクエストからserver.jsのjsonデータを取得します。server.jsでgetリクエストに対する処理にの中にjsonデータを返すように記述します。</Text>
-                    <CodeBox lang="javascript" comment="server.js">{`const express = require("express")
+                    <Text>getリクエストからserver.jsのjsonデータを取得します。server.jsでgetリクエストに対する処理の中にjsonデータを返すように記述します。</Text>
+                    <CodeBox lang="javascript" comment="sample-api/server.js">{`const express = require("express")
 const app = express()
 const PORT = 5000
 
@@ -219,6 +219,56 @@ print(client_data[0]["name"])`}</CodeBox>
 {'name': 'Yamada', 'age': '24'}
 Yamada`}</CodeBox>
                     <Text>getリクエストに成功し、statusコードとjsonデータを取得できていることが分かります。</Text>
+                    <SubSection>postリクエスト</SubSection>
+                    <Text>client.pyでpostリクエストを送信し、server.jsのデータに追加を行います。</Text>
+                    <Text>Pythonでjsonデータを生成するにはjsonモジュールのdumps関数で辞書型データの変換を行います。</Text>
+                    <Text>postリクエストの送信にはrequestsのpost関数をします。post関数にはサーバーのurl、送信するjsonデータを引き数として渡し、
+                        さらにheadersで送信するデータがjsonであることを明記します。</Text>
+                    <Text>server.jsでjsonデータを受け取るためには{`app.use(express.json())`}を宣言する必要があります。この関数はapp.postより先に記述します。
+                        post関数内では{`req.body`}で受け取ったデータにアクセスできます。
+                    </Text>
+                    <Text>では、server.jsでpostリクエストで受け取ったデータを元のデータに追加し、追加後のデータをレスポンスとして返すように記述します。</Text>
+                    <CodeBox lang="javascript" comment="sample-api/server.js">{`const express = require("express")
+const app = express()
+const PORT = 5000
+
+// json形式のデータ
+const data = [
+    { name: "Yamada", age: "24" },
+    { name: "Suzuki", age: "32" },
+    { name: "Tanaka", age: "50" },
+]
+
+// jsonを解析する関数、httpリクエストの処理を前に記述する
+app.use(express.json());
+
+app.get("/", (req, res) => {
+    res.status(200).send(data)
+})
+
+// postリクエストの処理
+app.post("/", (req, res) => {
+    data.push(req.body) //  dataにpostで送信されたデータを追加
+    res.status(200).send(data)  // 追加後のdataをレスポンスとして返す
+})
+
+app.listen(PORT, () => console.log("activate server"))`}</CodeBox>
+                    <CodeBox lang="python" comment="client.py">{`import requests
+import json  # モジュールのインポート
+
+url="http://localhost:5000/" 
+
+data={"name":"Yamamoto","age":"28"}  # 辞書型データの用意
+json_data=json.dumps(data)  # jsonデータに変換
+
+# headerにjsonを指定する
+response=requests.post(url,data=json_data,headers={"Content-Type":"application/json"})
+
+# postリクエストのレスポンスをjson形式で表示
+print(response.json())`}</CodeBox>
+                    <CodeBox lang="shell" comment="実行結果">{`$ python3 client.py
+[{'name': 'Yamada', 'age': '24'}, {'name': 'Suzuki', 'age': '32'}, {'name': 'Tanaka', 'age': '50'}, {'name': 'Yamamoto', 'age': '28'}]`}</CodeBox>
+                    <Text>client.pyでレスポンスとして追加更新後のデータが取得できているのが分かります。</Text>
                 </Section>
                 {/* <Section title="セクション名">
                     <SubSection>サブセクションタイトル</SubSection>
