@@ -10,7 +10,7 @@ import ImageSet from '@/components/contents/ImageSet'
 export const data = {
     title: "Express.jsでサーバー構築",
     tag: ["JavaScript", "Python"],
-    date: ["2024", "12", "04"],
+    date: ["2024", "12", "05"],
     // latest: ["9999", "99", "99"]
 }
 export const metadata = {
@@ -269,6 +269,152 @@ print(response.json())`}</CodeBox>
                     <CodeBox lang="shell" comment="実行結果">{`$ python3 client.py
 [{'name': 'Yamada', 'age': '24'}, {'name': 'Suzuki', 'age': '32'}, {'name': 'Tanaka', 'age': '50'}, {'name': 'Yamamoto', 'age': '28'}]`}</CodeBox>
                     <Text>client.pyでレスポンスとして追加更新後のデータが取得できているのが分かります。</Text>
+                </Section>
+                <Section title="ミドルウェアの設定">
+                    <SubSection>use関数</SubSection>
+                    <Text>ミドルウェアは簡単に言えばどのリクエストを受け取った時にも実行される処理のことです。expressのuse関数はミドルウェアを作成するための関数です。</Text>
+                    <Text>簡単なミドルウェアを設計して実行してみます。</Text>
+                    <CodeBox lang="javascript" comment="sample-api/server.js">{`const express = require("express")
+const app = express()
+const PORT = 5000
+
+const data = [
+    { name: "Yamada", age: "24" },
+    { name: "Suzuki", age: "32" },
+    { name: "Tanaka", age: "50" },
+]
+
+// これもミドルウェア
+app.use(express.json());
+
+// ミドルウェアの処理
+app.use((req, res, next) => {
+    console.log(req.method)  // リクエストのメソッドを表示
+    console.log("catch http request")
+    next()  // 次の処理への移行
+})
+
+app.get("/", (req, res) => {
+    res.status(200).send(data)
+})
+
+app.post("/", (req, res) => {
+    data.push(req.body)
+    res.status(200).send(data)
+})
+
+app.listen(PORT, () => console.log("activate server"))`}</CodeBox>
+                    <CodeBox lang="python" comment="client.py">{`import requests
+import json
+
+url="http://localhost:5000/" 
+
+res=requests.get(url)
+print(res.status_code)
+res=requests.post(url)
+print(res.status_code)`}</CodeBox>
+                    <CodeBox lang="shell" comment="client.pyの実行結果">{`$ python3 client.py
+200
+200`}</CodeBox>
+                    <Text>httpリクエストに成功し、statusコードを取得できていることが分かります。また、サーバーのターミナル出力には以下のように表示されているはずです。</Text>
+                    <CodeBox lang="shell" comment="サーバーのターミナル出力">{`GET
+catch http request
+POST
+catch http request`}</CodeBox>
+                    <Text>client.pyからのhttpリクエストのメソッドに関わらず、ミドルウェアの処理が行われているのが分かります。</Text>
+                    <Text>use関数の第三引き数で受け取れるnext関数は、ミドルウェアから次の処理に移行するのに必要な関数で、これを記述しなければそのミドルウェア以降の処理は行われません。</Text>
+                    <Text>{`app.use(express.json())`}でnext関数を記述しなくても次の処理に移行できているのはjson関数の中で暗黙的にnext関数が呼び出されているためです。
+                    </Text>
+                    <Text>また、ミドルウェアは記述の順番が非常に重要です。例えば、レスポンスのsend関数などは実行された段階でレスポンス処理を終了するため、
+                        上の例でuse関数の前にget関数を記述するとgetリクエストの時はミドルウェアが呼び出されなくなります。</Text>
+                    <SubSection>jsonの識別処理</SubSection>
+                    <Text>ミドルウェアを利用してpostリクエストで送信されるjsonデータの識別処理を行ってみます。
+                        送信されるjsonデータのキーとserver.js側のデータのキーが一致しなかった場合エラー処理を行うようにします。
+                    </Text>
+                    <CodeBox lang="javascript" comment="sample-api/server.js">{`const express = require("express")
+const app = express()
+const PORT = 5000
+
+// サーバー側のデータ
+const data = [
+    { name: "Yamada", age: "24" }
+]
+
+app.use(express.json());
+
+// ミドルウェアの処理
+app.use((req, res, next) => {
+    // POSTリクエストならデータの識別処理
+    if (req.method == "POST") {
+        // サーバー側データとリクエストデータのキーを取得
+        const dataKeys = Object.keys(data[0])
+        const reqKeys = Object.keys(req.body)
+        // キーの長さが一致しリクエストの全てのキーがデータに含まれていれば完全一致
+        if (dataKeys.length == reqKeys.length &&
+            dataKeys.every(key => reqKeys.includes(key))) {
+            // リクエストデータをサーバー側データに追加
+            data.push(req.body)
+            // 次の処理へ
+            next()
+        }
+        // キーが一致していない時の処理
+        else {
+            res.status(401).send({ message: "key is not correct" })
+        }
+    }
+    // POSTリクエスト以外は次の処理へ
+    else {
+        next()
+    }
+})
+
+app.get("/", (req, res) => {
+    res.status(200).send(data)
+})
+
+app.post("/", (req, res) => {
+    res.status(200).send(data)
+})
+
+app.listen(PORT, () => console.log("activate server"))`}</CodeBox>
+                    <CodeBox lang="python" comment="client.py">{`import requests
+import json
+
+url="http://localhost:5000/" 
+header={
+    "Content-Type":"application/json"
+}
+
+data1={  # キーが正しい
+    "name":"Yamamoto",
+    "age":"28",
+}
+res1=requests.post(url,data=json.dumps(data1),headers=header)
+print(res1.json())
+
+data2={  # キーが誤り
+    "Name":"Yamamoto",
+    "age":"28",
+}
+res2=requests.post(url,data=json.dumps(data2),headers=header)
+print(res2.json())
+
+data3={  # 一致しないキーを含む
+    "name":"Yamamoto",
+    "age":"28",
+    "from":"Osaka"
+}
+res3=requests.post(url,data=json.dumps(data3),headers=header)
+print(res3.json())
+
+getRes=requests.get(url)
+print(getRes.json())`}</CodeBox>
+                    <CodeBox lang="shell" comment="実行結果">{`$ python3 client.py
+[{'name': 'Yamada', 'age': '24'}, {'name': 'Yamamoto', 'age': '28'}]
+{'message': 'key is not correct'}
+{'message': 'key is not correct'}
+[{'name': 'Yamada', 'age': '24'}, {'name': 'Yamamoto', 'age': '28'}]`}</CodeBox>
+                    <Text>postリクエストではjsonデータのキー識別が成功し、getリクエスト(postリクエスト以外)の処理も問題なく実行されていることが分かります。</Text>
                 </Section>
                 {/* <Section title="セクション名">
                     <SubSection>サブセクションタイトル</SubSection>
