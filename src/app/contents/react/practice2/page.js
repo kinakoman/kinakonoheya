@@ -100,7 +100,7 @@ export default function test() {
                 </Section>
                 <Section title="おわりに">
                     <Text>今回の記事はここまでです。次回はTailwind CSSの導入ついてまとめます。</Text>
-                    <LinkIn link={"react/practice3"} title={"【React入門#3】Tailwind CSSの導入"}></LinkIn>
+                    <LinkIn link={"react/practice3"} title={"【React入門#3】TailwindCSSの導入"}></LinkIn>
                 </Section>
                 {/* <Section title="セクション名">
                     <SubSection>サブセクションタイトル</SubSection>

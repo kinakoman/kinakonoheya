@@ -415,6 +415,86 @@ print(getRes.json())`}</CodeBox>
 {'message': 'key is not correct'}
 [{'name': 'Yamada', 'age': '24'}, {'name': 'Yamamoto', 'age': '28'}]`}</CodeBox>
                     <Text>postリクエストではjsonデータのキー識別が成功し、getリクエスト(postリクエスト以外)の処理も問題なく実行されていることが分かります。</Text>
+                    <SubSection>認証システム</SubSection>
+                    <Text>ミドルウェアを利用してhttpリクエストに認証システムを設定してみます。</Text>
+                    <Text>server.js側では認証のパスワードとなるtokenを設定し、
+                        リクエストのheadersのAuthorizationがtokenと一致していれば次の処理に回し、不一致ならエラーのレスポンスを返すミドルウェアを記述します。</Text>
+                    <Text>client側ではheaderのAuthorizationにサーバーのtokenを設定すれば認証に成功します。</Text>
+                    <CodeBox lang="javascript" comment="sample-api/server.js">{`const express = require("express")
+const app = express()
+const PORT = 5000
+
+const data = [
+    { name: "Yamada", age: "24" }
+]
+// サーバーの認証token
+const authPass = "api-auth-password"
+
+app.use(express.json());
+
+// 認証ミドルウェア
+app.use((req, res, next) => {
+    // リクエストのauthorizationがtokenと一致していれば次の処理へ
+    if (req.headers["authorization"] === authPass) {
+        next()
+    }
+    // tokenが不一致なら認証失敗のレスポンスを返す
+    else {
+        res.status(401).send({ message: "Authorization failed" })
+    }
+})
+
+// データ認識ミドルウェア
+app.use((req, res, next) => {
+    if (req.method == "POST") {
+        const dataKeys = Object.keys(data[0])
+        const reqKeys = Object.keys(req.body)
+        if (dataKeys.length == reqKeys.length &&
+            dataKeys.every(key => reqKeys.includes(key))) {
+            data.push(req.body)
+            next()
+        }
+        else {
+            res.status(401).send({ message: "key is not correct" })
+        }
+    }
+    else {
+        next()
+    }
+})
+
+app.get("/", (req, res) => {
+    res.status(200).send(data)
+})
+
+app.post("/", (req, res) => {
+    res.status(200).send(data)
+})
+
+app.listen(PORT, () => console.log("activate server"))`}</CodeBox>
+                    <CodeBox lang="python" comment="client.py">{`import requests
+
+url="http://localhost:5000/" 
+
+header={
+    "Content-Type":"application/json",
+    # Authorizationに認証用tokenを指定
+    "Authorization":"api-auth-password"
+}
+res=requests.get(url,headers=header)
+print(res.json())
+
+header_miss={
+    "Content-Type":"application/json",
+    # 認証用tokenが間違い
+    "Authorization":"api-auth-password-miss"
+}
+res_miss=requests.get(url,headers=header_miss)
+print(res_miss.json())`}</CodeBox>
+                    <CodeBox lang="shell" comment="実効結果">{`$ python3 client.py
+[{'name': 'Yamada', 'age': '24'}]
+{'message': 'Authorization failed'}`}</CodeBox>
+                    <Text>tokenが正しい場合はhttpリクエストが成功し、間違いの場合はエラーがレスポンスされています。</Text>
                 </Section>
                 {/* <Section title="セクション名">
                     <SubSection>サブセクションタイトル</SubSection>

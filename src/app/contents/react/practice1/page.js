@@ -10,7 +10,7 @@ import image1 from "./image1.jpg"
 
 export const data = {
     title: "【React入門#1】Reactの始め方",
-    tag: ["React", "TypeScript", "Tailwind CSS"],
+    tag: ["React", "TypeScript", "TailwindCSS"],
     date: ["2024", "11", "05"],
     // latest: ["9999", "99", "99"]
 }
@@ -26,7 +26,7 @@ export default function test() {
                     <Text>ReactはSPAのアプリケーション開発に適したJavaScriptライブラリであり、
                         今日のwebアプリケーション開発等で特に人気を集めています。</Text>
                     <Text>この記事を第一回に、Reactの入門学習として簡単なwebページの作成をまとめます。
-                        さらに、Reactと併用して利用されることが多いTypeScript、Tailwind CSSの導入方法と入門的な知識についても学習していきます。
+                        さらに、Reactと併用して利用されることが多いTypeScript、TailwindCSSの導入方法と入門的な知識についても学習していきます。
                     </Text>
                     <Text>この記事ではReactアプリケーションの始め方についてまとめます。</Text>
                 </Section>
