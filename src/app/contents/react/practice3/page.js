@@ -85,7 +85,7 @@ export default App;
                     <Text>今回の記事はここまでです。次回はReactでのアプリケーション開発の基礎知識として、
                         TSXでのタグの記述とコンポーネントについて解説します。
                     </Text>
-                    <LinkIn link="react/practice3" title="【React入門#4】TSXでのタグとコンポーネント"></LinkIn>
+                    <LinkIn link="react/practice4" title="【React入門#4】タグとコンポーネント"></LinkIn>
                 </Section>
                 {/* <Section title="セクション名">
                     <SubSection>サブセクションタイトル</SubSection>

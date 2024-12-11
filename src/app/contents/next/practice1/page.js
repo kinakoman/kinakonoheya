@@ -45,7 +45,7 @@ export default function test() {
                     <LinkIn link={"javascript/node-setup"} title={"Node.jsのインストール方法"}></LinkIn>
                     <SubSection>プロジェクトの作成</SubSection>
                     <Text>Next.jsのプロジェクトは次のコマンドで実行できます。今回はnext-sampleという名前でプロジェクトを作成します。</Text>
-                    <CodeBox lang={"shell"} comment={"Nextプロジェクトの作成"}>{`~$ npx create next-app@latest
+                    <CodeBox lang={"shell"} comment={"Nextプロジェクトの作成"}>{`~$ npx create-next-app@latest
 Need to install the following packages:
 create-next-app@15.0.1
 Ok to proceed? (y) y
