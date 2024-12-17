@@ -12,7 +12,7 @@ export const data = {
     title: "【React入門#1】Reactの始め方",
     tag: ["React", "TypeScript", "TailwindCSS"],
     date: ["2024", "11", "05"],
-    // latest: ["9999", "99", "99"]
+    latest: ["2024", "12", "17"]
 }
 export const metadata = {
     title: `${data.title} | きなこの部屋`
@@ -37,45 +37,65 @@ export default function test() {
                     <LinkIn link={"javascript/node-setup"} title={"Node.jsのインストール方法"}></LinkIn>
                     <SubSection>プロジェクトの作成</SubSection>
                     <Text>Reactのプロジェクトを作成するには以下のコマンドを実行します。
-                        今回はTypeScriptに対応したReactのひな形を作成します。
+                        viteのコマンドを利用すると対話形式でひな形の作成が行えます。
+                        今回はReactとTypeScriptを選択し、その後指示に従い必要パッケージのインストールを行います。
                     </Text>
-                    <CodeBox lang="shell" comment="プロジェクトの作成">{`$ npx create-react-app@latest react-sample --template typescript`}</CodeBox>
-                    <Text>{`npx create-react-app@latest react-sample`}でreact-sampleという名前でReact最新バージョンのプロジェクトを、
-                        {`--template typescript`}でTypeScriptを導入します。
-                    </Text>
+                    <CodeBox lang="shell" comment="プロジェクトの作成">{`$ npm create vite@latest
+Need to install the following packages:
+create-vite@6.0.1
+Ok to proceed? (y) y
+
+
+> npx
+> create-vite
+
+✔ Project name: … react-sample
+✔ Select a framework: › React
+✔ Select a variant: › TypeScript
+
+Scaffolding project in /home/user/react-sample...
+
+Done. Now run:
+
+  cd api-test
+  npm install
+  npm run dev
+$ cd ./react-sample/
+/react-sample$ npm install`}</CodeBox>
                     <Text>Reactのバージョンは次の通りです。</Text>
                     <CodeBox lang="json" comment="/react-sample/package.json">{`{
-  "name": "react-sample",
-  "version": "0.1.0",
+  "name": "api-test",
   "private": true,
-  ~省略~
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.119",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.15.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-~省略~
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.15.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "globals": "^15.12.0",
+    "typescript": "~5.6.2",
+    "typescript-eslint": "^8.15.0",
+    "vite": "^6.0.1"
   }
 }`}</CodeBox>
                 </Section>
                 <Section title="ローカル環境での開発">
                     <Text>以下のコマンドを実行してローカル環境でのアプリケーション開発を開始できます。コマンドはpackage.jsonから変更することも可能です。</Text>
-                    <CodeBox lang="shell" comment="アプリケーションの起動">{`/react-sample$ npm start`}</CodeBox>
+                    <CodeBox lang="shell" comment="アプリケーションの起動">{`/react-sample$ npm run dev`}</CodeBox>
                     <Text>デフォルトでlocalhost:3000にアプリケーションが起動します。下のような画面が出力されれば成功しています。</Text>
                     <ImageSet alt="テスト画像" height={300} width={600} image={image1} />
                 </Section>

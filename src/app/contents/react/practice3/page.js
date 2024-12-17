@@ -53,7 +53,7 @@ module.exports = {
   },
   plugins: [],
 }`}</CodeBox>
-                    <Text>次にReactプロジェクトのindex.cssを編集します。</Text>
+                    <Text>次にReactプロジェクトのindex.cssを編集します。App.cssの内容も空にしてかまいません。</Text>
                     <CodeBox lang="css" comment="/react-sample/src/index.css">{`@tailwind base;
 @tailwind components;
 @tailwind utilities;`}</CodeBox>

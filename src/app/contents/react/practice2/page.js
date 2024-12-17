@@ -16,7 +16,7 @@ export const data = {
     title: "【React入門#2】GitHub Pagesでの公開",
     tag: ["React", "GitHub"],
     date: ["2024", "11", "05"],
-    // latest: ["9999", "99", "99"]
+    latest: ["2024", "12", "17"]
 }
 export const metadata = {
     title: `${data.title} | きなこの部屋`
@@ -53,11 +53,9 @@ export default function test() {
                     <Text>ローカルでReactプロジェクトのpackage.jsonの編集を行います。</Text>
                     <CodeBox lang={"json"} comment={"/react-sample/package.json"}>{`{
     ~省略~
-  "homepage": "https://<GitHubアカウント名>.github.io/<GitHubリポジトリ名>",
-    ~省略~
   "scripts": {
     "rm": "rm -rf docs",
-    "mv": "mv build docs",
+    "mv": "mv dist docs",
     "git": "git add . && git commit -m \\"commit\\" && git push origin master",
     "deploy": "npm run rm && npm run build && npm run mv && npm run git",
     ~省略~
@@ -68,6 +66,16 @@ export default function test() {
                     <Text>homepageにはお使いのGitHubアカウント名と今回作製したリポジトリ名(この記事で言えばReactPage)を書きます。
                     </Text>
                     <Text>scriptsに追加したのはReactアプリケーションの公開を自動化するコマンドです。詳細は後程解説します。</Text>
+                    <SubSection>vite.config.tsの編集</SubSection>
+                    <Text>次にvite.config.tsの編集を行います。baseの変数にデプロイ先のGitHubリポジトリ名を指定します。</Text>
+                    <CodeBox lang="typescript" comment="/react-sample/vite.config.ts">{`import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  base: '/<リポジトリ名>/'
+})`}</CodeBox>
                     <SubSection>アプリケーションのデプロイ</SubSection>
                     <Text>次のコマンドを実行しReactアプリケーションをデプロイします。</Text>
                     <CodeBox lang={"shell"} comment={"デプロイ"}>{`/react-sample$ npm run deploy`}</CodeBox>
