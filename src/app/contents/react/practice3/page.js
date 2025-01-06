@@ -53,7 +53,9 @@ module.exports = {
   },
   plugins: [],
 }`}</CodeBox>
-                    <Text>次にReactプロジェクトのindex.cssを編集します。App.cssの内容も空にしてかまいません。</Text>
+                    <Text>次にReactプロジェクトのindex.cssを編集します。App.cssの内容も空にしてかまいません。
+                        (使用しないなら削除でもかまいません。)
+                    </Text>
                     <CodeBox lang="css" comment="/react-sample/src/index.css">{`@tailwind base;
 @tailwind components;
 @tailwind utilities;`}</CodeBox>
@@ -66,9 +68,7 @@ module.exports = {
                         TailwindCSSはアプリケーションファイル内で直接記述することが前提になっているため、コードの可読性や実装速度が向上します。
                     </Text>
                     <Text>では、App.cssを以下のように編集してTailwindCSSが実装できていることを確認します。</Text>
-                    <CodeBox lang="typescript" comment="/react-sample/src/App.tsx">{`import './App.css';
-
-function App() {
+                    <CodeBox lang="typescript" comment="/react-sample/src/App.tsx">{`function App() {
   return (
     <div className='bg-red-600 font-bold h-40 text-center content-center'>Hello,world</div>
   );

@@ -54,9 +54,7 @@ export default function test() {
           <Text>returnの中でTypeScriptの変数や関数を記述するには{`{}`}の中で記述します。</Text>
           <Text>ReactアプリケーションではApp.tsxのexport default functionのreturn内の記述がデフォルトで出力されます。</Text>
           <Text>実際に編集を行ってみます。</Text>
-          <CodeBox lang="typescript" comment="/react-sample/src/App.tsx">{`import './App.css';
-
-const text: string = "This is contents area."
+          <CodeBox lang="typescript" comment="/react-sample/src/App.tsx">{`const text: string = "This is contents area."
 
 function App() {
   return (
@@ -100,8 +98,7 @@ export default App;
         </>
     )
 }`}</CodeBox>
-          <CodeBox lang="typescript" comment="/react-sample/src/App.tsx">{`import './App.css';
-import Home from './components/Home';
+          <CodeBox lang="typescript" comment="/react-sample/src/App.tsx">{`import Home from './components/Home';
 import About from './components/About';
 
 function App() {
@@ -140,8 +137,7 @@ export default function List({ title, num }: props) {
         </>
     )
 }`}</CodeBox>
-          <CodeBox lang="typescript" comment="/react-sample/src/App.tsx">{`import './App.css';
-import Home from './components/Home';
+          <CodeBox lang="typescript" comment="/react-sample/src/App.tsx">{`import Home from './components/Home';
 import About from './components/About';
 import List, { props } from './components/List';
 
@@ -205,8 +201,7 @@ export default function Children({ children }: props) {
         </>
     )
 }`}</CodeBox>
-          <CodeBox lang="typescript" comment="/react-sample/src/App.tsx">{`import './App.css';
-import Home from './components/Home';
+          <CodeBox lang="typescript" comment="/react-sample/src/App.tsx">{`import Home from './components/Home';
 import About from './components/About';
 import List, { props } from './components/List';
 
