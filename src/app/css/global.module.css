@@ -46,9 +46,26 @@
 }
 
 .text {
-    margin-top: 30px;
-    font-size: 18px;
-    line-height: 30px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 100%;
+    text-align: center;
+    font-size: 32px;
+}
+
+.text2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 100%;
+    text-align: center;
+    color: steelblue;
+    font-weight: bold;
+    font-size: 32px;
+
 }
 
 .subsection {
@@ -59,11 +76,11 @@
 
 @media screen and (max-width:640px) {
     .text {
-        font-size: 14px;
+        font-size: 20px;
     }
 
-    .subsection {
-        font-size: 16px;
+    .text2 {
+        font-size: 20px;
     }
 }
 
